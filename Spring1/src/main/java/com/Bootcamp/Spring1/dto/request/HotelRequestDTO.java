@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -13,13 +15,12 @@ import java.time.LocalDate;
 @Setter
 @Getter
 public class HotelRequestDTO {
-    private Double numberHost;
-    @JsonFormat(pattern = "dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
-    private LocalDate checkin;
-    @JsonFormat(pattern = "dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
-    private LocalDate checkout;
-    private String roomType;
+    // Datos de comprador
+    private String username;
+    private BookingDTO booking;
 
-    // Tenemos que pasar como atributos documento y destino?
+    // Metodos de pago
+
+    // private String paymentMethod;
 
 }
