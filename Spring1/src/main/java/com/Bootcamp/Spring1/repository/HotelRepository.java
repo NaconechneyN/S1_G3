@@ -26,6 +26,30 @@ public class HotelRepository {
         hotel1.setReserved(false);
 
         hotels.add(hotel1);
+
+        HotelModel hotel2 = new HotelModel();
+        hotel2.setCodeHotel("CH-0003");
+        hotel2.setName("Cataratas Hotel 2");
+        hotel2.setCity("Puerto Iguazú");
+        hotel2.setPrice(8200.00);
+        hotel2.setRoomTipe("triple");
+        hotel2.setAvailableFromDate("10/02/2022");
+        hotel2.setAvailableUntilDate("23/03/2022");
+        hotel2.setReserved(false);
+
+        hotels.add(hotel2);
+
+        HotelModel hotel3 = new HotelModel();
+        hotel3.setCodeHotel("HB-0001");
+        hotel3.setName("Hotel Bristol");
+        hotel3.setCity("Buenos Aires");
+        hotel3.setPrice(5435.00);
+        hotel3.setAvailableFromDate("10/02/2022");
+        hotel3.setAvailableUntilDate("19/03/2022");
+        hotel3.setReserved(false);
+
+        hotels.add(hotel3);
+
     }
 
     public List<HotelModel> getHotels() {
