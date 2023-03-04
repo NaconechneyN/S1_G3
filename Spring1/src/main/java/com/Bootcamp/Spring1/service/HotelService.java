@@ -11,10 +11,14 @@ import java.util.List;
 @Service
 public class HotelService {
 
-    @Autowired
+    @Autowired //requerimos para enlazar con el repository y poder usar todas sus funcionalidades
     HotelRepository hotelRepository;
+
+    /* Creamos un método "List" del contenido de HotelModel, pero que nos retorne el resultado de la
+       función getHotels dentro de hotelRepository*/
     public  List<HotelModel> hotelList() {
         return hotelRepository.getHotels();
     }
+
 }
 

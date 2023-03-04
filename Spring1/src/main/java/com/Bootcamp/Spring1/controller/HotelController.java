@@ -10,13 +10,11 @@ import java.util.List;
 
 @RestController
 public class HotelController {
-    @Autowired
+    @Autowired //requerimos para enlazar con el service y poder usar todas sus funcionalidades
     HotelService hotelService;
     @GetMapping("/api/v1/hotels")
         public List<HotelModel> listHotel() {
             return hotelService.hotelList();
         }
-
-
-
+    //Al poner esta ruta nos muestra la lista de hoteles
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public class HotelRepository {
     private List<HotelModel> hotels;
 
-    public HotelRepository() {
+    public HotelRepository() { //Creamos la data de los hoteles usando el constructor
         this.hotels = new ArrayList<>();
 
         HotelModel hotel1= new HotelModel();
@@ -51,9 +51,11 @@ public class HotelRepository {
         hotels.add(hotel3);
 
     }
-
+/*Le indicamos al Repo que a través de una lista con de los atributos que tenemos en HotelModel, nos retorne
+ todos los hoteles que tenemos en la variable hotel declarada arriba en los atributos de Repository*/
     public List<HotelModel> getHotels() {
         return hotels;
     }
+
 }
 
