@@ -33,5 +33,10 @@ public class HotelService {
         return price;
     } */
 
+    public List<HotelModel> availableListHotels() {
+        for (HotelModel hotelModel: ho)
+    }
+
+
 }
 
