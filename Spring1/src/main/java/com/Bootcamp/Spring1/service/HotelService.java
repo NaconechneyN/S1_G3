@@ -6,6 +6,7 @@ import com.Bootcamp.Spring1.model.HotelModel;
 import com.Bootcamp.Spring1.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -22,6 +23,10 @@ public class HotelService {
         return hotelRepository.getHotels();
     }
 
+    public List<HotelModel> availableListHotels(String city, String availableFromDate, String availableUntilDate) {
+        return hotelRepository.availableListHotels(city, availableFromDate, availableUntilDate);
+    }
+
 
 
     public HotelRequestDTO bookingHotel (HotelRequestDTO hotelRequestDTO) {
@@ -33,9 +38,7 @@ public class HotelService {
         return price;
     } */
 
-    public List<HotelModel> availableListHotels() {
-        for (HotelModel hotelModel: ho)
-    }
+
 
 
 }

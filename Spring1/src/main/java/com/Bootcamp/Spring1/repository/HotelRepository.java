@@ -25,7 +25,7 @@ public class HotelRepository {
     public HotelRepository() { //Creamos la data de los hoteles usando el constructor
         this.hotels = new ArrayList<>();
 
-        HotelModel hotel1= new HotelModel();
+        HotelModel hotel1 = new HotelModel();
         hotel1.setCodeHotel("CH-0002");
         hotel1.setName("Cataratas Hotel");
         hotel1.setCity("Puerto Iguazú");
@@ -61,10 +61,23 @@ public class HotelRepository {
         hotels.add(hotel3);
 
     }
-/*Le indicamos al Repo que a través de una lista con de los atributos que tenemos en HotelModel, nos retorne
- todos los hoteles que tenemos en la variable hotel declarada arriba en los atributos de Repository*/
+
+    /*Le indicamos al Repo que a través de una lista con de los atributos que tenemos en HotelModel, nos retorne
+     todos los hoteles que tenemos en la variable hotel declarada arriba en los atributos de Repository*/
     public List<HotelModel> getHotels() {
         return hotels;
     }
+
+    public List<HotelModel> availableListHotels(String city, String availableFromDate, String availableUntilDate) {
+        for (HotelModel hotelModel : hotels) {
+            if (availableFromDate == hotelModel.getAvailableFromDate()
+                    && availableUntilDate == hotelModel.getAvailableUntilDate()
+                    && city == hotelModel.getCity()) {
+                 return hotels;
+            }
+        }return null;
+    }
+
+
 }
 

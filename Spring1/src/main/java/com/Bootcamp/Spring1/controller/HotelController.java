@@ -28,9 +28,9 @@ public class HotelController {
 // listado de todos los hoteles disponibles en un determinado
 //rango de fechas y según el destino seleccionado
 
-    @GetMapping("/api/v1/hotels?dateFrom=dd/mm/aaaa&dateTo=dd/mm/aaaa&destination=Puerto Iguazu")
-    public List<HotelModel> listHotelAvailable(@PathVariable String city, @PathVariable String availableFromDate, @PathVariable String availableUntilDate) {
-        return hotelService.availableListHotels(); // falta revisar el retorno
+    @GetMapping("/api/v1/hotels?")
+    public List<HotelModel> listHotelAvailable(@RequestParam String city, @RequestParam String availableFromDate, @RequestParam String availableUntilDate) {
+        return hotelService.availableListHotels(city, availableFromDate, availableUntilDate); // falta revisar el retorno
     }
 
 }
