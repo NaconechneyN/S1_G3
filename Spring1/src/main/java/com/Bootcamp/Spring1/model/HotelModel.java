@@ -9,14 +9,16 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 
+
+
 public class HotelModel {
     private String codeHotel;
     private String name;
     private String city;
     private String roomTipe;
     private Double price;
-    private String availableFromDate;
-    private String availableUntilDate;
+    private LocalDate availableFromDate;
+    private LocalDate availableUntilDate;
     private Boolean reserved;
 
     // Tenemos que generar nro (id) reserva?

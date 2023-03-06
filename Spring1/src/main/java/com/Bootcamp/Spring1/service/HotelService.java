@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -24,7 +26,14 @@ public class HotelService {
     }
 
     public List<HotelModel> availableListHotels(String city, String availableFromDate, String availableUntilDate) {
-        return hotelRepository.availableListHotels(city, availableFromDate, availableUntilDate);
+        if(city == null && availableFromDate == null && availableUntilDate == null) {
+
+            return hotelList();
+        }
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dateFrom = LocalDate.parse(availableFromDate, f);
+        LocalDate dateUntil = LocalDate.parse(availableUntilDate, f);
+        return hotelRepository.availableListHotels(city, dateFrom, dateUntil);
     }
 
 

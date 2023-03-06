@@ -4,15 +4,15 @@ package com.Bootcamp.Spring1.repository;
 import com.Bootcamp.Spring1.model.HotelModel;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
-
+import java.time.Period;
 
 
 import lombok.Getter;
 import lombok.Setter;
-
 
 
 @Repository
@@ -23,6 +23,8 @@ public class HotelRepository {
     private List<HotelModel> hotels;
 
     public HotelRepository() { //Creamos la data de los hoteles usando el constructor
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         this.hotels = new ArrayList<>();
 
         HotelModel hotel1 = new HotelModel();
@@ -31,8 +33,8 @@ public class HotelRepository {
         hotel1.setCity("Puerto Iguazú");
         hotel1.setPrice(6300.00);
         hotel1.setRoomTipe("doble");
-        hotel1.setAvailableFromDate("10/02/2022");
-        hotel1.setAvailableUntilDate("20/03/2022");
+        hotel1.setAvailableFromDate(LocalDate.parse("10/02/2022", f));
+        hotel1.setAvailableUntilDate(LocalDate.parse("20/03/2022", f));
         hotel1.setReserved(false);
 
         hotels.add(hotel1);
@@ -43,8 +45,8 @@ public class HotelRepository {
         hotel2.setCity("Puerto Iguazú");
         hotel2.setPrice(8200.00);
         hotel2.setRoomTipe("triple");
-        hotel2.setAvailableFromDate("10/02/2022");
-        hotel2.setAvailableUntilDate("23/03/2022");
+        hotel2.setAvailableFromDate(LocalDate.parse("10/02/2022", f));
+        hotel2.setAvailableUntilDate(LocalDate.parse("23/03/2022", f));
         hotel2.setReserved(false);
 
         hotels.add(hotel2);
@@ -54,8 +56,8 @@ public class HotelRepository {
         hotel3.setName("Hotel Bristol");
         hotel3.setCity("Buenos Aires");
         hotel3.setPrice(5435.00);
-        hotel3.setAvailableFromDate("10/02/2022");
-        hotel3.setAvailableUntilDate("19/03/2022");
+        hotel3.setAvailableFromDate(LocalDate.parse("10/02/2022", f));
+        hotel3.setAvailableUntilDate(LocalDate.parse("19/03/2022", f));
         hotel3.setReserved(false);
 
         hotels.add(hotel3);
@@ -68,16 +70,27 @@ public class HotelRepository {
         return hotels;
     }
 
-    public List<HotelModel> availableListHotels(String city, String availableFromDate, String availableUntilDate) {
+    public List<HotelModel> availableListHotels(String city, LocalDate availableFromDate, LocalDate availableUntilDate) {
+        List<HotelModel> availableHotels = new ArrayList<>();
         for (HotelModel hotelModel : hotels) {
-            if (availableFromDate == hotelModel.getAvailableFromDate()
-                    && availableUntilDate == hotelModel.getAvailableUntilDate()
-                    && city == hotelModel.getCity()) {
-                 return hotels;
-            }
-        }return null;
+            if (availableFromDate.isAfter(hotelModel.getAvailableFromDate()) && availableUntilDate.isBefore(hotelModel.getAvailableUntilDate())
+                    // && availableUntilDate.equals(hotelModel.getAvailableUntilDate())
+                    && city.equals(hotelModel.getCity())) {
+                availableHotels.add(hotelModel);
+            }// si el if resulta verdadero, agregar a la lista ese hotel
+        }
+        return availableHotels;
     }
-
 
 }
 
+  /*  if (availableFromDate.isAfter(hotelModel.getAvailableFromDate) && (availableFromDate.isBefore(hotelModel.availableUntilDate)) {
+            System.out.println("La fecha " + dateToCheck + " está dentro del rango de fechas.");
+            } else if (dateToCheck.equals(startDate) || dateToCheck.equals(endDate)) {
+            System.out.println("La fecha " + dateToCheck + " es igual a una de las fechas del rango.");
+            } else {
+            System.out.println("La fecha " + dateToCheck + " no está dentro del rango de fechas.");
+            }
+            }*/
+
+//calcular rangos de fecha con el local Date

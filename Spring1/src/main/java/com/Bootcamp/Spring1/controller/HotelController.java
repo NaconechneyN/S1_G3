@@ -14,10 +14,10 @@ public class HotelController {
     @Autowired //requerimos para enlazar con el service y poder usar todas sus funcionalidades
     HotelService hotelService;
 
-    @GetMapping("/api/v1/hotels")
+    /*@GetMapping("/api/v1/hotels")
     public List<HotelModel> listHotel() {
         return hotelService.hotelList();
-    }
+    }*/
 
     @PostMapping("/api/v1/hotels")
     public HotelRequestDTO booking(@RequestBody HotelRequestDTO datosReserva) {
@@ -28,9 +28,9 @@ public class HotelController {
 // listado de todos los hoteles disponibles en un determinado
 //rango de fechas y según el destino seleccionado
 
-    @GetMapping("/api/v1/hotels?")
-    public List<HotelModel> listHotelAvailable(@RequestParam String city, @RequestParam String availableFromDate, @RequestParam String availableUntilDate) {
-        return hotelService.availableListHotels(city, availableFromDate, availableUntilDate); // falta revisar el retorno
+    @GetMapping("/api/v1/hotels")
+    public List<HotelModel> listHotelAvailable(@RequestParam(required = false) String destination, @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo) {
+        return hotelService.availableListHotels(destination, dateFrom, dateTo);
     }
 
 }
