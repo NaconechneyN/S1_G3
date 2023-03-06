@@ -11,5 +11,7 @@ import lombok.Setter;
 @Setter
 
 public class HotelResponseDTO {
- public String nada;
+ public String mensaje = "El monto total de la reserva es de ";
+ private Double total;
+
 }

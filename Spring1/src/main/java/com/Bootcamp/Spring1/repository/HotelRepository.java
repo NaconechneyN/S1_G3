@@ -66,5 +66,7 @@ public class HotelRepository {
     public List<HotelModel> getHotels() {
         return hotels;
     }
+
+
 }
 

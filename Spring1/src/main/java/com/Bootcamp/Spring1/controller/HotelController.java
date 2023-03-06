@@ -2,6 +2,7 @@ package com.Bootcamp.Spring1.controller;
 
 
 import com.Bootcamp.Spring1.dto.request.HotelRequestDTO;
+import com.Bootcamp.Spring1.dto.response.HotelResponseDTO;
 import com.Bootcamp.Spring1.model.HotelModel;
 import com.Bootcamp.Spring1.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,15 @@ public class HotelController {
     @PostMapping("/api/v1/booking")
     public HotelRequestDTO booking(@RequestBody HotelRequestDTO datosReserva){
         return hotelService.bookingHotel(datosReserva);
-    }}
-    //Al poner esta ruta nos muestra la lista de hoteles
+    }
+
+    @GetMapping("/api/v1/booking")
+    public HotelResponseDTO precio(@RequestBody HotelResponseDTO precioReserva){
+        return hotelService.priceHotel(precioReserva);
+    }
+
+}
+
+
+
+//Al poner esta ruta nos muestra la lista de hoteles
