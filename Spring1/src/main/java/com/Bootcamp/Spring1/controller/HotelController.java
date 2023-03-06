@@ -21,7 +21,7 @@ public class HotelController {
             return hotelService.hotelList();
         }
 
-    @PostMapping("/api/v1/hotels")
+    @PostMapping("/api/v1/booking")
     public HotelRequestDTO booking(@RequestBody HotelRequestDTO datosReserva){
         return hotelService.bookingHotel(datosReserva);
     }}
