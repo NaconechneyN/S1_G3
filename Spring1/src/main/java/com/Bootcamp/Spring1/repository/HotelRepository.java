@@ -1,6 +1,6 @@
 package com.Bootcamp.Spring1.repository;
 
-import com.Bootcamp.Spring1.dto.request.HotelRequestDto;
+
 import com.Bootcamp.Spring1.model.HotelModel;
 import org.springframework.stereotype.Repository;
 
@@ -8,8 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+
+import lombok.Getter;
+import lombok.Setter;
+
+
+
 @Repository
+@Getter
+@Setter
 public class HotelRepository {
+
     private List<HotelModel> hotels;
 
     public HotelRepository() { //Creamos la data de los hoteles usando el constructor
@@ -56,6 +66,5 @@ public class HotelRepository {
     public List<HotelModel> getHotels() {
         return hotels;
     }
-
 }
 

@@ -18,4 +18,6 @@ public class HotelModel {
     private String availableFromDate;
     private String availableUntilDate;
     private Boolean reserved;
+
+    // Tenemos que generar nro (id) reserva?
 }
