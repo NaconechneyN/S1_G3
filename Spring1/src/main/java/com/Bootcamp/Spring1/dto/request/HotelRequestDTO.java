@@ -15,8 +15,6 @@ public class HotelRequestDTO {
     private String username;
     private BookingDTO booking;
 
-    // Metodos de pago
 
-    // private String paymentMethod;
 
 }

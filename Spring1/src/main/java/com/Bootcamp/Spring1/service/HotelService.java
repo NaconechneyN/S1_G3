@@ -8,6 +8,7 @@ import com.Bootcamp.Spring1.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Period;
 import java.util.List;
 
 @Service
@@ -28,10 +29,20 @@ public class HotelService {
     public HotelRequestDTO bookingHotel (HotelRequestDTO hotelRequestDTO) {
     // Calcular el precio total, necesitamos precio hotel y cantidad de días
         // Precio Hotel: A través del HotelCode (que viene en el DTO) buscamos el repository el precio del hotel
+        String code = hotelRequestDTO.getBooking().getHotelCode();
+        Double lookPrice = hotelRepository.buscarPrecioHotel(code);
+
         // Cantidad de días: Utilizando las fechas del DTO calculamos la diferencia en días
-            // - "int cantidadDias = Period.between(dateFrom, dateTo).getDays();"
+            // - int cantidadDias = Period.between(dateFrom, dateTo).getDays();
+        Period days = Period.between(hotelRequestDTO.getBooking().getDateFrom(),
+                hotelRequestDTO.getBooking().getDateTo());
+        Integer intDays = days.getDays();
         // Una vez se realice la reserva modificamos el atributo "reserved" del hotel (de false por defecto a true)
             // - Con un set modificamos el valor del atributo
+
+
+        // availability = hotelRepository.disponible(code);
+
         // Una vez tengamos los datos del precio total, crearíamos el response
         // Se podria generar un nuevo repositorio de reservas (en principio no haría falta)
         return hotelRequestDTO;
