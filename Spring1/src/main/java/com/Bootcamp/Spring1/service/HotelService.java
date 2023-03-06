@@ -40,11 +40,12 @@ public class HotelService {
         // Una vez se realice la reserva modificamos el atributo "reserved" del hotel (de false por defecto a true)
             // - Con un set modificamos el valor del atributo
 
-
-        // availability = hotelRepository.disponible(code);
+        hotelRepository.hotelBooking(code);
 
         // Una vez tengamos los datos del precio total, crearíamos el response
         // Se podria generar un nuevo repositorio de reservas (en principio no haría falta)
+
+
         return hotelRequestDTO;
     }
 

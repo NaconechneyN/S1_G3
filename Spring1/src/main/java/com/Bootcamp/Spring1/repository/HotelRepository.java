@@ -82,7 +82,7 @@ public class HotelRepository {
     }
 
     // Si el método no tiene return le corresponde el VOID y no tiene tipo (es VOID)
-    public void disponible (String hotelCode){
+    public void hotelBooking (String hotelCode){
         for (HotelModel hotel : hotels) {
             if (hotel.getCodeHotel().equals(hotelCode) && !hotel.getReserved()) {
                 hotel.setReserved(true);
