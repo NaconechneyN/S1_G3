@@ -1,13 +1,12 @@
 package com.Bootcamp.Spring1.service;
 
 
-import com.Bootcamp.Spring1.dto.request.HotelRequestDTO;
+import com.Bootcamp.Spring1.dto.request.hotel.HotelRequestDTO;
 import com.Bootcamp.Spring1.dto.response.HotelResponseDTO;
 import com.Bootcamp.Spring1.model.HotelModel;
 import com.Bootcamp.Spring1.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.Period;
 import java.time.LocalDate;

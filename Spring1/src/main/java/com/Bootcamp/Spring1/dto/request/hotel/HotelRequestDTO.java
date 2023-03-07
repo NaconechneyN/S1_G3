@@ -1,4 +1,4 @@
-package com.Bootcamp.Spring1.dto.request;
+package com.Bootcamp.Spring1.dto.request.hotel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,5 +1,7 @@
-package com.Bootcamp.Spring1.dto.request;
+package com.Bootcamp.Spring1.dto.request.hotel;
 
+import com.Bootcamp.Spring1.dto.request.HostDTO;
+import com.Bootcamp.Spring1.dto.request.PaymentsDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
