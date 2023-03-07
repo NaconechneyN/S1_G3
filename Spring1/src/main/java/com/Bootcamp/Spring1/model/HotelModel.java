@@ -9,6 +9,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 
+
+
 public class HotelModel {
     private String codeHotel;
     private String name;

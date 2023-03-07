@@ -8,10 +8,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.Period;
 
 
 import lombok.Getter;
 import lombok.Setter;
+
 
 
 @Repository
@@ -63,7 +65,6 @@ public class HotelRepository {
         hotel3.setReserved(false);
 
         hotels.add(hotel3);
-
     }
 
     /*Le indicamos al Repo que a través de una lista con de los atributos que tenemos en HotelModel, nos retorne
@@ -83,12 +84,25 @@ public class HotelRepository {
     }
 
     // Si el método no tiene return le corresponde el VOID y no tiene tipo (es VOID)
-    public void hotelBooking (String hotelCode){
+    public void hotelBooking(String hotelCode) {
         for (HotelModel hotel : hotels) {
             if (hotel.getCodeHotel().equals(hotelCode) && !hotel.getReserved()) {
                 hotel.setReserved(true);
             }
         }
     }
-}
 
+
+    public List<HotelModel> availableListHotels(String city, LocalDate availableFromDate, LocalDate availableUntilDate) {
+        List<HotelModel> availableHotels = new ArrayList<>();
+        for (HotelModel hotelModel : hotels) {
+            if (availableFromDate.isAfter(hotelModel.getAvailableFromDate()) && availableUntilDate.isBefore(hotelModel.getAvailableUntilDate())
+                    // && availableUntilDate.equals(hotelModel.getAvailableUntilDate())
+                    && city.equals(hotelModel.getCity())) {
+                availableHotels.add(hotelModel);
+            }// si el if resulta verdadero, agregar a la lista ese hotel
+        }
+        return availableHotels;
+    }
+
+}

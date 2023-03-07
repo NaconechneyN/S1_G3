@@ -7,8 +7,11 @@ import com.Bootcamp.Spring1.model.HotelModel;
 import com.Bootcamp.Spring1.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.Period;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -24,9 +27,20 @@ public class HotelService {
         return hotelRepository.getHotels();
     }
 
+    public List<HotelModel> availableListHotels(String city, String availableFromDate, String availableUntilDate) {
+        if(city == null && availableFromDate == null && availableUntilDate == null) {
+
+            return hotelList();
+        }
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dateFrom = LocalDate.parse(availableFromDate, f);
+        LocalDate dateUntil = LocalDate.parse(availableUntilDate, f);
+        return hotelRepository.availableListHotels(city, dateFrom, dateUntil);
+    }
 
 
-    public Double bookingHotel (HotelRequestDTO hotelRequestDTO) {
+
+    public String bookingHotel (HotelRequestDTO hotelRequestDTO) {
     // Calcular el precio total, necesitamos precio hotel y cantidad de días
         // Precio Hotel: A través del HotelCode (que viene en el DTO) buscamos el repository el precio del hotel
         String code = hotelRequestDTO.getBooking().getHotelCode();
@@ -45,7 +59,7 @@ public class HotelService {
         // Una vez tengamos los datos del precio total, crearíamos el response
         // Se podria generar un nuevo repositorio de reservas (en principio no haría falta)
 
-        Double total = lookPrice * intDays;
+        String total = "El precio de la reserva es de $" + (lookPrice * intDays) + " por " + intDays + " dias de " + "estadía";
 
         return total;
     }
@@ -55,3 +69,4 @@ public class HotelService {
     }
 
 }
+
