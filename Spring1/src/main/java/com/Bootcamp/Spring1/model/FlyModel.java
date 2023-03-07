@@ -1,11 +1,22 @@
 package com.Bootcamp.Spring1.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.util.Date;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class FlyModel {
     private String flyNumber;
-    private String from;
-    private String destiny;
+    private String origin;
+    private String destination;
     private String seatType;
-    private Double pricePerson;
-    private String departureDate;
-    private String returnDate;
+    private int pricePerson;
+    private LocalDate departureDate;
+    private LocalDate returnDate;
 }
