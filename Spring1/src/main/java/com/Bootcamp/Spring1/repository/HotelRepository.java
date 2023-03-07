@@ -61,8 +61,29 @@ public class HotelRepository {
         hotel3.setReserved(false);
 
         hotels.add(hotel3);
+    }
+
+            /*Le indicamos al Repo que a través de una lista con de los atributos que tenemos en HotelModel, nos retorne
+     todos los hoteles que tenemos en la variable hotel declarada arriba en los atributos de Repository*/
+        public List<HotelModel> getHotels() {
+            return hotels;
+        }
+
+        public List<HotelModel> availableListHotels(String city, LocalDate availableFromDate, LocalDate availableUntilDate) {
+            List<HotelModel> availableHotels = new ArrayList<>();
+            for (HotelModel hotelModel : hotels) {
+                if (availableFromDate.isAfter(hotelModel.getAvailableFromDate()) && availableUntilDate.isBefore(hotelModel.getAvailableUntilDate())
+                        // && availableUntilDate.equals(hotelModel.getAvailableUntilDate())
+                        && city.equals(hotelModel.getCity())) {
+                    availableHotels.add(hotelModel);
+                }// si el if resulta verdadero, agregar a la lista ese hotel
+            }
+            return availableHotels;
+        }
 
     }
+
+
 
 
 
