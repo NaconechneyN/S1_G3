@@ -26,7 +26,7 @@ public class HotelService {
 
 
 
-    public HotelRequestDTO bookingHotel (HotelRequestDTO hotelRequestDTO) {
+    public Double bookingHotel (HotelRequestDTO hotelRequestDTO) {
     // Calcular el precio total, necesitamos precio hotel y cantidad de días
         // Precio Hotel: A través del HotelCode (que viene en el DTO) buscamos el repository el precio del hotel
         String code = hotelRequestDTO.getBooking().getHotelCode();
@@ -45,8 +45,9 @@ public class HotelService {
         // Una vez tengamos los datos del precio total, crearíamos el response
         // Se podria generar un nuevo repositorio de reservas (en principio no haría falta)
 
+        Double total = lookPrice * intDays;
 
-        return hotelRequestDTO;
+        return total;
     }
 
     public HotelResponseDTO priceHotel (HotelResponseDTO hotelResponseDTO){

@@ -23,7 +23,7 @@ public class HotelController {
         }
 
     @PostMapping("/api/v1/booking")
-    public HotelRequestDTO booking(@RequestBody HotelRequestDTO datosReserva){
+    public Double booking(@RequestBody HotelRequestDTO datosReserva){
         return hotelService.bookingHotel(datosReserva);
     }
 
