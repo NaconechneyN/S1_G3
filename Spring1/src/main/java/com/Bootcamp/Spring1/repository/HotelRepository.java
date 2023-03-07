@@ -67,13 +67,5 @@ public class HotelRepository {
 
 
 
-  /*  if (availableFromDate.isAfter(hotelModel.getAvailableFromDate) && (availableFromDate.isBefore(hotelModel.availableUntilDate)) {
-            System.out.println("La fecha " + dateToCheck + " está dentro del rango de fechas.");
-            } else if (dateToCheck.equals(startDate) || dateToCheck.equals(endDate)) {
-            System.out.println("La fecha " + dateToCheck + " es igual a una de las fechas del rango.");
-            } else {
-            System.out.println("La fecha " + dateToCheck + " no está dentro del rango de fechas.");
-            }
-            }*/
 
 //calcular rangos de fecha con el local Date
