@@ -19,8 +19,9 @@ public class HotelController {
         return hotelService.hotelList();
     }*/
 
-    @PostMapping("/api/v1/hotels")
-    public HotelRequestDTO booking(@RequestBody HotelRequestDTO datosReserva) {
+
+    @PostMapping("/api/v1/booking")
+    public HotelRequestDTO booking(@RequestBody HotelRequestDTO datosReserva){
         return hotelService.bookingHotel(datosReserva);
     }
     //Al poner esta ruta nos muestra la lista de hoteles
@@ -29,7 +30,9 @@ public class HotelController {
 //rango de fechas y según el destino seleccionado
 
     @GetMapping("/api/v1/hotels")
-    public List<HotelModel> listHotelAvailable(@RequestParam(required = false) String destination, @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo) {
+    public List<HotelModel> listHotelAvailable(@RequestParam(required = false) String destination,
+                                                @RequestParam(required = false) String dateFrom,
+                                                @RequestParam(required = false) String dateTo) {
         return hotelService.availableListHotels(destination, dateFrom, dateTo);
     }
 
