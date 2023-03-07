@@ -5,6 +5,7 @@ import com.Bootcamp.Spring1.model.HotelModel;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class HotelRepository {
 
     public HotelRepository() { //Creamos la data de los hoteles usando el constructor
         this.hotels = new ArrayList<>();
-        // DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         // Si no reconoce el formato de fecha se descomenta y se agrega el nombre de la variable al final de cada
         // fecha como segundo parametro.
 
@@ -34,8 +35,8 @@ public class HotelRepository {
         hotel1.setCity("Puerto Iguazú");
         hotel1.setPrice(6300.00);
         hotel1.setRoomTipe("doble");
-        hotel1.setAvailableFromDate(LocalDate.parse("10-02-2022"));
-        hotel1.setAvailableUntilDate(LocalDate.parse("20-03-2022"));
+        hotel1.setAvailableFromDate(LocalDate.parse("10-02-2022", f));
+        hotel1.setAvailableUntilDate(LocalDate.parse("20-03-2022", f));
         hotel1.setReserved(false);
 
         hotels.add(hotel1);
@@ -46,8 +47,8 @@ public class HotelRepository {
         hotel2.setCity("Puerto Iguazú");
         hotel2.setPrice(8200.00);
         hotel2.setRoomTipe("triple");
-        hotel2.setAvailableFromDate(LocalDate.parse("10-02-2022"));
-        hotel2.setAvailableUntilDate(LocalDate.parse("23-03-2022"));
+        hotel2.setAvailableFromDate(LocalDate.parse("10-02-2022", f));
+        hotel2.setAvailableUntilDate(LocalDate.parse("23-03-2022", f));
         hotel2.setReserved(false);
 
         hotels.add(hotel2);
@@ -57,8 +58,8 @@ public class HotelRepository {
         hotel3.setName("Hotel Bristol");
         hotel3.setCity("Buenos Aires");
         hotel3.setPrice(5435.00);
-        hotel3.setAvailableFromDate(LocalDate.parse("10-02-2022"));
-        hotel3.setAvailableUntilDate(LocalDate.parse("19-03-2022"));
+        hotel3.setAvailableFromDate(LocalDate.parse("10-02-2022", f));
+        hotel3.setAvailableUntilDate(LocalDate.parse("19-03-2022", f));
         hotel3.setReserved(false);
 
         hotels.add(hotel3);
