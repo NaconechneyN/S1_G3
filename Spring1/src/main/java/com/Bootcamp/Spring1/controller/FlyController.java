@@ -14,6 +14,7 @@ public class FlyController {
     @Autowired
     FlyService flyService;
 
+    // Aca se agregan los parametros
     @GetMapping("/api/v1/flights")
     public List<FlyModel> listFlyAvailable() {
         return flyService.flightsList();
