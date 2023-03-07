@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Setter
 public class HostDTO {
     private Integer dni;
-    private String name;
+    private String firstName;
     private String lastname;
     @JsonFormat(pattern = "dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate birthday;

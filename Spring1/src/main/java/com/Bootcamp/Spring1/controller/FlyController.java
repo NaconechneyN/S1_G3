@@ -28,8 +28,7 @@ public class FlyController {
 
     @PostMapping("/api/v1/flight-reservation")
     public FlyResponseDTO reservation (@RequestBody FlyRequestDTO flyRequestDTO){
-        return null;
-                //flyService.reservationFlight(flyRequestDTO);
+        return flyService.reservationFlight(flyRequestDTO);
     }
 
 

@@ -7,5 +7,5 @@ import lombok.*;
 @Data
 public class FlyResponseDTO {
     public String mensaje = "El monto total del vuelo es de: ";
-    private Double total;
+    private Integer total;
 }

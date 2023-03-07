@@ -1,5 +1,7 @@
 package com.Bootcamp.Spring1.repository;
 
+import com.Bootcamp.Spring1.dto.request.fly.FlyRequestDTO;
+import com.Bootcamp.Spring1.dto.response.FlyResponseDTO;
 import com.Bootcamp.Spring1.model.FlyModel;
 import com.Bootcamp.Spring1.model.HotelModel;
 import lombok.Getter;
@@ -165,8 +167,21 @@ public class FlyRepository {
         fly12.setReturnDate(LocalDate.parse("02-05-2022", f));
 
         flights.add(fly12);
-}
+    }
+
     public List<FlyModel> getFlights() {
         return flights;
     }
+
+    public Integer searchFlightPrice(String flyNumber) {
+        for (FlyModel flyModel : flights) {
+            if (flyModel.getFlyNumber().equals(flyNumber)) {
+                return flyModel.getPricePerson();
+            }
+        }
+        return null;
+    }
+
+
 }
+
