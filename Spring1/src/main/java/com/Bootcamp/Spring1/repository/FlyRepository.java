@@ -165,8 +165,22 @@ public class FlyRepository {
         fly12.setReturnDate(LocalDate.parse("02-05-2022", f));
 
         flights.add(fly12);
-}
+    }
+
     public List<FlyModel> getFlights() {
         return flights;
+    }
+
+    public List<FlyModel> availableListFly(String origin, String destination, LocalDate departureDate,
+                                           LocalDate returnDate) {
+        List<FlyModel> availableFlights = new ArrayList<>();
+        for (FlyModel flyModel : flights) {
+            if (departureDate.isAfter(flyModel.getDepartureDate().minusDays(1)) && returnDate.isBefore(flyModel.getReturnDate().plusDays(1))
+                    && origin.equals(flyModel.getOrigin())
+                    && destination.equals(flyModel.getDestination())) {
+                availableFlights.add(flyModel);
+            }
+        }
+        return availableFlights;
     }
 }
