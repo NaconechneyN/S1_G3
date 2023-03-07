@@ -32,13 +32,11 @@ public class HotelService {
 
             return hotelList();
         }
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate dateFrom = LocalDate.parse(availableFromDate, f);
         LocalDate dateUntil = LocalDate.parse(availableUntilDate, f);
         return hotelRepository.availableListHotels(city, dateFrom, dateUntil);
     }
-
-
 
     public String bookingHotel (HotelRequestDTO hotelRequestDTO) {
     // Calcular el precio total, necesitamos precio hotel y cantidad de días

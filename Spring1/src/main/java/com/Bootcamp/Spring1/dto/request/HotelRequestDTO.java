@@ -15,6 +15,4 @@ public class HotelRequestDTO {
     private String username;
     private BookingDTO booking;
 
-
-
 }
