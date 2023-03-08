@@ -22,12 +22,12 @@ public class HotelService {
 
     /* Creamos un método "List" del contenido de HotelModel, pero que nos retorne el resultado de la
        función getHotels dentro de hotelRepository*/
-    public  List<HotelModel> hotelList() {
+    public List<HotelModel> hotelList() {
         return hotelRepository.getHotels();
     }
 
     public List<HotelModel> availableListHotels(String city, String availableFromDate, String availableUntilDate) {
-        if(city == null && availableFromDate == null && availableUntilDate == null) {
+        if (city == null && availableFromDate == null && availableUntilDate == null) {
 
             return hotelList();
         }
@@ -37,19 +37,19 @@ public class HotelService {
         return hotelRepository.availableListHotels(city, dateFrom, dateUntil);
     }
 
-    public String bookingHotel (HotelRequestDTO hotelRequestDTO) {
-    // Calcular el precio total, necesitamos precio hotel y cantidad de días
+    public String bookingHotel(HotelRequestDTO hotelRequestDTO) {
+        // Calcular el precio total, necesitamos precio hotel y cantidad de días
         // Precio Hotel: A través del HotelCode (que viene en el DTO) buscamos el repository el precio del hotel
         String code = hotelRequestDTO.getBooking().getHotelCode();
         Double lookPrice = hotelRepository.buscarPrecioHotel(code);
 
         // Cantidad de días: Utilizando las fechas del DTO calculamos la diferencia en días
-            // - int cantidadDias = Period.between(dateFrom, dateTo).getDays();
+        // - int cantidadDias = Period.between(dateFrom, dateTo).getDays();
         Period days = Period.between(hotelRequestDTO.getBooking().getDateFrom(),
                 hotelRequestDTO.getBooking().getDateTo());
         Integer intDays = days.getDays();
         // Una vez se realice la reserva modificamos el atributo "reserved" del hotel (de false por defecto a true)
-            // - Con un set modificamos el valor del atributo
+        // - Con un set modificamos el valor del atributo
 
         hotelRepository.hotelBooking(code);
 
@@ -61,7 +61,7 @@ public class HotelService {
         return total;
     }
 
-    public HotelResponseDTO priceHotel (HotelResponseDTO hotelResponseDTO){
+    public HotelResponseDTO priceHotel(HotelResponseDTO hotelResponseDTO) {
         return hotelResponseDTO;
     }
 

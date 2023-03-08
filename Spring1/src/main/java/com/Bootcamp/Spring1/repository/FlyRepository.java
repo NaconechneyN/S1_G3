@@ -167,7 +167,8 @@ public class FlyRepository {
         fly12.setReturnDate(LocalDate.parse("02-05-2022", f));
 
         flights.add(fly12);
-}
+    }
+
     public List<FlyModel> getFlights() {
         return flights;
     }
@@ -194,7 +195,6 @@ public class FlyRepository {
         }
         return null;
     }
-
 
 }
 

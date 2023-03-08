@@ -34,7 +34,7 @@ public class FlyService {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate dateFrom = LocalDate.parse(departureDate, f);
         LocalDate dateUntil = LocalDate.parse(returnDate, f);
-        return flyRepository.availableListFly(origin,destination,dateFrom,dateUntil);
+        return flyRepository.availableListFly(origin, destination, dateFrom, dateUntil);
     }
 
 
@@ -44,7 +44,7 @@ public class FlyService {
         //Calcular cuantas personas hay
         Integer seatsPerson = flyRequestDTO.getFlightReservation().getSeats();
         //Calculamos el precio total
-        Integer priceTotal = price*seatsPerson;
+        Integer priceTotal = price * seatsPerson;
         //Devolvemos DTO con mensaje y el precio total
         FlyResponseDTO mensaje = new FlyResponseDTO();
         mensaje.setMensaje("El monto total del vuelo es de: ");

@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
 
 
 public class HotelModel {

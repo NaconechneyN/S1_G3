@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-
 @RestController
 public class FlyController {
     @Autowired
@@ -30,9 +29,8 @@ public class FlyController {
     }
 
     @PostMapping("/api/v1/flight-reservation")
-    public FlyResponseDTO reservation (@RequestBody FlyRequestDTO flyRequestDTO){
+    public FlyResponseDTO reservation(@RequestBody FlyRequestDTO flyRequestDTO) {
         return flyService.reservationFlight(flyRequestDTO);
     }
-
 
 }

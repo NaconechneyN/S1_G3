@@ -15,31 +15,24 @@ public class HotelController {
     @Autowired //requerimos para enlazar con el service y poder usar todas sus funcionalidades
     HotelService hotelService;
 
-
-    @PostMapping("/api/v1/booking")
-    public String booking(@RequestBody HotelRequestDTO datosReserva){
-        return hotelService.bookingHotel(datosReserva);
-    }
-
-    @GetMapping("/api/v1/booking")
-    public HotelResponseDTO precio(@RequestBody HotelResponseDTO precioReserva){
-        return hotelService.priceHotel(precioReserva);
-    }
-
-
-
-
-
-//Al poner esta ruta nos muestra la lista de hoteles
-
-// listado de todos los hoteles disponibles en un determinado
-//rango de fechas y según el destino seleccionado
+    // listado de todos los hoteles disponibles en un determinado rango de fechas y según el destino seleccionado
 
     @GetMapping("/api/v1/hotels")
     public List<HotelModel> listHotelAvailable(@RequestParam(required = false) String destination,
-                                                @RequestParam(required = false) String dateFrom,
-                                                @RequestParam(required = false) String dateTo) {
+                                               @RequestParam(required = false) String dateFrom,
+                                               @RequestParam(required = false) String dateTo) {
         return hotelService.availableListHotels(destination, dateFrom, dateTo);
+    }
+
+    @PostMapping("/api/v1/booking")
+    public String booking(@RequestBody HotelRequestDTO datosReserva) {
+        return hotelService.bookingHotel(datosReserva);
+    }
+
+    //creamos esta ruta como medio de verificacion para controlar los datos que se ingresan (postman)
+    @GetMapping("/api/v1/booking")
+    public HotelResponseDTO precio(@RequestBody HotelResponseDTO precioReserva) {
+        return hotelService.priceHotel(precioReserva);
     }
 
 }
