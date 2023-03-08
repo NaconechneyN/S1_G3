@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,17 +25,18 @@ public class FlyService {
         return flyRepository.getFlights();
     }
 
-    /*public List<FlyModel> availableListFly(String origin, String destination, String availableFromDate,
-                                           String availableUntilDate) {
-        if(origin == null && departureDate == null && availableUntilDate == null) {
+    public List<FlyModel> availableListFly(String departureDate, String returnDate, String origin,
+                                           String destination) {
+        if (origin == null && destination == null && departureDate == null && returnDate == null) {
 
             return flightsList();
         }
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate dateFrom = LocalDate.parse(availableFromDate, f);
-        LocalDate dateUntil = LocalDate.parse(availableUntilDate, f);
-        return flyRepository.availableListFly(origin, destination, dateFrom, departureDate));
-    }*/
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate dateFrom = LocalDate.parse(departureDate, f);
+        LocalDate dateUntil = LocalDate.parse(returnDate, f);
+        return flyRepository.availableListFly(origin,destination,dateFrom,dateUntil);
+    }
+
 
     public FlyResponseDTO reservationFlight(FlyRequestDTO flyRequestDTO) {
         //Calcular precio
