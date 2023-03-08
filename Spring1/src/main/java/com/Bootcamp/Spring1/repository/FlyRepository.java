@@ -178,7 +178,7 @@ public class FlyRepository {
         List<FlyModel> availableFlights = new ArrayList<>();
         for (FlyModel flyModel : flights) {
             if (departureDate.isAfter(flyModel.getDepartureDate().minusDays(1))
-                    && returnDate.isBefore(flyModel.getReturnDate().plusDays(1))
+                   && returnDate.isBefore(flyModel.getReturnDate().plusDays(1))
                     && origin.equals(flyModel.getOrigin())
                     && destination.equals(flyModel.getDestination())) {
                 availableFlights.add(flyModel);

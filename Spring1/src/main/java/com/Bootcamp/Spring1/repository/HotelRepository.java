@@ -188,8 +188,8 @@ public class HotelRepository {
         List<HotelModel> availableHotels = new ArrayList<>();
         for (HotelModel hotelModel : hotels) {
             if (availableFromDate.isAfter(hotelModel.getAvailableFromDate()) && availableUntilDate.isBefore(hotelModel.getAvailableUntilDate())
-                    && availableFromDate.equals(hotelModel.getAvailableFromDate())
-                    && availableUntilDate.equals(hotelModel.getAvailableUntilDate())
+                   // && availableFromDate.equals(hotelModel.getAvailableFromDate())
+                    //&& availableUntilDate.equals(hotelModel.getAvailableUntilDate())
                     && city.equals(hotelModel.getCity())) {
                 availableHotels.add(hotelModel);
             }// si el if resulta verdadero, agregar a la lista ese hotel

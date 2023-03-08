@@ -21,11 +21,11 @@ public class FlyController {
 
     // Aca se agregan los parametros
     @GetMapping("/api/v1/flights")
-    public List<FlyModel> listFlyAvailable(@RequestParam(required = false) String departureDate,
-                                           @RequestParam(required = false) String returnDate,
+    public List<FlyModel> listFlyAvailable(@RequestParam(required = false) String dateTo,
+                                           @RequestParam(required = false) String dateFrom,
                                            @RequestParam(required = false) String origin,
                                            @RequestParam(required = false) String destination) {
-        return flyService.availableListFly(departureDate, returnDate, origin, destination);
+        return flyService.availableListFly(dateTo, dateFrom, origin, destination);
     }
 
     @PostMapping("/api/v1/flight-reservation")

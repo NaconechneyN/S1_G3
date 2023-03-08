@@ -5,7 +5,7 @@
 # Endpoints POSTMAN
 - User Story 1= localhost:8085/api/v1/hotels
 
-- User Story 2= localhost:8085/api/v1/hotel?dateFrom=11/02/2022&dateTo=10/03/2022&destination=Puerto Iguazú
+- User Story 2= localhost:8085/api/v1/hotels?dateFrom=11-02-2022&dateTo=18-03-2022&destination=Puerto Iguazú
 
 - User Story 3= localhost:8085/api/v1/booking
   - Para ver los resultados, ingresar:
@@ -13,6 +13,39 @@
 
 - User Story 4= localhost:8085/api/v1/flights
 
-- User Story 5= localhost:8085/api/v1/flight?dateFrom=10/02/2022&dateTo=15/02/2022&origin=Buenos Aires&destination=Puerto Iguazú
-
+- User Story 5= localhost:8085/api/v1/flights?dateFrom=10-02-2022&dateTo=14-02-2022&origin=Buenos Aires&destination=Puerto Iguazú
+ 
 - User Story 6= localhost:8085/api/v1/flight-reservation
+  - Para ver los resultados, ingresar:
+    {
+    "userName": "arjonamiguel@gmail.com",
+    "flightReservation": {
+    "dateFrom": "15-02-2022",
+    "dateTo": "28-02-2022",
+    "destination": "Buenos Aires",
+    "flightNumber": "BOBA-6567",
+    "seats": 2,
+    "seatType": "ECONOMIC",
+    "people": [
+    {
+    "dni": "12234542",
+    "firstName": "Juan",
+    "lastName": "Pérez",
+    "birthday": "10-11-1982",
+    "mail": "arjonamiguel@gmail.com"
+    },
+    {
+    "dni": "13234542",
+    "firstName": "Fernando",
+    "lastName": "Pérez",
+    "birthday": "10-11-1980",
+    "mail": "ferl@gmail.com"
+    }
+    ],
+    "paymentMethod": {
+    "type": "CREDIT",
+    "number": "1234-1234-1234-1234",
+    "dues": 6
+    }
+    }
+    }
