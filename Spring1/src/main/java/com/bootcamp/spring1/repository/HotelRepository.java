@@ -42,7 +42,7 @@ public class HotelRepository {
 
         hotels.add(hotel1);
 
-        HotelModel hotel2 = new HotelModel();
+        /*HotelModel hotel2 = new HotelModel();
         hotel2.setCodeHotel("CH-0003");
         hotel2.setName("Cataratas Hotel 2");
         hotel2.setCity("Puerto Iguazú");
@@ -173,7 +173,7 @@ public class HotelRepository {
         hotel12.setAvailableUntilDate(LocalDate.parse("12-06-2022", f));
         hotel12.setReserved(false);
 
-        hotels.add(hotel12);
+        hotels.add(hotel12);*/
 
     }
 
