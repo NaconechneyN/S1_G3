@@ -184,7 +184,8 @@ public class HotelRepository {
     public List<HotelModel> availableListHotels(String city, LocalDate availableFromDate, LocalDate availableUntilDate) {
         List<HotelModel> availableHotels = new ArrayList<>();
         for (HotelModel hotelModel : hotels) {
-            if (availableFromDate.isAfter(hotelModel.getAvailableFromDate()) && availableUntilDate.isBefore(hotelModel.getAvailableUntilDate())
+            if (availableFromDate.isAfter(hotelModel.getAvailableFromDate().minusDays(1))
+                    && availableUntilDate.isBefore(hotelModel.getAvailableUntilDate().plusDays(1))
                    // && availableFromDate.equals(hotelModel.getAvailableFromDate())
                     //&& availableUntilDate.equals(hotelModel.getAvailableUntilDate())
                     && city.equals(hotelModel.getCity())) {
