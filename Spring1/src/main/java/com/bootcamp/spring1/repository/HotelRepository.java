@@ -2,6 +2,7 @@ package com.bootcamp.spring1.repository;
 
 
 import com.bootcamp.spring1.model.HotelModel;
+import lombok.Data;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -15,10 +16,7 @@ import lombok.Setter;
 
 
 @Repository
-// Get lee los datos
-@Getter
-// Set modifica datos
-@Setter
+@Data
 public class HotelRepository {
 
     private List<HotelModel> hotels;

@@ -44,6 +44,18 @@ public class HotelRepositoryTest {
         Assertions.assertEquals(expected, result);
     }
 
+    @Test
 
+    public void buscarPrecioHotelTest() {
+        //arrange
+        String codeHotel = "CH-0002";
+        Double expected = HotelFactory.getHotels().getPrice();
+
+        //act
+        var result = hotelRepository.buscarPrecioHotel(codeHotel);
+
+        //assert
+        Assertions.assertEquals(expected, result);
+    }
 
 }

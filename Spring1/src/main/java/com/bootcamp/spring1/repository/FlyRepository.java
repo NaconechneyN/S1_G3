@@ -1,6 +1,7 @@
 package com.bootcamp.spring1.repository;
 
 import com.bootcamp.spring1.model.FlyModel;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Repository;
@@ -11,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Getter
-@Setter
+@Data
 public class FlyRepository {
     private List<FlyModel> flights;
 
