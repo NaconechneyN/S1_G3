@@ -5,6 +5,7 @@ import com.bootcamp.spring1.utils.HotelFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class HotelControllerIntegrationTest {
 
 
     ObjectWriter writer = new ObjectMapper()
+            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
             .registerModule(new JavaTimeModule())
             .writer();
 
@@ -38,7 +40,11 @@ public class HotelControllerIntegrationTest {
         List<HotelModel> expected = List.of(HotelFactory.getHotels());
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-                .get("/api/v1/hotels?dateFrom=23/02/2022&dateTo=25/02/2022&destination=Puerto Iguazú");
+                .get("/api/v1/hotels")
+                .queryParam("dateFrom","10-02-2022")
+                .queryParam("dateTo","20-03-2022")
+                .queryParam("destination","Puerto Iguazú");
+
         //Request
         //Expected --> Status, body y contentype
         //Status
@@ -47,6 +53,8 @@ public class HotelControllerIntegrationTest {
         ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(
                 writer.writeValueAsString(expected)
         );
+
+        System.out.println(writer.writeValueAsString(expected));
         //contetype
         ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
         //Act&assert con mocking

@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 import lombok.Getter;
@@ -206,12 +207,14 @@ public class HotelRepository {
     }
 
     // Si el método no tiene return le corresponde el VOID y no tiene tipo (es VOID)
-    public void hotelBooking(String hotelCode) {
+    public Boolean hotelBooking(String hotelCode) {
         for (HotelModel hotel : hotels) {
             if (hotel.getCodeHotel().equals(hotelCode) && !hotel.getReserved()) {
                 hotel.setReserved(true);
+                return true;
             }
         }
+        return false;
     }
 
 }
