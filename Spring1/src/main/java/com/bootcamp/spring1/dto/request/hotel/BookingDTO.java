@@ -11,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class BookingDTO {
     private LocalDate dateTo;
     private String destination;
     private String hotelCode;
-  @Min(1) @NotEmpty
+     @NotEmpty @Positive(message = "La cantidad de personas debe ser un valor numérico.")
     private Integer peopleAmount;
     private String roomType;
 

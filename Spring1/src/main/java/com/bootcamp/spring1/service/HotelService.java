@@ -5,6 +5,7 @@ import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
 import com.bootcamp.spring1.dto.response.HotelResponseDTO;
 import com.bootcamp.spring1.exceptions.DateException;
 import com.bootcamp.spring1.exceptions.DestinationException;
+import com.bootcamp.spring1.exceptions.RoomTypeException;
 import com.bootcamp.spring1.model.HotelModel;
 import com.bootcamp.spring1.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,18 +40,18 @@ public class HotelService {
         LocalDate dateFrom = LocalDate.parse(availableFromDate, f);
         LocalDate dateUntil = LocalDate.parse(availableUntilDate, f);
         //ESTO ES UNA VALIDACION !!!
-        if(dateUntil.isBefore(dateFrom)){
+        if (dateUntil.isBefore(dateFrom)) {
             throw new DateException("La fecha de entrada debe ser menor a la de salida");
-                    }
+        }
         //For (inicialización;condición; incremento)
-        for (HotelModel hotel : hotelList() ) {
+        for (HotelModel hotel : hotelList()) {
             if (hotel.getCity().equals(city)) {
                 return hotelRepository.availableListHotels(city, dateFrom, dateUntil);
             }
 
-        }            throw new DestinationException( "El destino elegido no existe");
+        }
+        throw new DestinationException("El destino elegido no existe");
 
-        //si esta mal la fecha aca lanzo una excepcion
     }
 
     public String bookingHotel(HotelRequestDTO hotelRequestDTO) {
@@ -69,8 +70,43 @@ public class HotelService {
 
         hotelRepository.hotelBooking(code);
 
-        // Una vez tengamos los datos del precio total, crearíamos el response
+        if (hotelRequestDTO.getBooking().getDateTo().isBefore(hotelRequestDTO.getBooking().getDateFrom())) {
+            throw new DateException("La fecha de entrada debe ser menor a la de salida");
+        }
+
+
+        //For (inicialización;condición; incremento)
+//        for (HotelModel hotel : hotelList()) {
+//            if (hotel.getCity().equals(hotelRequestDTO.getBooking().getDestination());
+//            {
+//              return null;// hotelRepository.availableListHotels(city, dateFrom, dateUntil);
+//            }
+//
+//        }
+//        throw new DestinationException("El destino elegido no existe");
+
+        // Una vez tengamos los datos del precio total, crearíamos  response
         // Se podria generar un nuevo repositorio de reservas (en principio no haría falta)
+
+        //Comparar la cantidad de pasajeros con el tipo de habitacion
+
+        // si una habitacion es simple maximo sera una persona
+        if(hotelRequestDTO.getBooking().getRoomType().equals("single") && hotelRequestDTO.getBooking().getPeopleAmount() > 1) {
+            throw new RoomTypeException("El tipo de habitación seleccionada no coincide con la cantidad de personas que se alojarán en ella.");
+        }
+        // si una habitacion es doble maximo seran dos personas
+        if (hotelRequestDTO.getBooking().getRoomType().equals("doble") && hotelRequestDTO.getBooking().getPeopleAmount() >= 2) {
+            throw new RoomTypeException("El tipo de habitación seleccionada no coincide con la cantidad de personas que se alojarán en ella.");
+        }
+        // si una habitacion es triple maximo seran tres personas
+        if (hotelRequestDTO.getBooking().getRoomType().equals("triple") && hotelRequestDTO.getBooking().getPeopleAmount() >= 3) {
+            throw new RoomTypeException("El tipo de habitación seleccionada no coincide con la cantidad de personas que se alojarán en ella.");
+        }
+        // si una habitacion es mmultiple maximo seran siete personas
+        if (hotelRequestDTO.getBooking().getRoomType().equals("Múltiple") && hotelRequestDTO.getBooking().getPeopleAmount() >= 7) {
+            throw new RoomTypeException("El tipo de habitación seleccionada no coincide con la cantidad de personas que se alojarán en ella.");
+        }
+
 
         return "El precio de la reserva es de $" + (lookPrice * intDays) + " por " + intDays + " dias de " + "estadía";
 
