@@ -24,6 +24,10 @@ public class FlyController {
     FlyService flyService;
 
     // Aca se agregan los parametros
+
+    //Validaciones --> comparar las fechas en el controler entrada<salida, si hay error se lanza excepción.
+    //              -->corregir formato de fechas a / en vez de guiones.
+
     @GetMapping("/api/v1/flights")
     public List<FlyModel> listFlyAvailable(@NotEmpty @RequestParam(required = false) String dateTo,
                                            @NotEmpty @RequestParam(required = false) String dateFrom,

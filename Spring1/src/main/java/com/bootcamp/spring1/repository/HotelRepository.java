@@ -20,11 +20,11 @@ import lombok.Setter;
 @Data
 public class HotelRepository {
 
-    private List<HotelModel> hotels;
+    public List<HotelModel> hotels;
 
     public HotelRepository() { //Creamos la data de los hoteles usando el constructor
         this.hotels = new ArrayList<>();
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         // Si no reconoce el formato de fecha se descomenta y se agrega el nombre de la variable al final de cada
         // fecha como segundo parametro.
 
@@ -35,21 +35,21 @@ public class HotelRepository {
         hotel1.setRoomTipe("doble");
         hotel1.setPrice(6300.00);
         hotel1.setRoomTipe("doble");
-        hotel1.setAvailableFromDate(LocalDate.parse("10-02-2022", f));
-        hotel1.setAvailableUntilDate(LocalDate.parse("20-03-2022", f));
+        hotel1.setAvailableFromDate(LocalDate.parse("10/04/2023", f));
+        hotel1.setAvailableUntilDate(LocalDate.parse("20/04/2023", f));
         hotel1.setReserved(false);
 
         hotels.add(hotel1);
 
-        /*HotelModel hotel2 = new HotelModel();
+        HotelModel hotel2 = new HotelModel();
         hotel2.setCodeHotel("CH-0003");
         hotel2.setName("Cataratas Hotel 2");
         hotel2.setCity("Puerto Iguazú");
         hotel2.setRoomTipe("triple");
         hotel2.setPrice(8200.00);
         hotel2.setRoomTipe("triple");
-        hotel2.setAvailableFromDate(LocalDate.parse("10-02-2022", f));
-        hotel2.setAvailableUntilDate(LocalDate.parse("23-03-2022", f));
+        hotel2.setAvailableFromDate(LocalDate.parse("10/04/2023", f));
+        hotel2.setAvailableUntilDate(LocalDate.parse("23/05/2023", f));
         hotel2.setReserved(false);
 
         hotels.add(hotel2);
@@ -60,13 +60,13 @@ public class HotelRepository {
         hotel3.setCity("Buenos Aires");
         hotel3.setRoomTipe("single");
         hotel3.setPrice(5435.00);
-        hotel3.setAvailableFromDate(LocalDate.parse("10-02-2022", f));
-        hotel3.setAvailableUntilDate(LocalDate.parse("19-03-2022", f));
+        hotel3.setAvailableFromDate(LocalDate.parse("10/02/2022", f));
+        hotel3.setAvailableUntilDate(LocalDate.parse("19/03/2022", f));
         hotel3.setReserved(false);
 
         hotels.add(hotel3);
 
-        HotelModel hotel4 = new HotelModel();
+        /*HotelModel hotel4 = new HotelModel();
         hotel4.setCodeHotel("BH-0002");
         hotel4.setName("Hotel Bristol 2");
         hotel4.setCity("Buenos Aires");

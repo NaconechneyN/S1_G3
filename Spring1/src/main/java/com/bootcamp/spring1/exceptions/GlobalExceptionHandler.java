@@ -2,6 +2,7 @@ package com.bootcamp.spring1.exceptions;
 
 
 import com.bootcamp.spring1.dto.ValidationDTO;
+import com.bootcamp.spring1.dto.response.RunTimeExceptionDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -33,4 +34,14 @@ public class GlobalExceptionHandler {
                 )
         );
     }
+
+       ///Generar excepcion de fecha (aca se manejan porque YA EXISTEN), probar que msj lanza y aca lo "editamos"
+       @ExceptionHandler(RuntimeException.class)
+       public ResponseEntity<RunTimeExceptionDto> validationException(RuntimeException e){
+           return ResponseEntity.status(400).body(
+                   new RunTimeExceptionDto(
+                    e.getMessage()
+                      )
+           );
+       }
 }

@@ -3,6 +3,8 @@ package com.bootcamp.spring1.service;
 
 import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
 import com.bootcamp.spring1.dto.response.HotelResponseDTO;
+import com.bootcamp.spring1.exceptions.DateException;
+import com.bootcamp.spring1.exceptions.DestinationException;
 import com.bootcamp.spring1.model.HotelModel;
 import com.bootcamp.spring1.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +28,29 @@ public class HotelService {
         return hotelRepository.getHotels();
     }
 
+    //VALIDACION --> verificar si el destino existe, se valida acá.
+    //           --> Si el destino no existe se lanzala exepcion con el msj "destino no existe"
     public List<HotelModel> availableListHotels(String city, String availableFromDate, String availableUntilDate) {
         if (city == null && availableFromDate == null && availableUntilDate == null) {
 
             return hotelList();
         }
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dateFrom = LocalDate.parse(availableFromDate, f);
         LocalDate dateUntil = LocalDate.parse(availableUntilDate, f);
-        return hotelRepository.availableListHotels(city, dateFrom, dateUntil);
+        //ESTO ES UNA VALIDACION !!!
+        if(dateUntil.isBefore(dateFrom)){
+            throw new DateException("La fecha de entrada debe ser menor a la de salida");
+                    }
+        //For (inicialización;condición; incremento)
+        for (HotelModel hotel : hotelList() ) {
+            if (hotel.getCity().equals(city)) {
+                return hotelRepository.availableListHotels(city, dateFrom, dateUntil);
+            }
+
+        }            throw new DestinationException( "El destino elegido no existe");
+
+        //si esta mal la fecha aca lanzo una excepcion
     }
 
     public String bookingHotel(HotelRequestDTO hotelRequestDTO) {

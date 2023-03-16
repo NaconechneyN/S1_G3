@@ -28,7 +28,7 @@ public class FlyService {
 
             return flightsList();
         }
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dateFrom = LocalDate.parse(departureDate, f);
         LocalDate dateUntil = LocalDate.parse(returnDate, f);
         return flyRepository.availableListFly(origin, destination, dateFrom, dateUntil);
