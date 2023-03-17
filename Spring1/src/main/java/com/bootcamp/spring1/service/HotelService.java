@@ -48,7 +48,6 @@ public class HotelService {
             if (hotel.getCity().equals(city)) {
                 return hotelRepository.availableListHotels(city, dateFrom, dateUntil);
             }
-
         }
         throw new DestinationException("El destino elegido no existe");
 
@@ -75,40 +74,42 @@ public class HotelService {
         }
 
 
-        //For (inicialización;condición; incremento)
-//        for (HotelModel hotel : hotelList()) {
-//            if (hotel.getCity().equals(hotelRequestDTO.getBooking().getDestination());
-//            {
-//              return null;// hotelRepository.availableListHotels(city, dateFrom, dateUntil);
-//            }
-//
-//        }
-//        throw new DestinationException("El destino elegido no existe");
-
         // Una vez tengamos los datos del precio total, crearíamos  response
         // Se podria generar un nuevo repositorio de reservas (en principio no haría falta)
 
         //Comparar la cantidad de pasajeros con el tipo de habitacion
 
         // si una habitacion es simple maximo sera una persona
-        if(hotelRequestDTO.getBooking().getRoomType().equals("single") && hotelRequestDTO.getBooking().getPeopleAmount() > 1) {
+        if (hotelRequestDTO.getBooking().getRoomType().equals("single") && hotelRequestDTO.getBooking().getPeopleAmount() > 1) {
             throw new RoomTypeException("El tipo de habitación seleccionada no coincide con la cantidad de personas que se alojarán en ella.");
         }
         // si una habitacion es doble maximo seran dos personas
-        if (hotelRequestDTO.getBooking().getRoomType().equals("doble") && hotelRequestDTO.getBooking().getPeopleAmount() >= 2) {
+        if (hotelRequestDTO.getBooking().getRoomType().equals("doble") && hotelRequestDTO.getBooking().getPeopleAmount() > 2) {
             throw new RoomTypeException("El tipo de habitación seleccionada no coincide con la cantidad de personas que se alojarán en ella.");
         }
         // si una habitacion es triple maximo seran tres personas
-        if (hotelRequestDTO.getBooking().getRoomType().equals("triple") && hotelRequestDTO.getBooking().getPeopleAmount() >= 3) {
+        if (hotelRequestDTO.getBooking().getRoomType().equals("triple") && hotelRequestDTO.getBooking().getPeopleAmount() > 3) {
             throw new RoomTypeException("El tipo de habitación seleccionada no coincide con la cantidad de personas que se alojarán en ella.");
         }
         // si una habitacion es mmultiple maximo seran siete personas
-        if (hotelRequestDTO.getBooking().getRoomType().equals("Múltiple") && hotelRequestDTO.getBooking().getPeopleAmount() >= 7) {
+        if (hotelRequestDTO.getBooking().getRoomType().equals("Múltiple") && hotelRequestDTO.getBooking().getPeopleAmount() > 7) {
             throw new RoomTypeException("El tipo de habitación seleccionada no coincide con la cantidad de personas que se alojarán en ella.");
         }
+        // Si ingresa una habitación distinta a las disponibles
+        if (!hotelRequestDTO.getBooking().getRoomType().equals("Múltiple") && !hotelRequestDTO.getBooking().getRoomType().equals("triple") && !hotelRequestDTO.getBooking().getRoomType().equals("doble") && !hotelRequestDTO.getBooking().getRoomType().equals("single")) {
+            throw new RoomTypeException("Debe ingresar un tipo de habitación valido");
+        }
 
+        //For (inicialización;condición; incremento)
+        for (HotelModel hotel : hotelList()) {
+            if (hotel.getCity().equals(hotelRequestDTO.getBooking().getDestination()))
+            {
+                return "El precio de la reserva es de $" + (lookPrice * intDays) + " por " + intDays + " dias de " +
+                        "estadía";
+            }
+        }
 
-        return "El precio de la reserva es de $" + (lookPrice * intDays) + " por " + intDays + " dias de " + "estadía";
+        throw new DestinationException("El destino elegido no existe");
 
     }
 
