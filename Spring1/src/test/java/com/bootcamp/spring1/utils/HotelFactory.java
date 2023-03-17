@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class HotelFactory {
+    //Factory Hotels
     public static HotelModel getHotel1() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
