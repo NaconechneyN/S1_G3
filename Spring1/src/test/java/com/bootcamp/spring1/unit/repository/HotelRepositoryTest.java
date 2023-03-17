@@ -1,10 +1,12 @@
 package com.bootcamp.spring1.unit.repository;
 
+import com.bootcamp.spring1.exceptions.NullException;
 import com.bootcamp.spring1.model.HotelModel;
 import com.bootcamp.spring1.repository.HotelRepository;
 import com.bootcamp.spring1.utils.HotelFactory;
 import net.bytebuddy.asm.Advice;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -12,21 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HotelRepositoryTest {
-    HotelRepository hotelRepository = new HotelRepository();
+    HotelRepository hotelRepository;
 
-    @Test
-
-    public void getHotelsQuantityTest() {
-
-        //arrange
-          Integer expected = 12;
-
-        //act
-          var result = hotelRepository.getHotels();
-
-        //assert
-        Assertions.assertEquals(expected, result.size());
+    @BeforeEach
+    void setup(){
+        hotelRepository = new HotelRepository();
     }
+
 
     @Test
 
@@ -72,16 +66,28 @@ public class HotelRepositoryTest {
 
     @Test
 
-    public void buscarPrecioHotelTest() {
+    public void hotelWithNoExistentTest() {
+
         //arrange
-        String codeHotel = "CH-0002";
-        Double expected = HotelFactory.getHotel1().getPrice();
+        hotelRepository.hotels = new ArrayList<>();
+
+        //act & assert
+        Assertions.assertThrows(NullException.class,
+                ()->hotelRepository.getHotels()); //estructura general para ejecutar el método con excepción
+    }
+
+    @Test
+
+    public void getHotelsQuantityTest() {
+
+        //arrange
+          Integer expected = 12;
 
         //act
-        var result = hotelRepository.buscarPrecioHotel(codeHotel);
+          var result = hotelRepository.getHotels();
 
         //assert
-        Assertions.assertEquals(expected, result);
+        Assertions.assertEquals(expected, result.size());
     }
 
     @Test
@@ -97,6 +103,31 @@ public class HotelRepositoryTest {
 
         //act
         var result = hotelRepository.availableListHotels(city, availableFromDate, availableUntilDate);
+
+        //assert
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    public void availableListEmptyHotelsTest () {
+        //arrange
+        String city = ("Rafaela");
+        LocalDate availableFromDate = LocalDate.of(2022, 04, 10);
+        LocalDate availableUntilDate = LocalDate.of(2022, 06, 20);
+        //act & assert
+        Assertions.assertThrows(NullException.class,
+                ()->hotelRepository.availableListHotels(city, availableFromDate, availableUntilDate));
+    }
+
+    @Test
+
+    public void buscarPrecioHotelTest() {
+        //arrange
+        String codeHotel = "CH-0002";
+        Double expected = HotelFactory.getHotel1().getPrice();
+
+        //act
+        var result = hotelRepository.buscarPrecioHotel(codeHotel);
 
         //assert
         Assertions.assertEquals(expected, result);

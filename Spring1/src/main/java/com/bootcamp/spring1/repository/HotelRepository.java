@@ -1,6 +1,7 @@
 package com.bootcamp.spring1.repository;
 
 
+import com.bootcamp.spring1.exceptions.NullException;
 import com.bootcamp.spring1.model.HotelModel;
 import lombok.Data;
 import org.springframework.stereotype.Repository;
@@ -179,7 +180,10 @@ public class HotelRepository {
     /*Le indicamos al Repo que a través de una lista con de los atributos que tenemos en HotelModel, nos retorne
      todos los hoteles que tenemos en la variable hotel declarada arriba en los atributos de Repository*/
     public List<HotelModel> getHotels() {
-        return hotels;
+        if (hotels.isEmpty()) {
+            throw new NullException("No existe ningún hotel");
+        }
+            return hotels;
     }
 
     public List<HotelModel> availableListHotels(String city, LocalDate availableFromDate, LocalDate availableUntilDate) {
@@ -187,11 +191,12 @@ public class HotelRepository {
         for (HotelModel hotelModel : hotels) {
             if (availableFromDate.isAfter(hotelModel.getAvailableFromDate().minusDays(1))
                     && availableUntilDate.isBefore(hotelModel.getAvailableUntilDate().plusDays(1))
-                   // && availableFromDate.equals(hotelModel.getAvailableFromDate())
-                    //&& availableUntilDate.equals(hotelModel.getAvailableUntilDate())
                     && city.equals(hotelModel.getCity())) {
                 availableHotels.add(hotelModel);
             }// si el if resulta verdadero, agregar a la lista ese hotel
+        }
+        if (availableHotels.isEmpty()){
+            throw new NullException("No se encontró el hotel");
         }
         return availableHotels;
     }
