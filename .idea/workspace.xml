@@ -5,10 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd91a97e-cf04-4b3e-aa00-45541d51e2e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/Bootcamp/Spring1/controller/FlyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/Bootcamp/Spring1/controller/FlyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/Bootcamp/Spring1/model/FlyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/Bootcamp/Spring1/model/FlyModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/Bootcamp/Spring1/repository/FlyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/Bootcamp/Spring1/repository/FlyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/Bootcamp/Spring1/service/FlyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/Bootcamp/Spring1/service/FlyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/S1_G3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_el_3_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_2_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_3_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_7_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/fly/FlightReservationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/fly/FlightReservationRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/fly/FlyRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/fly/FlyRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/hotel/BookingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/hotel/BookingDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/hotel/HotelRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/hotel/HotelRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/service/FlyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/service/FlyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +31,31 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="US01" />
+                    <option name="lastUsedInstant" value="1678996611" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1678996610" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,11 +78,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/stfabbro/Desktop/Bootcamp-Java-Proyecto",
+    "last_opened_file_path": "C:/Users/nnaconech/Desktop/S1_G3",
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.com.bootcamp.spring1.Spring1Application">
     <configuration name="Spring1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.Bootcamp.Spring1.Spring1Application" />
       <module name="Spring1" />
@@ -57,8 +96,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.bootcamp.spring1.Spring1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.Spring1Application" />
+      <module name="Spring1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bootcamp.spring1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.bootcamp.spring1.Spring1Application" />
         <item itemvalue="Application.Spring1Application" />
       </list>
     </recent_temporary>
