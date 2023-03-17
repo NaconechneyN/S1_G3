@@ -36,7 +36,7 @@ public class HotelRepository {
         hotel1.setPrice(6300.00);
         hotel1.setRoomTipe("doble");
         hotel1.setAvailableFromDate(LocalDate.parse("10/04/2023", f));
-        hotel1.setAvailableUntilDate(LocalDate.parse("20/04/2023", f));
+        hotel1.setAvailableUntilDate(LocalDate.parse("20/06/2023", f));
         hotel1.setReserved(false);
 
         hotels.add(hotel1);
@@ -46,7 +46,7 @@ public class HotelRepository {
         hotel2.setName("Cataratas Hotel 2");
         hotel2.setCity("Puerto Iguazú");
         hotel2.setRoomTipe("triple");
-        hotel2.setPrice(8200.00);
+        hotel2.setPrice(8300.00);
         hotel2.setRoomTipe("triple");
         hotel2.setAvailableFromDate(LocalDate.parse("10/04/2023", f));
         hotel2.setAvailableUntilDate(LocalDate.parse("23/05/2023", f));
@@ -60,20 +60,20 @@ public class HotelRepository {
         hotel3.setCity("Buenos Aires");
         hotel3.setRoomTipe("single");
         hotel3.setPrice(5435.00);
-        hotel3.setAvailableFromDate(LocalDate.parse("10/02/2022", f));
-        hotel3.setAvailableUntilDate(LocalDate.parse("19/03/2022", f));
+        hotel3.setAvailableFromDate(LocalDate.parse("10/02/2023", f));
+        hotel3.setAvailableUntilDate(LocalDate.parse("19/06/2023", f));
         hotel3.setReserved(false);
 
         hotels.add(hotel3);
 
-        /*HotelModel hotel4 = new HotelModel();
+        HotelModel hotel4 = new HotelModel();
         hotel4.setCodeHotel("BH-0002");
         hotel4.setName("Hotel Bristol 2");
         hotel4.setCity("Buenos Aires");
         hotel4.setRoomTipe("doble");
         hotel4.setPrice(7200.00);
-        hotel4.setAvailableFromDate(LocalDate.parse("12-02-2022", f));
-        hotel4.setAvailableUntilDate(LocalDate.parse("17-04-2022", f));
+        hotel4.setAvailableFromDate(LocalDate.parse("12/02/2023", f));
+        hotel4.setAvailableUntilDate(LocalDate.parse("17/06/2023", f));
         hotel4.setReserved(false);
 
         hotels.add(hotel4);
@@ -84,8 +84,8 @@ public class HotelRepository {
         hotel5.setCity("Tucumán");
         hotel5.setRoomTipe("doble");
         hotel5.setPrice(5790.00);
-        hotel5.setAvailableFromDate(LocalDate.parse("17-04-2022", f));
-        hotel5.setAvailableUntilDate(LocalDate.parse("23-05-2022", f));
+        hotel5.setAvailableFromDate(LocalDate.parse("12/02/2023", f));
+        hotel5.setAvailableUntilDate(LocalDate.parse("17/06/2023", f));
         hotel5.setReserved(false);
 
         hotels.add(hotel5);
@@ -96,8 +96,8 @@ public class HotelRepository {
         hotel6.setCity("Tucumán");
         hotel6.setRoomTipe("single");
         hotel6.setPrice(4150.00);
-        hotel6.setAvailableFromDate(LocalDate.parse("02-01-2022", f));
-        hotel6.setAvailableUntilDate(LocalDate.parse("19-02-2022", f));
+        hotel6.setAvailableFromDate(LocalDate.parse("12/02/2023", f));
+        hotel6.setAvailableUntilDate(LocalDate.parse("17/06/2023", f));
         hotel6.setReserved(false);
 
         hotels.add(hotel6);
@@ -108,8 +108,8 @@ public class HotelRepository {
         hotel7.setCity("Bogotá");
         hotel7.setRoomTipe("single");
         hotel7.setPrice(3900.00);
-        hotel7.setAvailableFromDate(LocalDate.parse("23-01-2022", f));
-        hotel7.setAvailableUntilDate(LocalDate.parse("23-11-2022", f));
+        hotel7.setAvailableFromDate(LocalDate.parse("12/02/2023", f));
+        hotel7.setAvailableUntilDate(LocalDate.parse("17/06/2023", f));
         hotel7.setReserved(false);
 
         hotels.add(hotel7);
@@ -120,8 +120,8 @@ public class HotelRepository {
         hotel8.setCity("Bogotá");
         hotel8.setRoomTipe("doble");
         hotel8.setPrice(5840.00);
-        hotel8.setAvailableFromDate(LocalDate.parse("23-01-2022", f));
-        hotel8.setAvailableUntilDate(LocalDate.parse("15-10-2022", f));
+        hotel8.setAvailableFromDate(LocalDate.parse("12/02/2023", f));
+        hotel8.setAvailableUntilDate(LocalDate.parse("17/06/2023", f));
         hotel8.setReserved(false);
 
         hotels.add(hotel8);
@@ -132,8 +132,8 @@ public class HotelRepository {
         hotel9.setCity("Bogotá");
         hotel9.setRoomTipe("triple");
         hotel9.setPrice(7020.00);
-        hotel9.setAvailableFromDate(LocalDate.parse("15-02-2022", f));
-        hotel9.setAvailableUntilDate(LocalDate.parse("27-03-2022", f));
+        hotel9.setAvailableFromDate(LocalDate.parse("12/02/2023", f));
+        hotel9.setAvailableUntilDate(LocalDate.parse("17/06/2023", f));
         hotel9.setReserved(false);
 
         hotels.add(hotel9);
@@ -144,8 +144,8 @@ public class HotelRepository {
         hotel10.setCity("Medellín");
         hotel10.setRoomTipe("Múltiple");
         hotel10.setPrice(8600.00);
-        hotel10.setAvailableFromDate(LocalDate.parse("01-03-2022", f));
-        hotel10.setAvailableUntilDate(LocalDate.parse("17-04-2022", f));
+        hotel10.setAvailableFromDate(LocalDate.parse("12/02/2023", f));
+        hotel10.setAvailableUntilDate(LocalDate.parse("17/06/2023", f));
         hotel10.setReserved(false);
 
         hotels.add(hotel10);
@@ -156,8 +156,8 @@ public class HotelRepository {
         hotel11.setCity("Medellín");
         hotel11.setRoomTipe("doble");
         hotel11.setPrice(6400.00);
-        hotel11.setAvailableFromDate(LocalDate.parse("10-02-2022", f));
-        hotel11.setAvailableUntilDate(LocalDate.parse("20-03-2022", f));
+        hotel11.setAvailableFromDate(LocalDate.parse("12/02/2023", f));
+        hotel11.setAvailableUntilDate(LocalDate.parse("17/06/2023", f));
         hotel11.setReserved(false);
 
         hotels.add(hotel11);
@@ -168,11 +168,11 @@ public class HotelRepository {
         hotel12.setCity("Cartagena");
         hotel12.setRoomTipe("Múltiple");
         hotel12.setPrice(9370.00);
-        hotel12.setAvailableFromDate(LocalDate.parse("17-04-2022", f));
-        hotel12.setAvailableUntilDate(LocalDate.parse("12-06-2022", f));
+        hotel12.setAvailableFromDate(LocalDate.parse("12/02/2023", f));
+        hotel12.setAvailableUntilDate(LocalDate.parse("17/06/2023", f));
         hotel12.setReserved(false);
 
-        hotels.add(hotel12);*/
+        hotels.add(hotel12);
 
     }
 
