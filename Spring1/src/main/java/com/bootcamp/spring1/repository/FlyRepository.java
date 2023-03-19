@@ -28,8 +28,8 @@ public class FlyRepository {
         fly1.setDestination("Puerto Iguazú");
         fly1.setSeatType("Economy");
         fly1.setPricePerson(6500);
-        fly1.setDepartureDate(LocalDate.parse("10-02-2022", f));
-        fly1.setReturnDate(LocalDate.parse("15-02-2022", f));
+        fly1.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly1.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly1);
 
@@ -40,8 +40,8 @@ public class FlyRepository {
         fly2.setDestination("Bogotá");
         fly2.setSeatType("Business");
         fly2.setPricePerson(43200);
-        fly2.setDepartureDate(LocalDate.parse("10-02-2022", f));
-        fly2.setReturnDate(LocalDate.parse("20-02-2022", f));
+        fly2.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly2.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly2);
 
@@ -52,8 +52,8 @@ public class FlyRepository {
         fly3.setDestination("Bogotá");
         fly3.setSeatType("Economy");
         fly3.setPricePerson(25735);
-        fly3.setDepartureDate(LocalDate.parse("10-02-2022", f));
-        fly3.setReturnDate(LocalDate.parse("21-02-2022", f));
+        fly3.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly3.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly3);
 
@@ -64,8 +64,8 @@ public class FlyRepository {
         fly4.setDestination("Tucumán");
         fly4.setSeatType("Economy");
         fly4.setPricePerson(7320);
-        fly4.setDepartureDate(LocalDate.parse("10-02-2022", f));
-        fly4.setReturnDate(LocalDate.parse("17-02-2022", f));
+        fly4.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly4.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly4);
 
@@ -76,8 +76,8 @@ public class FlyRepository {
         fly5.setDestination("Puerto Iguazú");
         fly5.setSeatType("Business");
         fly5.setPricePerson(12530);
-        fly5.setDepartureDate(LocalDate.parse("12-02-2022", f));
-        fly5.setReturnDate(LocalDate.parse("23-02-2022", f));
+        fly5.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly5.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly5);
 
@@ -88,8 +88,8 @@ public class FlyRepository {
         fly6.setDestination("Puerto Iguazú");
         fly6.setSeatType("Economy");
         fly6.setPricePerson(5400);
-        fly6.setDepartureDate(LocalDate.parse("02-01-2022", f));
-        fly6.setReturnDate(LocalDate.parse("16-01-2022", f));
+        fly6.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly6.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly6);
 
@@ -100,8 +100,8 @@ public class FlyRepository {
         fly7.setDestination("Cartagena");
         fly7.setSeatType("Economy");
         fly7.setPricePerson(8000);
-        fly7.setDepartureDate(LocalDate.parse("23-01-2022", f));
-        fly7.setReturnDate(LocalDate.parse("05-02-2022", f));
+        fly7.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly7.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly7);
 
@@ -112,8 +112,8 @@ public class FlyRepository {
         fly8.setDestination("Medellín");
         fly8.setSeatType("Economy");
         fly8.setPricePerson(7800);
-        fly8.setDepartureDate(LocalDate.parse("23-01-2022", f));
-        fly8.setReturnDate(LocalDate.parse("31-01-2022", f));
+        fly8.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly8.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly8);
 
@@ -124,8 +124,8 @@ public class FlyRepository {
         fly9.setDestination("Buenos Aires");
         fly9.setSeatType("Business");
         fly9.setPricePerson(57000);
-        fly9.setDepartureDate(LocalDate.parse("15-02-2022", f));
-        fly9.setReturnDate(LocalDate.parse("28-02-2022", f));
+        fly9.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly9.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly9);
 
@@ -136,8 +136,8 @@ public class FlyRepository {
         fly10.setDestination("Buenos Aires");
         fly10.setSeatType("Economy");
         fly10.setPricePerson(39860);
-        fly10.setDepartureDate(LocalDate.parse("01-03-2022", f));
-        fly10.setReturnDate(LocalDate.parse("14-03-2022", f));
+        fly10.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly10.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly10);
 
@@ -148,8 +148,8 @@ public class FlyRepository {
         fly11.setDestination("Medellín");
         fly11.setSeatType("Economy");
         fly11.setPricePerson(11000);
-        fly11.setDepartureDate(LocalDate.parse("10-02-2022", f));
-        fly11.setReturnDate(LocalDate.parse("24-02-2022", f));
+        fly11.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly11.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly11);
 
@@ -160,8 +160,8 @@ public class FlyRepository {
         fly12.setDestination("Puerto Iguazú");
         fly12.setSeatType("Business");
         fly12.setPricePerson(41640);
-        fly12.setDepartureDate(LocalDate.parse("17-04-2022", f));
-        fly12.setReturnDate(LocalDate.parse("02-05-2022", f));
+        fly12.setDepartureDate(LocalDate.parse("10-03-2023", f));
+        fly12.setReturnDate(LocalDate.parse("15-04-2023", f));
 
         flights.add(fly12);
     }

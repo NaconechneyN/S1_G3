@@ -3,10 +3,7 @@ package com.bootcamp.spring1.dto.request.hotel;
 import com.bootcamp.spring1.dto.request.HostDTO;
 import com.bootcamp.spring1.dto.request.PaymentsDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
@@ -21,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
+@Builder
 
 public class BookingDTO {
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)

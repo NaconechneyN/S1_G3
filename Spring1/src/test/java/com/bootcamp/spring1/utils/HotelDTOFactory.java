@@ -1,5 +1,7 @@
 package com.bootcamp.spring1.utils;
 
+import com.bootcamp.spring1.dto.request.HostDTO;
+import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
 import com.bootcamp.spring1.model.HotelModel;
 
 import java.time.LocalDate;
@@ -20,7 +22,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel2() {
+    public static HotelModel getHotel2DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("CH-0003")
@@ -33,7 +35,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel3() {
+    public static HotelModel getHotel3DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("HB-0001")
@@ -46,7 +48,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel4() {
+    public static HotelModel getHotel4DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("BH-0002")
@@ -59,7 +61,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel5() {
+    public static HotelModel getHotel5DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("SH-0002")
@@ -72,7 +74,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel6() {
+    public static HotelModel getHotel6DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("SH-0001")
@@ -85,7 +87,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel7() {
+    public static HotelModel getHotel7DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("SE-0001")
@@ -98,7 +100,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel8() {
+    public static HotelModel getHotel8DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("SE-0002")
@@ -111,7 +113,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel9() {
+    public static HotelModel getHotel9DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("EC-0003")
@@ -124,7 +126,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel10() {
+    public static HotelModel getHotel10DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("CP-0004")
@@ -137,7 +139,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel11() {
+    public static HotelModel getHotel11DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("CP-0002")
@@ -150,7 +152,7 @@ public class HotelDTOFactory {
                 .reserved(false)
                 .build();
     }
-    public static HotelModel getHotel12() {
+    public static HotelModel getHotel12DTO() {
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return HotelModel.builder()
                 .codeHotel("BG-0004")
