@@ -38,7 +38,7 @@ public class HotelController {
     }
 
     @PostMapping("/api/v1/booking")
-    public String booking(@Valid @RequestBody HotelRequestDTO datosReserva) {
+    public HotelResponseDTO booking(@Valid @RequestBody HotelRequestDTO datosReserva) {
         return hotelService.bookingHotel(datosReserva);
     }
 

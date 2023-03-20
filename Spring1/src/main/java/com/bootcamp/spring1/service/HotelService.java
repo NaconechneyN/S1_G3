@@ -2,6 +2,7 @@ package com.bootcamp.spring1.service;
 
 
 import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
+import com.bootcamp.spring1.dto.response.FlyResponseDTO;
 import com.bootcamp.spring1.dto.response.HotelResponseDTO;
 import com.bootcamp.spring1.exceptions.DateException;
 import com.bootcamp.spring1.exceptions.DestinationException;
@@ -53,7 +54,7 @@ public class HotelService {
 
     }
 
-    public String bookingHotel(HotelRequestDTO hotelRequestDTO) {
+    public HotelResponseDTO bookingHotel(HotelRequestDTO hotelRequestDTO) {
         // Calcular el precio total, necesitamos precio hotel y cantidad de días
         // Precio Hotel: A través del HotelCode (que viene en el DTO) buscamos el repository el precio del hotel
         String code = hotelRequestDTO.getBooking().getHotelCode();
@@ -100,12 +101,17 @@ public class HotelService {
             throw new RoomTypeException("Debe ingresar un tipo de habitación valido");
         }
 
+        double priceTotal = lookPrice * intDays;
+        //Devolvemos DTO con mensaje y el precio total
+        HotelResponseDTO mensaje = new HotelResponseDTO();
+        mensaje.setMensaje("El monto de la reserva es de: ");
+        mensaje.setTotal(priceTotal);
+
         //For (inicialización;condición; incremento)
         for (HotelModel hotel : hotelList()) {
             if (hotel.getCity().equals(hotelRequestDTO.getBooking().getDestination()))
             {
-                return "El precio de la reserva es de $" + (lookPrice * intDays) + " por " + intDays + " dias de " +
-                        "estadía";
+                return mensaje;
             }
         }
 

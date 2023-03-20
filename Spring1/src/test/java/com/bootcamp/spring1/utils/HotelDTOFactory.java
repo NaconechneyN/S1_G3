@@ -12,6 +12,7 @@ public class HotelDTOFactory {
 
     public static HotelRequestDTO getHotelDTO1 (){
         return HotelRequestDTO.builder()
+                .username("Cerdito Pateador")
                 .booking(
                 BookingDTO.builder()
                         .hotelCode("CH-0002")

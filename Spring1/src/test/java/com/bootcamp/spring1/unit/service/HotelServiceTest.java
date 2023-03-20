@@ -1,6 +1,7 @@
 package com.bootcamp.spring1.unit.service;
 
 import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
+import com.bootcamp.spring1.dto.response.HotelResponseDTO;
 import com.bootcamp.spring1.exceptions.DateException;
 import com.bootcamp.spring1.exceptions.DestinationException;
 import com.bootcamp.spring1.model.HotelModel;
@@ -32,8 +33,7 @@ public class HotelServiceTest {
         // Arrange
         HotelRequestDTO codigo = HotelDTOFactory.getHotelDTO1();
         List<HotelModel> hotel = List.of(HotelFactory.getHotel1());
-        String expected =
-                "El precio de la reserva es de $" + hotel.get(0).getPrice() * 10 + " por " + 10 + " dias de estadía";
+        HotelResponseDTO expected = new HotelResponseDTO("El monto de la reserva es de: ", 63000.00);
 
         // Act
         Mockito.when(hotelRepository.buscarPrecioHotel(codigo.getBooking().getHotelCode())).thenReturn(6300.00);

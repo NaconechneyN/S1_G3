@@ -1,6 +1,9 @@
 package com.bootcamp.spring1.integration;
 
+import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
+import com.bootcamp.spring1.dto.response.HotelResponseDTO;
 import com.bootcamp.spring1.model.HotelModel;
+import com.bootcamp.spring1.utils.HotelDTOFactory;
 import com.bootcamp.spring1.utils.HotelFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,19 +36,20 @@ public class HotelControllerIntegrationTest {
             .registerModule(new JavaTimeModule())
             .writer();
 
-    /*@Test
+    @Test
 
     public void listHotelAvailableTest() throws Exception {
         //arrange
         List<HotelModel> expected = List.of(HotelFactory.getHotel1());
 
+        //Request
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .get("/api/v1/hotels")
                 .queryParam("dateFrom","10/04/2023")
-                .queryParam("dateTo","20/06/2022")
+                .queryParam("dateTo","20/06/2023")
                 .queryParam("destination","Puerto Iguazú");
 
-        //Request
+
         //Expected --> Status, body y contentype
         //Status
         ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
@@ -61,14 +65,38 @@ public class HotelControllerIntegrationTest {
         mockMvc.perform(request)
                 .andDo(MockMvcResultHandlers.print())
                 .andExpectAll(statusExpected,bodyExpected,contentTypeExpected);
-    }*/
+
+    }
 
     @Test
-    public void bookingTest() {
-        //arrange
-        //Request
-        //Expected --> Status, body y contentype
-        //Act&assert con mocking
+    public void bookingTest() throws Exception {
+        //Request - Toda esta parte es igual al Request del Postman
+        HotelRequestDTO bodyRequest = HotelDTOFactory.getHotelDTO1(); // Representación del JSON que se pasa por POSTMAN
+
+        MockHttpServletRequestBuilder request =
+                MockMvcRequestBuilders.post("/api/v1/booking") // URL y el Metodo que se pasa por POSTMAN (metodo POST)
+                        .content(writer.writeValueAsString(bodyRequest)) // Representación del JSON que se pasa por POSTMAN
+                        .contentType(MediaType.APPLICATION_JSON); // El tipo de dato que se envía al tener un body
+
+        //Expected --> Status, body y contentType - Toda esta parte es la respuesta de POSTMAN
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk(); // El Status que devuelve
+
+        //Body
+        // Generamos la variable con la respuesta que esperamos (Lo que quisieramos ver en POSTMAN)
+        var expectedResponse = new HotelResponseDTO("El monto de la reserva es de: ", 63000.00);
+        // Definimos la respuesta que esperamos en el Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(writer.writeValueAsString(expectedResponse));
+
+        //ContentType
+        // Tipo de dato que esperamos recibir
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+
+        //Act & Assert con mocking
+        // Ejecución del Test
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected,bodyExpected,contentTypeExpected);
     }
 
     @Test
