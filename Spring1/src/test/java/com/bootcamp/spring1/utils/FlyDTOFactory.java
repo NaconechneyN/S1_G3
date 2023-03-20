@@ -11,6 +11,7 @@ import java.time.LocalDate;
 public class FlyDTOFactory {
     public static FlyRequestDTO getFly1(){
         return FlyRequestDTO.builder()
+                .userName("Chanchito feliz")
                 .flightReservation(
                         FlightReservationRequestDTO.builder()
                                 .flightNumber("BAPI-1235")

@@ -6,14 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="cd91a97e-cf04-4b3e-aa00-45541d51e2e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/repository/FlyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/repository/FlyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/unit/repository/FlyRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/unit/repository/FlyRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/utils/FlyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/utils/FlyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/integration/FlyControllerIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/integration/FlyControllerIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/integration/HotelControllerIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/integration/HotelControllerIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/utils/FlyDTOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/utils/FlyDTOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/utils/HotelDTOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/utils/HotelDTOFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,15 +76,57 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "C:/Users/nnaconech/Desktop/S1_G3",
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.FlyRepositoryTest.availableListIsEmptyFlightsTest">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.bootcamp.spring1.integration" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in Spring1">
     <configuration name="All in Spring1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spring1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlyControllerIntegrationTest.listFlyAvailableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bootcamp.spring1.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bootcamp.spring1.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.integration.FlyControllerIntegrationTest" />
+      <option name="METHOD_NAME" value="listFlyAvailableTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlyControllerIntegrationTest.reservationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bootcamp.spring1.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bootcamp.spring1.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.integration.FlyControllerIntegrationTest" />
+      <option name="METHOD_NAME" value="reservationTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,45 +163,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FlyRepositoryTest.getFlightsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Spring1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bootcamp.spring1.unit.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bootcamp.spring1.unit.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.unit.repository.FlyRepositoryTest" />
-      <option name="METHOD_NAME" value="getFlightsTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FlyRepositoryTest.getNotExistFlightsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Spring1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bootcamp.spring1.unit.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bootcamp.spring1.unit.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.unit.repository.FlyRepositoryTest" />
-      <option name="METHOD_NAME" value="getNotExistFlightsTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Spring1" />
+        <item itemvalue="JUnit.FlyControllerIntegrationTest.reservationTest" />
+        <item itemvalue="JUnit.FlyControllerIntegrationTest.listFlyAvailableTest" />
         <item itemvalue="JUnit.FlyRepositoryTest.availableListIsEmptyFlightsTest" />
         <item itemvalue="JUnit.FlyRepositoryTest.availableListFlyTest" />
-        <item itemvalue="JUnit.FlyRepositoryTest.getNotExistFlightsTest" />
-        <item itemvalue="JUnit.All in Spring1" />
-        <item itemvalue="JUnit.FlyRepositoryTest.getFlightsTest" />
       </list>
     </recent_temporary>
   </component>

@@ -99,11 +99,4 @@ public class HotelControllerIntegrationTest {
                 .andExpectAll(statusExpected,bodyExpected,contentTypeExpected);
     }
 
-    @Test
-    public void precioTest() {
-        //arrange
-        //Request
-        //Expected --> Status, body y contentype
-        //Act&assert con mocking
-    }
 }
