@@ -1,5 +1,6 @@
 package com.bootcamp.spring1.repository;
 
+import com.bootcamp.spring1.exceptions.NullException;
 import com.bootcamp.spring1.model.FlyModel;
 import lombok.Data;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import java.util.List;
 @Repository
 @Data
 public class FlyRepository {
-    private List<FlyModel> flights;
+    public List<FlyModel> flights;
 
     public FlyRepository() { //Creamos la data de los vuelos usando el constructor
         this.flights = new ArrayList<>();
@@ -167,6 +168,9 @@ public class FlyRepository {
     }
 
     public List<FlyModel> getFlights() {
+        if(flights.isEmpty()){
+            throw new NullException("No existe ningun vuelo");
+        }
         return flights;
     }
 
@@ -180,6 +184,9 @@ public class FlyRepository {
                     && destination.equals(flyModel.getDestination())) {
                 availableFlights.add(flyModel);
             }
+        }
+        if(availableFlights.isEmpty()){
+            throw new NullException("No se encuentra el vuelo buscado");
         }
         return availableFlights;
     }

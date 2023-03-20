@@ -109,11 +109,11 @@ public class FlyFactory {
     }
     public static FlyModel getFly10(){
         return FlyModel.builder()
-                .flyNumber("BOME-4442")
+                .flyNumber("BOBA-6567")
                 .origin("Bogotá")
-                .destination("Medellín")
+                .destination("Buenos Aires")
                 .seatType("Economy")
-                .pricePerson(11000)
+                .pricePerson(39860)
                 .departureDate(LocalDate.of(2023,03,10))
                 .returnDate(LocalDate.of(2023, 04, 15))
                 .build();

@@ -5,24 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd91a97e-cf04-4b3e-aa00-45541d51e2e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/S1_G3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_el_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_2_5_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_3_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_7_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/fly/FlightReservationRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/fly/FlightReservationRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/fly/FlyRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/fly/FlyRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/hotel/BookingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/hotel/BookingDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/hotel/HotelRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/dto/request/hotel/HotelRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/service/FlyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/service/FlyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/repository/FlyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/main/java/com/bootcamp/spring1/repository/FlyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/unit/repository/FlyRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/unit/repository/FlyRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/utils/FlyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring1/src/test/java/com/bootcamp/spring1/utils/FlyFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +26,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="US02-Test" />
+                    <option name="lastUsedInstant" value="1679311034" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="US01" />
                     <option name="lastUsedInstant" value="1678996611" />
@@ -82,37 +72,86 @@
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.com.bootcamp.spring1.Spring1Application">
-    <configuration name="Spring1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.Bootcamp.Spring1.Spring1Application" />
+  <component name="RunManager" selected="JUnit.FlyRepositoryTest.availableListIsEmptyFlightsTest">
+    <configuration name="All in Spring1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spring1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.Bootcamp.Spring1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.bootcamp.spring1.Spring1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.Spring1Application" />
+    <configuration name="FlyRepositoryTest.availableListFlyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spring1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.bootcamp.spring1.*" />
+          <option name="PATTERN" value="com.bootcamp.spring1.unit.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.bootcamp.spring1.unit.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.unit.repository.FlyRepositoryTest" />
+      <option name="METHOD_NAME" value="availableListFlyTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlyRepositoryTest.availableListIsEmptyFlightsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bootcamp.spring1.unit.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bootcamp.spring1.unit.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.unit.repository.FlyRepositoryTest" />
+      <option name="METHOD_NAME" value="availableListIsEmptyFlightsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlyRepositoryTest.getFlightsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bootcamp.spring1.unit.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bootcamp.spring1.unit.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.unit.repository.FlyRepositoryTest" />
+      <option name="METHOD_NAME" value="getFlightsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlyRepositoryTest.getNotExistFlightsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spring1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bootcamp.spring1.unit.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bootcamp.spring1.unit.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.bootcamp.spring1.unit.repository.FlyRepositoryTest" />
+      <option name="METHOD_NAME" value="getNotExistFlightsTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.bootcamp.spring1.Spring1Application" />
-        <item itemvalue="Application.Spring1Application" />
+        <item itemvalue="JUnit.FlyRepositoryTest.availableListIsEmptyFlightsTest" />
+        <item itemvalue="JUnit.FlyRepositoryTest.availableListFlyTest" />
+        <item itemvalue="JUnit.FlyRepositoryTest.getNotExistFlightsTest" />
+        <item itemvalue="JUnit.All in Spring1" />
+        <item itemvalue="JUnit.FlyRepositoryTest.getFlightsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -130,5 +169,8 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/S1_G3$All_in_Spring1.ic" NAME="All in Spring1 Coverage Results" MODIFIED="1679313255580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
