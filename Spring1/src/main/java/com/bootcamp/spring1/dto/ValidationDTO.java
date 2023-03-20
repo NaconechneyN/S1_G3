@@ -12,5 +12,4 @@ import java.util.List;
 public class ValidationDTO {
 
     List<String> messages;
-
 }

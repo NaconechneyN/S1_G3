@@ -1,10 +1,7 @@
 package com.bootcamp.spring1.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Email;
@@ -13,8 +10,7 @@ import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Validated
 
 public class HostDTO {
@@ -23,8 +19,6 @@ public class HostDTO {
     private String lastname;
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate birthday;
-
     @NotEmpty @Email //Validación de que se envíe mail con formato nombre@servidor.com
     private String mail;
-
 }

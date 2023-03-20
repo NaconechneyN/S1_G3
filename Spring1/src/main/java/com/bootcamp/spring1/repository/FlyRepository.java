@@ -21,7 +21,7 @@ public class FlyRepository {
         this.flights = new ArrayList<>();
         DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         // Si no reconoce el formato de fecha se descomenta y se agrega el nombre de la variable al final de cada
-        // fecha como segundo parametro.
+        // fecha como segundo parámetro.
 
         FlyModel fly1 = new FlyModel();
         fly1.setFlyNumber("BAPI-1235");
@@ -33,7 +33,6 @@ public class FlyRepository {
         fly1.setReturnDate(LocalDate.parse("15/04/2023", f));
 
         flights.add(fly1);
-
 
         FlyModel fly2 = new FlyModel();
         fly2.setFlyNumber("PIBA-1420");
@@ -168,7 +167,7 @@ public class FlyRepository {
     }
 
     public List<FlyModel> getFlights() {
-        if(flights.isEmpty()){
+        if (flights.isEmpty()) {
             throw new NullException("No existe ningun vuelo");
         }
         return flights;
@@ -179,13 +178,13 @@ public class FlyRepository {
         List<FlyModel> availableFlights = new ArrayList<>();
         for (FlyModel flyModel : flights) {
             if (departureDate.isAfter(flyModel.getDepartureDate().minusDays(1))
-                   && returnDate.isBefore(flyModel.getReturnDate().plusDays(1))
+                    && returnDate.isBefore(flyModel.getReturnDate().plusDays(1))
                     && origin.equals(flyModel.getOrigin())
                     && destination.equals(flyModel.getDestination())) {
                 availableFlights.add(flyModel);
             }
         }
-        if(availableFlights.isEmpty()){
+        if (availableFlights.isEmpty()) {
             throw new NullException("No se encuentra el vuelo buscado");
         }
         return availableFlights;
@@ -199,6 +198,5 @@ public class FlyRepository {
         }
         return null;
     }
-
 }
 

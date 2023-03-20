@@ -26,7 +26,6 @@ import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-
 class FlyControllerIntegrationTest {
     @Autowired
     MockMvc mockMvc;
@@ -36,7 +35,6 @@ class FlyControllerIntegrationTest {
             .registerModule(new JavaTimeModule())
             .writer();
 
-
     @Test
     void listFlyAvailableTest() throws Exception {
         List<FlyModel> expected = List.of(FlyFactory.getFly1());
@@ -45,7 +43,7 @@ class FlyControllerIntegrationTest {
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .get("/api/v1/flights")
                 .queryParam("dateFrom", "10/03/2023")
-                .queryParam("dateTo","15/04/2023")
+                .queryParam("dateTo", "15/04/2023")
                 .queryParam("origin", "Buenos Aires")
                 .queryParam("destination", "Puerto Iguazú");
 
@@ -65,7 +63,6 @@ class FlyControllerIntegrationTest {
         mockMvc.perform(request)
                 .andDo(MockMvcResultHandlers.print())
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
-
     }
 
     @Test
@@ -81,7 +78,7 @@ class FlyControllerIntegrationTest {
         ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
 
         //body
-        var expectedResponse = new FlyResponseDTO("El monto total del vuelo es de: ", 6500 );
+        var expectedResponse = new FlyResponseDTO("El monto total del vuelo es de: ", 6500);
         ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(writer.writeValueAsString(expectedResponse));
 
         //contentType

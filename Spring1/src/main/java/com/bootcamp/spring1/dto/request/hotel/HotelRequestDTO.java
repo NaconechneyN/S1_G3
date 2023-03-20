@@ -7,8 +7,7 @@ import javax.validation.Valid;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 @Builder
 
 public class HotelRequestDTO {
@@ -16,5 +15,4 @@ public class HotelRequestDTO {
     private String username;
     @Valid
     private BookingDTO booking;
-
 }

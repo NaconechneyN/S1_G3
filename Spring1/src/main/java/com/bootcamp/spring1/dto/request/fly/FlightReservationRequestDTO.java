@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.NumberFormat;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -31,7 +30,6 @@ public class FlightReservationRequestDTO {
     @Positive(message = "La cantidad de personas debe ser un valor numérico mayor a 0")
     private Integer seats;
     private String seatType;
-
     private List<@Valid HostDTO> people;
     private PaymentsDTO paymentMethod;
 }

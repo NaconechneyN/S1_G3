@@ -4,11 +4,7 @@ import com.bootcamp.spring1.dto.request.HostDTO;
 import com.bootcamp.spring1.dto.request.PaymentsDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
-import org.springframework.validation.annotation.Validated;
-
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.time.LocalDate;
@@ -16,8 +12,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 @Builder
 
 public class BookingDTO {
@@ -31,7 +26,6 @@ public class BookingDTO {
     @Positive(message = "La cantidad de personas debe ser un valor numérico.")
     private Integer peopleAmount;
     private String roomType;
-
     private PaymentsDTO Payments;
     private List<@Valid HostDTO> people;
 

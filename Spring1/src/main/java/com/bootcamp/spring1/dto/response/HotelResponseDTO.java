@@ -9,5 +9,4 @@ import lombok.*;
 public class HotelResponseDTO {
     private String mensaje;
     private Double total;
-
 }

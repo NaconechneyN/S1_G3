@@ -1,14 +1,10 @@
 package com.bootcamp.spring1.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Getter
+@Data
 
 public class PaymentsDTO {
     private String type; // Tipo de tarjeta

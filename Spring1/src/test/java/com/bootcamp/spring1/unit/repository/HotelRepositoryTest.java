@@ -13,19 +13,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HotelRepositoryTest {
+class HotelRepositoryTest {
     HotelRepository hotelRepository;
 
     @BeforeEach
-    void setup(){
+    void setup() {
         hotelRepository = new HotelRepository();
     }
 
-
     @Test
-
-    public void getHotelsTest() {
-
+    void getHotelsTest() {
         //arrange
         List<HotelModel> expected = new ArrayList<>();
         HotelModel hotels1 = HotelFactory.getHotel1();
@@ -41,7 +38,6 @@ public class HotelRepositoryTest {
         HotelModel hotels11 = HotelFactory.getHotel11();
         HotelModel hotels12 = HotelFactory.getHotel12();
 
-
         expected.add(hotels1);
         expected.add(hotels2);
         expected.add(hotels3);
@@ -56,43 +52,36 @@ public class HotelRepositoryTest {
         expected.add(hotels12);
 
         //act
-
         var result = hotelRepository.getHotels();
 
         //assert
-
         Assertions.assertEquals(expected, result);
     }
 
     @Test
-
-    public void hotelWithNoExistentTest() {
-
+    void hotelWithNoExistentTest() {
         //arrange
         hotelRepository.hotels = new ArrayList<>();
 
         //act & assert
         Assertions.assertThrows(NullException.class,
-                ()->hotelRepository.getHotels()); //estructura general para ejecutar el método con excepción
+                () -> hotelRepository.getHotels()); //estructura general para ejecutar el método con excepción
     }
 
     @Test
-
-    public void getHotelsQuantityTest() {
-
+    void getHotelsQuantityTest() {
         //arrange
-          Integer expected = 12;
+        Integer expected = 12;
 
         //act
-          var result = hotelRepository.getHotels();
+        var result = hotelRepository.getHotels();
 
         //assert
         Assertions.assertEquals(expected, result.size());
     }
 
     @Test
-
-    public void availableListHotelsTest () {
+    void availableListHotelsTest() {
         //arrange
         List<HotelModel> expected = new ArrayList<>();
         String city = ("Puerto Iguazú");
@@ -109,19 +98,18 @@ public class HotelRepositoryTest {
     }
 
     @Test
-    public void availableListEmptyHotelsTest () {
+    void availableListEmptyHotelsTest() {
         //arrange
         String city = ("Rafaela");
         LocalDate availableFromDate = LocalDate.of(2022, 04, 10);
         LocalDate availableUntilDate = LocalDate.of(2022, 06, 20);
         //act & assert
         Assertions.assertThrows(NullException.class,
-                ()->hotelRepository.availableListHotels(city, availableFromDate, availableUntilDate));
+                () -> hotelRepository.availableListHotels(city, availableFromDate, availableUntilDate));
     }
 
     @Test
-
-    public void buscarPrecioHotelTest() {
+    void buscarPrecioHotelTest() {
         //arrange
         String codeHotel = "CH-0002";
         Double expected = HotelFactory.getHotel1().getPrice();
@@ -132,5 +120,4 @@ public class HotelRepositoryTest {
         //assert
         Assertions.assertEquals(expected, result);
     }
-
 }

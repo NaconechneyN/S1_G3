@@ -18,8 +18,6 @@ public class FlyModel {
     private String destination;
     private String seatType;
     private int pricePerson;
-    // @JsonFormat(pattern = "dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate departureDate;
-    // @JsonFormat(pattern = "dd-MM-yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate returnDate;
 }

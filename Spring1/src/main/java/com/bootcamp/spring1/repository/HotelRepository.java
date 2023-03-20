@@ -183,7 +183,7 @@ public class HotelRepository {
         if (hotels.isEmpty()) {
             throw new NullException("No existe ningún hotel");
         }
-            return hotels;
+        return hotels;
     }
 
     public List<HotelModel> availableListHotels(String city, LocalDate availableFromDate, LocalDate availableUntilDate) {
@@ -195,7 +195,7 @@ public class HotelRepository {
                 availableHotels.add(hotelModel);
             }// si el if resulta verdadero, agregar a la lista ese hotel
         }
-        if (availableHotels.isEmpty()){
+        if (availableHotels.isEmpty()) {
             throw new NullException("No se encontró el hotel");
         }
         return availableHotels;
@@ -221,5 +221,4 @@ public class HotelRepository {
         }
         return false;
     }
-
 }

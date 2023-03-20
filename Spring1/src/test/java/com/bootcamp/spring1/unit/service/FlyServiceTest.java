@@ -19,7 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-public class FlyServiceTest {
+class FlyServiceTest {
 
     @Mock
     FlyRepository flyRepository;
@@ -40,11 +40,10 @@ public class FlyServiceTest {
 
         // Assert
         Assertions.assertEquals(expected, result);
-
     }
 
     @Test
-    void notReservationFlightTest (){
+    void notReservationFlightTest() {
         // Arrange
         FlyRequestDTO asientos = FlyDTOFactory.getFly1();
         List<FlyModel> flights = List.of();
@@ -53,8 +52,7 @@ public class FlyServiceTest {
         Mockito.when(flyRepository.searchFlightPrice(asientos.getFlightReservation().getFlightNumber())).thenReturn(6500);
         Mockito.when(flyRepository.getFlights()).thenReturn(flights);
         Assertions.assertThrows(DestinationException.class,
-                ()-> flyService.reservationFlight(asientos));
-
+                () -> flyService.reservationFlight(asientos));
     }
 }
 

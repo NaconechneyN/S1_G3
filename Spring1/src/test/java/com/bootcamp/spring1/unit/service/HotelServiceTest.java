@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-public class HotelServiceTest {
+class HotelServiceTest {
     @Mock
     HotelRepository hotelRepository;
 
@@ -31,35 +31,32 @@ public class HotelServiceTest {
     @Test
     void bookingHotelTest() {
         // Arrange
-        HotelRequestDTO codigo = HotelDTOFactory.getHotelDTO1();
+        HotelRequestDTO code = HotelDTOFactory.getHotelDTO1();
         List<HotelModel> hotel = List.of(HotelFactory.getHotel1());
         HotelResponseDTO expected = new HotelResponseDTO("El monto de la reserva es de: ", 63000.00);
 
         // Act
-        Mockito.when(hotelRepository.buscarPrecioHotel(codigo.getBooking().getHotelCode())).thenReturn(6300.00);
-        Mockito.when(hotelRepository.hotelBooking(codigo.getBooking().getHotelCode())).thenReturn(true);
+        Mockito.when(hotelRepository.buscarPrecioHotel(code.getBooking().getHotelCode())).thenReturn(6300.00);
+        Mockito.when(hotelRepository.hotelBooking(code.getBooking().getHotelCode())).thenReturn(true);
         Mockito.when(hotelRepository.getHotels()).thenReturn(hotel);
-        var result = hotelService.bookingHotel(codigo);
+        var result = hotelService.bookingHotel(code);
 
         // Assert
         Assertions.assertEquals(expected, result);
-
     }
 
     @Test
     void notDestinationBookingHotelTest() {
         // Arrange
-        HotelRequestDTO codigo = HotelDTOFactory.getHotelDTO1();
+        HotelRequestDTO code = HotelDTOFactory.getHotelDTO1();
         List<HotelModel> hotel = List.of();
 
         // Act & Assert
-        Mockito.when(hotelRepository.buscarPrecioHotel(codigo.getBooking().getHotelCode())).thenReturn(6300.00);
-        Mockito.when(hotelRepository.hotelBooking(codigo.getBooking().getHotelCode())).thenReturn(true);
+        Mockito.when(hotelRepository.buscarPrecioHotel(code.getBooking().getHotelCode())).thenReturn(6300.00);
+        Mockito.when(hotelRepository.hotelBooking(code.getBooking().getHotelCode())).thenReturn(true);
         Mockito.when(hotelRepository.getHotels()).thenReturn(hotel);
 
         Assertions.assertThrows(DestinationException.class,
-                ()-> hotelService.bookingHotel(codigo));
+                () -> hotelService.bookingHotel(code));
     }
-
-
 }

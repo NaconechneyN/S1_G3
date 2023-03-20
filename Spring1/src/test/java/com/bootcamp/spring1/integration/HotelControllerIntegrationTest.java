@@ -26,29 +26,25 @@ import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class HotelControllerIntegrationTest {
+class HotelControllerIntegrationTest {
     @Autowired
     MockMvc mockMvc;
-
-
     ObjectWriter writer = new ObjectMapper()
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
             .registerModule(new JavaTimeModule())
             .writer();
 
     @Test
-
-    public void listHotelAvailableTest() throws Exception {
+    void listHotelAvailableTest() throws Exception {
         //arrange
         List<HotelModel> expected = List.of(HotelFactory.getHotel1());
 
         //Request
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .get("/api/v1/hotels")
-                .queryParam("dateFrom","10/04/2023")
-                .queryParam("dateTo","20/06/2023")
-                .queryParam("destination","Puerto Iguazú");
-
+                .queryParam("dateFrom", "10/04/2023")
+                .queryParam("dateTo", "20/06/2023")
+                .queryParam("destination", "Puerto Iguazú");
 
         //Expected --> Status, body y contentype
         //Status
@@ -59,22 +55,21 @@ public class HotelControllerIntegrationTest {
         );
 
         System.out.println(writer.writeValueAsString(expected));
-        //contetype
+        //contentType
         ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
         //Act&assert con mocking
         mockMvc.perform(request)
                 .andDo(MockMvcResultHandlers.print())
-                .andExpectAll(statusExpected,bodyExpected,contentTypeExpected);
-
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
     }
 
     @Test
-    public void bookingTest() throws Exception {
+    void bookingTest() throws Exception {
         //Request - Toda esta parte es igual al Request del Postman
         HotelRequestDTO bodyRequest = HotelDTOFactory.getHotelDTO1(); // Representación del JSON que se pasa por POSTMAN
 
         MockHttpServletRequestBuilder request =
-                MockMvcRequestBuilders.post("/api/v1/booking") // URL y el Metodo que se pasa por POSTMAN (metodo POST)
+                MockMvcRequestBuilders.post("/api/v1/booking") // URL y el Método que se pasa por POSTMAN (metodo POST)
                         .content(writer.writeValueAsString(bodyRequest)) // Representación del JSON que se pasa por POSTMAN
                         .contentType(MediaType.APPLICATION_JSON); // El tipo de dato que se envía al tener un body
 
@@ -83,7 +78,7 @@ public class HotelControllerIntegrationTest {
         ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk(); // El Status que devuelve
 
         //Body
-        // Generamos la variable con la respuesta que esperamos (Lo que quisieramos ver en POSTMAN)
+        // Generamos la variable con la respuesta que esperamos (Lo que quisiéramos ver en POSTMAN)
         var expectedResponse = new HotelResponseDTO("El monto de la reserva es de: ", 63000.00);
         // Definimos la respuesta que esperamos en el Body
         ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(writer.writeValueAsString(expectedResponse));
@@ -96,7 +91,6 @@ public class HotelControllerIntegrationTest {
         // Ejecución del Test
         mockMvc.perform(request)
                 .andDo(MockMvcResultHandlers.print())
-                .andExpectAll(statusExpected,bodyExpected,contentTypeExpected);
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
     }
-
 }

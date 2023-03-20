@@ -12,7 +12,6 @@ import java.time.LocalDate;
 @Data
 @Builder
 
-
 public class HotelModel {
     private String codeHotel;
     private String name;
@@ -22,6 +21,4 @@ public class HotelModel {
     private LocalDate availableFromDate;
     private LocalDate availableUntilDate;
     private Boolean reserved;
-
-    // Tenemos que generar nro (id) reserva?
 }

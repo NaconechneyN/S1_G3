@@ -15,17 +15,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FlyRepositoryTest {
+class FlyRepositoryTest {
     FlyRepository flyRepository;
 
     @BeforeEach
-    void setup(){
+    void setup() {
         flyRepository = new FlyRepository();
     }
 
     @Test
-
-    public void getFlightsTest(){
+    void getFlightsTest() {
         //arrange
         List<FlyModel> expected = new ArrayList<>();
         FlyModel flights1 = FlyFactory.getFly1();
@@ -55,33 +54,24 @@ public class FlyRepositoryTest {
         expected.add(flights12);
 
         //act
-
         var result = flyRepository.getFlights();
 
         //assert
-
         Assertions.assertEquals(expected, result);
     }
 
     @Test
-
-    public void getNotExistFlightsTest(){
-
+    void getNotExistFlightsTest() {
         //arrange
         flyRepository.flights = new ArrayList<>();
 
         //act y assert
-
         Assertions.assertThrows(NullException.class,
-                ()->flyRepository.getFlights());
-
-
+                () -> flyRepository.getFlights());
     }
 
     @Test
-
-    public void availableListFlyTest(){
-
+    void availableListFlyTest() {
         //arrange
         List<FlyModel> expected = new ArrayList<>();
         String origin = "Bogotá";
@@ -90,38 +80,24 @@ public class FlyRepositoryTest {
         LocalDate returnDate = LocalDate.of(2023, 04, 15);
         FlyModel flights = FlyFactory.getFly7();
         expected.add(flights);
-        //act
 
+        //act
         var result = flyRepository.availableListFly(origin, destination, departureDate, returnDate);
 
         //assert
-
-        Assertions.assertEquals(expected,result);
-
+        Assertions.assertEquals(expected, result);
     }
 
     @Test
-
-    public void availableListIsEmptyFlightsTest(){
-
+    void availableListIsEmptyFlightsTest() {
         //arrange
-
         String origin = "Sunchales";
         String destination = "Gral. Pico";
         LocalDate departureDate = LocalDate.of(2022, 03, 10);
         LocalDate returnDate = LocalDate.of(2022, 04, 15);
 
         //act y assert
-
         Assertions.assertThrows(NullException.class,
-                ()->flyRepository.availableListFly(origin, destination, departureDate, returnDate));
+                () -> flyRepository.availableListFly(origin, destination, departureDate, returnDate));
     }
-
-    //@Test
-      //      (){
-        //arrange
-        //act y assert
-
-    //}
-
 }

@@ -10,21 +10,19 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class HotelDTOFactory {
-
-    public static HotelRequestDTO getHotelDTO1 (){
+    public static HotelRequestDTO getHotelDTO1() {
         return HotelRequestDTO.builder()
                 .username("Cerdito Pateador")
                 .booking(
-                BookingDTO.builder()
-                        .hotelCode("CH-0002")
-                        .dateFrom(LocalDate.of(2023,04,10))
-                        .dateTo(LocalDate.of(2023,06,20))
-                        .roomType("doble")
-                        .peopleAmount(2)
-                        .destination("Puerto Iguazú")
-                        .build()
+                        BookingDTO.builder()
+                                .hotelCode("CH-0002")
+                                .dateFrom(LocalDate.of(2023, 04, 10))
+                                .dateTo(LocalDate.of(2023, 06, 20))
+                                .roomType("doble")
+                                .peopleAmount(2)
+                                .destination("Puerto Iguazú")
+                                .build()
                 )
                 .build();
     }
-
 }

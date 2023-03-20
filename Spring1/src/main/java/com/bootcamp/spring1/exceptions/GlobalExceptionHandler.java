@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.stream.Collectors;
@@ -15,10 +14,10 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    // AMBOS METODOS SIRVEN PARA CONVERTIR LOS MENSAJES DE LAS VALIDACIONES EN UN ARRAY DE MENSAJES ENTENDIBLES.
+    // AMBOS MÉTODOS SIRVEN PARA CONVERTIR LOS MENSAJES DE LAS VALIDACIONES EN UN ARRAY DE MENSAJES ENTENDIBLES.
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ValidationDTO> validationException(MethodArgumentNotValidException e){
+    public ResponseEntity<ValidationDTO> validationException(MethodArgumentNotValidException e) {
         return ResponseEntity.status(400).body(
                 new ValidationDTO(
                         e.getAllErrors().stream().map(error -> error.getDefaultMessage()).collect(Collectors.toList())
@@ -27,7 +26,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<ValidationDTO> validationException(ConstraintViolationException e){
+    public ResponseEntity<ValidationDTO> validationException(ConstraintViolationException e) {
         return ResponseEntity.ok(
                 new ValidationDTO(
                         e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.toList())
@@ -35,13 +34,13 @@ public class GlobalExceptionHandler {
         );
     }
 
-       ///Generar excepcion de fecha (aca se manejan porque YA EXISTEN), probar que msj lanza y aca lo "editamos"
-       @ExceptionHandler(RuntimeException.class)
-       public ResponseEntity<RunTimeExceptionDto> validationException(RuntimeException e){
-           return ResponseEntity.status(400).body(
-                   new RunTimeExceptionDto(
-                    e.getMessage()
-                      )
-           );
-       }
+    ///Generar excepción de fecha (aca se manejan porque YA EXISTEN), probar que msj lanza y aca lo "editamos"
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<RunTimeExceptionDto> validationException(RuntimeException e) {
+        return ResponseEntity.status(400).body(
+                new RunTimeExceptionDto(
+                        e.getMessage()
+                )
+        );
+    }
 }
