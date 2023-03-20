@@ -1,6 +1,7 @@
 package com.bootcamp.spring1.utils;
 
 import com.bootcamp.spring1.dto.request.HostDTO;
+import com.bootcamp.spring1.dto.request.hotel.BookingDTO;
 import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
 import com.bootcamp.spring1.model.HotelModel;
 
@@ -9,160 +10,32 @@ import java.time.format.DateTimeFormatter;
 
 public class HotelDTOFactory {
 
-    public static HotelModel getHotel1DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("CH-0002")
-                .name("Cataratas Hotel")
-                .city("Puerto Iguazú")
-                .roomTipe("doble")
-                .price(6300.00)
-                .availableFromDate(LocalDate.of(2023,04,10))
-                .availableUntilDate(LocalDate.of(2023,06,20))
-                .reserved(false)
+    public static HotelRequestDTO getHotelDTO1 (){
+        return HotelRequestDTO.builder()
+                .booking(
+                BookingDTO.builder()
+                        .hotelCode("CH-0002")
+                        .dateFrom(LocalDate.of(2023,04,10))
+                        .dateTo(LocalDate.of(2023,06,20))
+                        .roomType("doble")
+                        .peopleAmount(2)
+                        .destination("Puerto Iguazú")
+                        .build()
+                )
                 .build();
     }
-    public static HotelModel getHotel2DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("CH-0003")
-                .name("Cataratas Hotel 2")
-                .city("Puerto Iguazú")
-                .roomTipe("triple")
-                .price(8300.00)
-                .availableFromDate(LocalDate.of(2023,04,10))
-                .availableUntilDate(LocalDate.of(2023,05,23))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel3DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("HB-0001")
-                .name("Hotel Bristol")
-                .city("Buenos Aires")
-                .roomTipe("single")
-                .price(5435.00)
-                .availableFromDate(LocalDate.of(2023,02,10))
-                .availableUntilDate(LocalDate.of(2023,06,19))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel4DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("BH-0002")
-                .name("Hotel Bristol 2")
-                .city("Buenos Aires")
-                .roomTipe("doble")
-                .price(7200.00)
-                .availableFromDate(LocalDate.of(2023,02,12))
-                .availableUntilDate(LocalDate.of(2023,06,17))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel5DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("SH-0002")
-                .name("Sheraton")
-                .city("Tucumán")
-                .roomTipe("doble")
-                .price(5790.00)
-                .availableFromDate(LocalDate.of(2023,02,12))
-                .availableUntilDate(LocalDate.of(2023,06,17))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel6DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("SH-0001")
-                .name("Sheraton 2")
-                .city("Tucumán")
-                .roomTipe("single")
-                .price(4150.00)
-                .availableFromDate(LocalDate.of(2023,02,12))
-                .availableUntilDate(LocalDate.of(2023,06,17))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel7DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("SE-0001")
-                .name("Selina")
-                .city("Bogotá")
-                .roomTipe("single")
-                .price(3900.00)
-                .availableFromDate(LocalDate.of(2023,02,12))
-                .availableUntilDate(LocalDate.of(2023,06,17))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel8DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("SE-0002")
-                .name("Selina 2")
-                .city("Bogotá")
-                .roomTipe("doble")
-                .price(5840.00)
-                .availableFromDate(LocalDate.of(2023,02,12))
-                .availableUntilDate(LocalDate.of(2023,06,17))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel9DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("EC-0003")
-                .name("El Campín")
-                .city("Bogotá")
-                .roomTipe("triple")
-                .price(7020.00)
-                .availableFromDate(LocalDate.of(2023,02,12))
-                .availableUntilDate(LocalDate.of(2023,06,17))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel10DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("CP-0004")
-                .name("Central Plaza")
-                .city("Medellín")
-                .roomTipe("Múltiple")
-                .price(8600.00)
-                .availableFromDate(LocalDate.of(2023,02,12))
-                .availableUntilDate(LocalDate.of(2023,06,17))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel11DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("CP-0002")
-                .name("Central Plaza 2")
-                .city("Medellín")
-                .roomTipe("doble")
-                .price(6400.00)
-                .availableFromDate(LocalDate.of(2023,02,12))
-                .availableUntilDate(LocalDate.of(2023,06,17))
-                .reserved(false)
-                .build();
-    }
-    public static HotelModel getHotel12DTO() {
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return HotelModel.builder()
-                .codeHotel("BG-0004")
-                .name("Bocagrande")
-                .city("Cartagena")
-                .roomTipe("Múltiple")
-                .price(9370.00)
-                .availableFromDate(LocalDate.of(2023,02,12))
-                .availableUntilDate(LocalDate.of(2023,06,17))
-                .reserved(false)
+    public static HotelRequestDTO getHotelDTO2 (){
+        return HotelRequestDTO.builder()
+                .booking(
+                        BookingDTO.builder()
+                                .hotelCode("CH-0002")
+                                .dateFrom(LocalDate.of(2022,04,10))
+                                .dateTo(LocalDate.of(2022,06,20))
+                                .roomType("doble")
+                                .peopleAmount(2)
+                                .destination("Puerto Iguazú")
+                                .build()
+                )
                 .build();
     }
 }
