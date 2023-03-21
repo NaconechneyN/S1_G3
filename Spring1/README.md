@@ -65,6 +65,6 @@ Test de Integración: 2 en fligths, 2 en hotels
 
 Utils: HotelFactory, HotelDTOFactory, FlyFactory, FlyDTOFactory
 
-Total de test: 18
+Total de test: 19
 Total Factories: 4
 Total de coverage: 87%
