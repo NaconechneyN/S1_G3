@@ -57,7 +57,7 @@ Validaciones y Test
 
 Validaciones: Aplicadas en los Controllers, Service, Repository, y en DTO´s
 
-Test unitarios sin mocks: 4 en fligths, 6 el hotels.
+Test unitarios sin mocks: 5 en fligths, 6 el hotels.
 
 Test unitarios con mocks: 2 en fligths y 2 en hotels. 
 

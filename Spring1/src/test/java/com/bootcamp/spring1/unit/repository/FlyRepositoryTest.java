@@ -100,4 +100,16 @@ class FlyRepositoryTest {
         Assertions.assertThrows(NullException.class,
                 () -> flyRepository.availableListFly(origin, destination, departureDate, returnDate));
     }
+    @Test
+    void searchFlightPriceTest() {
+        //arrange
+        String flyNumber = "BAPI-1235";
+        Integer expected = FlyFactory.getFly1().getPricePerson();
+
+        //act
+        var result = flyRepository.searchFlightPrice(flyNumber);
+
+        //assert
+        Assertions.assertEquals(expected, result);
+    }
 }
