@@ -63,5 +63,8 @@ Test unitarios con mocks: 2 en fligths y 2 en hotels.
 
 Test de Integración: 2 en fligths, 2 en hotels
 
+Utils: HotelFactory, HotelDTOFactory, FlyFactory, FlyDTOFactory
+
 Total de test: 18
+Total Factories: 4
 Total de coverage: 87%
