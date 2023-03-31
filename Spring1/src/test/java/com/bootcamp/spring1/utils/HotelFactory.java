@@ -1,7 +1,5 @@
-package com.bootcamp.spring1.utils;
+/*package com.bootcamp.spring1.utils;
 
-
-import com.bootcamp.spring1.model.HotelModel;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -176,3 +174,4 @@ public class HotelFactory {
                 .build();
     }
 }
+*/

@@ -1,10 +1,9 @@
-package com.bootcamp.spring1.service;
+/*package com.bootcamp.spring1.service.classes;
 
 import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
 import com.bootcamp.spring1.dto.response.FlyResponseDTO;
 import com.bootcamp.spring1.exceptions.DateException;
 import com.bootcamp.spring1.exceptions.DestinationException;
-import com.bootcamp.spring1.model.FlyModel;
 import com.bootcamp.spring1.repository.FlyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +17,8 @@ public class FlyService {
     @Autowired //requerimos para enlazar con el repository y poder usar todas sus funcionalidades
     FlyRepository flyRepository;
 
-    /* Creamos un método "List" del contenido de HotelModel, pero que nos retorne el resultado de la
-       función getHotels dentro de hotelRepository*/
+    //Creamos un método "List" del contenido de HotelModel, pero que nos retorne el resultado de la
+     //función getHotels dentro de hotelRepository
     public List<FlyModel> flightsList() {
         return flyRepository.getFlights();
     }
@@ -69,3 +68,4 @@ public class FlyService {
     }
 }
 
+*/

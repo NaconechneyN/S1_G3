@@ -4,7 +4,8 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Setter
+@Getter
 
 public class PaymentsDTO {
     private String type; // Tipo de tarjeta

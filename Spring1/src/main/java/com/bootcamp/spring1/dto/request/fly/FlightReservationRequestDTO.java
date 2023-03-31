@@ -1,6 +1,6 @@
 package com.bootcamp.spring1.dto.request.fly;
 
-import com.bootcamp.spring1.dto.request.HostDTO;
+import com.bootcamp.spring1.dto.request.ClienteDTO;
 import com.bootcamp.spring1.dto.request.PaymentsDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -30,6 +30,6 @@ public class FlightReservationRequestDTO {
     @Positive(message = "La cantidad de personas debe ser un valor numérico mayor a 0")
     private Integer seats;
     private String seatType;
-    private List<@Valid HostDTO> people;
+    private List<@Valid ClienteDTO> people;
     private PaymentsDTO paymentMethod;
 }

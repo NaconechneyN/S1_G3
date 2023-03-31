@@ -4,7 +4,8 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Setter
+@Getter
 
 public class HotelResponseDTO {
     private String mensaje;

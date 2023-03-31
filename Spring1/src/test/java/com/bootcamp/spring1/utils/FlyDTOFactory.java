@@ -1,10 +1,7 @@
-package com.bootcamp.spring1.utils;
+/*package com.bootcamp.spring1.utils;
 
 import com.bootcamp.spring1.dto.request.fly.FlightReservationRequestDTO;
 import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
-import com.bootcamp.spring1.dto.request.hotel.BookingDTO;
-import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
-import com.bootcamp.spring1.model.FlyModel;
 
 import java.time.LocalDate;
 
@@ -26,3 +23,4 @@ public class FlyDTOFactory {
     }
 }
 
+*/

@@ -1,17 +1,13 @@
-package com.bootcamp.spring1.utils;
+/*package com.bootcamp.spring1.utils;
 
-import com.bootcamp.spring1.dto.request.HostDTO;
 import com.bootcamp.spring1.dto.request.hotel.BookingDTO;
-import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
-import com.bootcamp.spring1.dto.response.HotelResponseDTO;
-import com.bootcamp.spring1.model.HotelModel;
+import com.bootcamp.spring1.dto.request.hotel.HotelDTO;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class HotelDTOFactory {
-    public static HotelRequestDTO getHotelDTO1() {
-        return HotelRequestDTO.builder()
+    public static HotelDTO getHotelDTO1() {
+        return HotelDTO.builder()
                 .username("Cerdito Pateador")
                 .booking(
                         BookingDTO.builder()
@@ -26,3 +22,4 @@ public class HotelDTOFactory {
                 .build();
     }
 }
+*/

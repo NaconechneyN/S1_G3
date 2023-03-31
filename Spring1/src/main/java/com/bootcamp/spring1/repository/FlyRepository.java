@@ -1,10 +1,7 @@
-package com.bootcamp.spring1.repository;
+/*package com.bootcamp.spring1.repository;
 
 import com.bootcamp.spring1.exceptions.NullException;
-import com.bootcamp.spring1.model.FlyModel;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -200,3 +197,4 @@ public class FlyRepository {
     }
 }
 
+*/

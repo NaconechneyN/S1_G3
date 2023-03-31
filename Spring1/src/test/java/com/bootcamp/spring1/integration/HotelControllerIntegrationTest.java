@@ -1,11 +1,9 @@
-package com.bootcamp.spring1.integration;
+/*package com.bootcamp.spring1.integration;
 
-import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
+import com.bootcamp.spring1.dto.request.hotel.HotelDTO;
 import com.bootcamp.spring1.dto.response.HotelResponseDTO;
-import com.bootcamp.spring1.model.HotelModel;
 import com.bootcamp.spring1.utils.HotelDTOFactory;
 import com.bootcamp.spring1.utils.HotelFactory;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -66,7 +64,7 @@ class HotelControllerIntegrationTest {
     @Test
     void bookingTest() throws Exception {
         //Request - Toda esta parte es igual al Request del Postman
-        HotelRequestDTO bodyRequest = HotelDTOFactory.getHotelDTO1(); // Representación del JSON que se pasa por POSTMAN
+        HotelDTO bodyRequest = HotelDTOFactory.getHotelDTO1(); // Representación del JSON que se pasa por POSTMAN
 
         MockHttpServletRequestBuilder request =
                 MockMvcRequestBuilders.post("/api/v1/booking") // URL y el Método que se pasa por POSTMAN (metodo POST)
@@ -94,3 +92,4 @@ class HotelControllerIntegrationTest {
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
     }
 }
+*/

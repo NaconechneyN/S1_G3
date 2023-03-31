@@ -1,11 +1,9 @@
-package com.bootcamp.spring1.integration;
+/*package com.bootcamp.spring1.integration;
 
 import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
 import com.bootcamp.spring1.dto.response.FlyResponseDTO;
-import com.bootcamp.spring1.model.FlyModel;
 import com.bootcamp.spring1.utils.FlyDTOFactory;
 import com.bootcamp.spring1.utils.FlyFactory;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -90,3 +88,4 @@ class FlyControllerIntegrationTest {
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
     }
 }
+*/

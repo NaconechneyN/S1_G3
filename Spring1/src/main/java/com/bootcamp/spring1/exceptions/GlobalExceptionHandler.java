@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
+/*
     // AMBOS MÉTODOS SIRVEN PARA CONVERTIR LOS MENSAJES DE LAS VALIDACIONES EN UN ARRAY DE MENSAJES ENTENDIBLES.
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
                 )
         );
     }
-
+*/
     ///Generar excepción de fecha (aca se manejan porque YA EXISTEN), probar que msj lanza y aca lo "editamos"
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<RunTimeExceptionDto> validationException(RuntimeException e) {
@@ -41,6 +41,15 @@ public class GlobalExceptionHandler {
                 new RunTimeExceptionDto(
                         e.getMessage()
                 )
+        );
+    }
+    @ExceptionHandler(IdException.class)
+    public ResponseEntity<ValidationDTO> IdException(IdException e){
+        return ResponseEntity.status(404).body(
+                ValidationDTO.builder()
+                        .message(e.getMessage())
+                        .action("BÚSQUEDA")
+                        .build()
         );
     }
 }

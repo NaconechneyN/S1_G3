@@ -10,15 +10,15 @@ import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Validated
-
-public class HostDTO {
+public class ClienteDTO {
     private Integer dni;
-    private String firstName;
+    private String name;
     private String lastname;
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
-    private LocalDate birthday;
+    private LocalDate birthdate;
     @NotEmpty @Email //Validación de que se envíe mail con formato nombre@servidor.com
     private String mail;
 }

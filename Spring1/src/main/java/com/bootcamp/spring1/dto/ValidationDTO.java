@@ -1,15 +1,17 @@
 package com.bootcamp.spring1.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ValidationDTO {
 
-    List<String> messages;
+    private String message;
+
+    private String action;
 }

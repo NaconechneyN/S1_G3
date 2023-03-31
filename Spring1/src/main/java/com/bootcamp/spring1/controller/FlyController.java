@@ -1,7 +1,6 @@
-package com.bootcamp.spring1.controller;
+/*package com.bootcamp.spring1.controller;
 
-import com.bootcamp.spring1.model.FlyModel;
-import com.bootcamp.spring1.service.FlyService;
+import com.bootcamp.spring1.service.classes.FlyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,3 +41,4 @@ public class FlyController {
     }
 
 }
+*/

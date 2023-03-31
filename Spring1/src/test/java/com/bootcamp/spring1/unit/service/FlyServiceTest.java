@@ -1,11 +1,10 @@
-package com.bootcamp.spring1.unit.service;
+/*package com.bootcamp.spring1.unit.service;
 
 import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
 import com.bootcamp.spring1.dto.response.FlyResponseDTO;
 import com.bootcamp.spring1.exceptions.DestinationException;
-import com.bootcamp.spring1.model.FlyModel;
 import com.bootcamp.spring1.repository.FlyRepository;
-import com.bootcamp.spring1.service.FlyService;
+import com.bootcamp.spring1.service.classes.FlyService;
 import com.bootcamp.spring1.utils.FlyDTOFactory;
 import com.bootcamp.spring1.utils.FlyFactory;
 import org.junit.jupiter.api.Assertions;
@@ -56,3 +55,4 @@ class FlyServiceTest {
     }
 }
 
+*/

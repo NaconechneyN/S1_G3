@@ -1,12 +1,8 @@
-package com.bootcamp.spring1.unit.repository;
+/*package com.bootcamp.spring1.unit.repository;
 
 import com.bootcamp.spring1.exceptions.NullException;
-import com.bootcamp.spring1.model.FlyModel;
 import com.bootcamp.spring1.repository.FlyRepository;
-import com.bootcamp.spring1.repository.HotelRepository;
 import com.bootcamp.spring1.utils.FlyFactory;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import lombok.Builder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -113,3 +109,5 @@ class FlyRepositoryTest {
         Assertions.assertEquals(expected, result);
     }
 }
+
+ */

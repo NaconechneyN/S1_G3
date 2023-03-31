@@ -1,8 +1,7 @@
-package com.bootcamp.spring1.repository;
+/*package com.bootcamp.spring1.repository;
 
 
 import com.bootcamp.spring1.exceptions.NullException;
-import com.bootcamp.spring1.model.HotelModel;
 import lombok.Data;
 import org.springframework.stereotype.Repository;
 
@@ -10,11 +9,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Repository
@@ -177,8 +171,8 @@ public class HotelRepository {
 
     }
 
-    /*Le indicamos al Repo que a través de una lista con de los atributos que tenemos en HotelModel, nos retorne
-     todos los hoteles que tenemos en la variable hotel declarada arriba en los atributos de Repository*/
+    //Le indicamos al Repo que a través de una lista con de los atributos que tenemos en HotelModel, nos retorne
+   //  todos los hoteles que tenemos en la variable hotel declarada arriba en los atributos de Repository
     public List<HotelModel> getHotels() {
         if (hotels.isEmpty()) {
             throw new NullException("No existe ningún hotel");
@@ -222,3 +216,4 @@ public class HotelRepository {
         return false;
     }
 }
+*/

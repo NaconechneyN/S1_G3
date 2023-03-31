@@ -68,3 +68,16 @@ Utils: HotelFactory, HotelDTOFactory, FlyFactory, FlyDTOFactory
 Total de test: 19
 Total Factories: 4
 Total de coverage: 87%
+
+
+#Sprint 3
+31/03/2023: commit "ver Readme con el detalle: Acciones técnicas, Creación de entidades con asociaciones, add método crear y borrar hotel y mod. otros métodos"
+* Se hicieron las acciones técnicas en el pom
+* Reestructuración de Modelos a Entidades con sus relaciones. 
+* Modificación de algunos DTO
+* Implementación de la interfaz ICrudService con sus respectivos métodos
+* Implementación de la interfaz IHotelRepository con sus respectivos métodos
+* Agregamos los métodos crear y borrar un hotel
+* Agregamos suna excepción personalizada "IdException"
+* Corregimos los métodos buscar lista de hoteles y obtener hoteles por parámetros 
+
