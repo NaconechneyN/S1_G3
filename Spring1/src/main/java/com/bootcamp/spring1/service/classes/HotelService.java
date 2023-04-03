@@ -162,6 +162,7 @@ public class HotelService implements ICrudService<HotelDTO, Integer> {
                 .build();
     }
 
+    //Método para borrar una reserva
     public ValidationDTO deleteBooking(Integer id) {
         // buscar el dato en la base de datos y asegurarnos que exista
         if (bookingHotelRepository.existsById(id)) {

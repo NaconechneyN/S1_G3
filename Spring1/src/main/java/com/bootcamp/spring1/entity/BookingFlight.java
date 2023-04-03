@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 import java.util.List;
@@ -22,6 +21,9 @@ public class BookingFlight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "usuario", nullable = false,length = 20)
+    private String username;
 
     @Column(name = "fecha_ida", nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
@@ -43,11 +45,14 @@ public class BookingFlight {
     @Column(name = "tipo_asiento", nullable = false, length = 20)
     private String seatType;
 
-    @ManyToOne
-    private Client people;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Client> people;
 
-    @OneToOne
-    private PaymentMethod paymentMethod;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    private PaymentMethod payments;
+
+    /*@OneToOne
     private Flight flight;
+*/
 }
+

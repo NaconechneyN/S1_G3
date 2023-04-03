@@ -29,6 +29,11 @@ public class HotelController {
                 hotelService.saveEntity(hotelDTO)
         );
     }
+    //EP para reservar Hotel
+    @PostMapping("/booking/new")
+    public HotelResponseDTO booking(@Valid @RequestBody HotelRequestDTO datosReserva) {
+        return hotelService.hotelBooking(datosReserva);
+    }
 
     //EP para editar Hotel
     @PutMapping("/edit/{code}")
@@ -36,14 +41,6 @@ public class HotelController {
         return ResponseEntity.ok(
                 hotelService.saveEntity(hotelDTO)
         );
-    }
-    //falta Editar una reserva de hotel
-
-
-    //EP para reservar Hotel
-    @PostMapping("/booking/new")
-    public HotelResponseDTO booking(@Valid @RequestBody HotelRequestDTO datosReserva) {
-        return hotelService.hotelBooking(datosReserva);
     }
 
     // EP de editar una reserva de hotel.
