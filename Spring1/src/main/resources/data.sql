@@ -1,0 +1,2 @@
+INSERT INTO hotel (codigo_hotel, nombre_hotel, ciudad, tipo_habitacion, precio, fecha_disponibilidad_desde, fecha_disponibilidad_hasta, reservado)
+VALUES ('CH-0002', 'Cataratas Hotel', 'Puerto Iguazú', 'doble', 6300.00, '2023/04/10', '2023/05/20', false);

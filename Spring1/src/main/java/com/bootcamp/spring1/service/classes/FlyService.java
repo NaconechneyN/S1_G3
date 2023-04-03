@@ -32,6 +32,9 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
         return mapper.map(entity, FlyDTO.class);
     }
 
+    //Nos falta el método para hacer una reserva de vuelo
+
+
     // Método para obtener una lista de todos los vuelos
     @Override
     public List<FlyDTO> getAllEntities() {

@@ -34,7 +34,7 @@ public class BookingFlight {
     private String origin;
     @Column(name = "ciudad_destino", nullable = false, length = 60)
     private String destination;
-    @Column(name = "número_vuelo", nullable = false, length = 15)
+    @Column(name = "numero_vuelo", nullable = false, length = 15)
     private String flightNumber;
     @NotNull
     @Positive(message = "La cantidad de personas debe ser un valor numérico mayor a 0")

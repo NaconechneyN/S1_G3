@@ -21,7 +21,7 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "número_vuelo", nullable = false, length = 15)
+    @Column(name = "numero_vuelo", nullable = false, length = 15)
     private String flightNumber;
     @Column(name = "ciudad_origen", nullable = false, length = 60)
     private String origin;

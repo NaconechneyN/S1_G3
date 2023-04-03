@@ -21,13 +21,13 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "código_hotel", nullable = false, length = 15, unique = true)
+    @Column(name = "codigo_hotel", nullable = false, length = 15, unique = true)
     private String hotelCode;
     @Column(name = "nombre_hotel", nullable = false, length = 40)
     private String name;
     @Column(name = "ciudad", nullable = false, length = 60)
     private String city;
-    @Column(name = "tipo_habitación", nullable = false, length = 20)
+    @Column(name = "tipo_habitacion", nullable = false, length = 20)
     private String roomType;
     @Column(name = "precio", scale = 4, precision = 2)
     private Double price;

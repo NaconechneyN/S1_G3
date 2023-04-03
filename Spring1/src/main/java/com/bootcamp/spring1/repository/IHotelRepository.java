@@ -12,8 +12,5 @@ public interface IHotelRepository extends JpaRepository<Hotel, Integer> {
                                                                                   LocalDate dateTo,
                                                                                   String destination);
 
-
     Hotel findByHotelCode(String code);
-  //  Hotel findByHotelPrice(Double price);
-
 }

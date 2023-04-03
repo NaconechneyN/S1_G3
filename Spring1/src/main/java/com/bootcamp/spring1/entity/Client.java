@@ -28,10 +28,10 @@ public class Client {
     @Column(name = "documento", nullable = false, length = 8)
     private String dni;
     @Column(length = 100)
-    private String email;
+    private String mail;
     @Column(name = "fechaNacimiento", nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthDate;
-    @Column(name = "método_pago", nullable = false)
-    protected String PaymentMethod;
+    @Column(name = "metodo_pago")
+    protected String payments;
 }

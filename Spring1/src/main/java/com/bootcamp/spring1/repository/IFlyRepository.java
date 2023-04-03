@@ -11,5 +11,8 @@ public interface IFlyRepository extends JpaRepository<Flight, Integer> {
                                                                                   LocalDate dateTo,
                                                                                   String destination);
 
+
+
     Flight findByFlightNumber(String code);
+
 }

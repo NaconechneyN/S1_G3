@@ -57,11 +57,11 @@ Validaciones y Test
 
 Validaciones: Aplicadas en los Controllers, Service, Repository, y en DTO´s
 
-Test unitarios sin mocks: 5 en fligths, 6 el hotels.
+Test unitarios sin mocks: 5 en flights, 6 el hotels.
 
-Test unitarios con mocks: 2 en fligths y 2 en hotels. 
+Test unitarios con mocks: 2 en flights y 2 en hotels. 
 
-Test de Integración: 2 en fligths, 2 en hotels
+Test de Integración: 2 en flights, 2 en hotels
 
 Utils: HotelFactory, HotelDTOFactory, FlyFactory, FlyDTOFactory
 
@@ -80,4 +80,7 @@ Total de coverage: 87%
 * Agregamos los métodos crear y borrar un hotel
 * Agregamos suna excepción personalizada "IdException"
 * Corregimos los métodos buscar lista de hoteles y obtener hoteles por parámetros 
+
+03/04/2023: commit "agregamos service de flights"
+
 

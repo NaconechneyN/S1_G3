@@ -36,14 +36,19 @@ public class FlyController {
                 flyService.saveEntity(flyDTO)
         );
     }
-
+    // Editar Flights
+    @PutMapping ("/edit/{code}")
+    public ResponseEntity<FlyDTO> putHotel(@RequestBody FlyDTO flyDTO) {
+        return ResponseEntity.ok(
+                flyService.saveEntity(flyDTO)
+        );
+    }
     @GetMapping("/all")
     public ResponseEntity<List<FlyDTO>> flightsList() {
         return ResponseEntity.ok(
                 flyService.getAllEntities()
         );
     }
-
     @GetMapping("/")
     public ResponseEntity<List<FlyDTO>> availableListHotels(
             @RequestParam(required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate dateFrom,
@@ -53,7 +58,6 @@ public class FlyController {
                 flyService.findByParameter(dateFrom, dateTo, destination)
         );
     }
-
     @DeleteMapping("/delete/{code}")
     public ResponseEntity<ValidationDTO> deleteEntity(@PathVariable String code) {
         return ResponseEntity.ok(

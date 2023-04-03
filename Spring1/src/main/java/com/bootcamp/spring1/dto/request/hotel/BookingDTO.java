@@ -27,7 +27,7 @@ public class BookingDTO {
     private Integer peopleAmount;
     private String roomType;
     private List<@Valid ClienteDTO> people;
-    private PaymentsDTO Payments;
+    private PaymentsDTO payments;
 
 
 }
