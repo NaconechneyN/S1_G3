@@ -37,7 +37,8 @@ public class Flight {
     @Column(name = "fecha_retorno", nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateTo;
-    @Column(name = "reserva", nullable = false)
-    private Boolean reservation;
+    @Column(name = "reserva")
+    private Boolean reservation = false;
+
 }
 

@@ -43,4 +43,6 @@ public class BookingHotel {
     private PaymentMethod paymentMethod;
     @ManyToOne
     private Client people;
+    @OneToOne
+    private Hotel hotel;
 }

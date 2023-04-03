@@ -39,8 +39,6 @@ public class Hotel {
     private LocalDate dateTo;
     @Column(name = "reservado", nullable = false)
     private Boolean booked;
-    @OneToOne
-    private BookingHotel booking;
 
 }
 

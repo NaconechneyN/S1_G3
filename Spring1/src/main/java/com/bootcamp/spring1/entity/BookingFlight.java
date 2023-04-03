@@ -1,4 +1,4 @@
-/*package com.bootcamp.spring1.entity;
+package com.bootcamp.spring1.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
@@ -42,9 +42,12 @@ public class BookingFlight {
     private Integer seats;
     @Column(name = "tipo_asiento", nullable = false, length = 20)
     private String seatType;
-    @Column(name = "persona", nullable = false)
-    private List<@Valid Client> people;
-    @Column(name = "método_pago", nullable = false)
+
+    @ManyToOne
+    private Client people;
+
+    @OneToOne
     private PaymentMethod paymentMethod;
+    @OneToOne
+    private Flight flight;
 }
-*/

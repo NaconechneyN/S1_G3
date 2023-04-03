@@ -39,7 +39,7 @@ public class HotelController {
     @GetMapping("/")
     public ResponseEntity<List<HotelDTO>> availableListHotels(
            @RequestParam(required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate dateFrom,
-            @RequestParam(required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate dateTo,
+           @RequestParam(required = false) @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate dateTo,
            @RequestParam(required = false) String destination) {
         return ResponseEntity.ok(
                 hotelService.findByParameter(dateFrom, dateTo, destination)
@@ -52,10 +52,19 @@ public class HotelController {
                 hotelService.deleteEntity(code)
         );
     }
-    @PutMapping ("/edit/{code}")
+    /* @PutMapping ("/edit/{code}")
     public ResponseEntity<ValidationDTO> putHotel(@PathVariable String code) {
         return ResponseEntity.ok(
                 hotelService.putEntity(code)
+        );
+    }
+     */
+
+    // Editar Hotel
+    @PutMapping ("/edit/{code}")
+    public ResponseEntity<HotelDTO> putHotel(@RequestBody HotelDTO hotelDTO) {
+        return ResponseEntity.ok(
+                hotelService.saveEntity(hotelDTO)
         );
     }
     /*

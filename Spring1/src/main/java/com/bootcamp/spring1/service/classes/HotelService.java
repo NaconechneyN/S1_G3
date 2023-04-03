@@ -5,6 +5,7 @@ import com.bootcamp.spring1.dto.HotelDTO;
 import com.bootcamp.spring1.dto.ValidationDTO;
 import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
 import com.bootcamp.spring1.dto.response.HotelResponseDTO;
+import com.bootcamp.spring1.entity.BookingHotel;
 import com.bootcamp.spring1.entity.Hotel;
 //import com.bootcamp.spring1.repository.HotelRepository;
 import com.bootcamp.spring1.exceptions.IdException;
@@ -82,21 +83,23 @@ public class HotelService implements ICrudService<HotelDTO, Integer> {
                 .build();
     }
 
-    public ValidationDTO putEntity(String code) {
-        // buscar el dato en la base de datos y asegurarnos que exista
-        var hotel = hotelRepository.findByHotelCode(code);
-        // eliminar efectivamente
-        if (hotel != null)
-            hotelRepository.save(hotel);
-        else
-            throw new IdException("No se pudo modificar hotel con el código: " + code);
-        // devolver el mensaje DTO
-        return ValidationDTO.builder()
-                .message("Se modificó el hotel con el código: " + code)
-                .action("EDITATION")
-                .build();
-    }
+    public HotelResponseDTO hotelBooking(HotelRequestDTO hotelRequestDTO) {
+        var bookingEntity = hotelRepository.findByHotelCode(hotelRequestDTO.getBooking().getHotelCode());
+        if (bookingEntity != null){
+            bookingEntity.setBooked(true);
+            hotelRepository.save(bookingEntity);
+            BookingHotel booking = new BookingHotel();
+            booking.setHotel(bookingEntity);
+            booking.setDateFrom(hotelRequestDTO.getBooking().getDateFrom());
+            booking.setDateTo(hotelRequestDTO.getBooking().getDateTo());
+            booking.setPeopleAmount(hotelRequestDTO.getBooking().getPeopleAmount());
+            booking.setRoomType(hotelRequestDTO.getBooking().getRoomType());
+        }
 
+        else
+            throw new IdException("No se pudo hacer la reserva");
+        return null;
+    }
 
     /*
     public HotelResponseDTO bookingHotel(HotelRequestDTO hotelRequestDTO) {
