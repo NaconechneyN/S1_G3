@@ -22,10 +22,10 @@ public class BookingFlight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "usuario", nullable = false,length = 20)
+    @Column(name = "usuario", nullable = false,length = 50)
     private String username;
 
-    @Column(name = "fecha_ida", nullable = false)
+    @Column(name = "fecha_salida", nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
     public LocalDate dateFrom;
 

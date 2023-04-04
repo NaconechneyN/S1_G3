@@ -23,7 +23,7 @@ public class HotelController {
     HotelService hotelService;
 
     //EP para generar un nuevo hotel
-    @PostMapping("/new/")
+    @PostMapping("/new")
     public ResponseEntity<HotelDTO> create(@RequestBody HotelDTO hotelDTO) {
         return ResponseEntity.ok(
                 hotelService.saveEntity(hotelDTO)

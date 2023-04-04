@@ -29,8 +29,8 @@ public class Flight {
     private String destination;
     @Column(name = "tipo_asiento", nullable = false, length = 20)
     private String seatType;
-    @Column(name = "precio", nullable = false, scale = 4, precision = 2)
-    private int pricePerson;
+    @Column(name = "precio", nullable = false, scale = 4)
+    private Integer flightPrice;
     @Column(name = "fecha_salida", nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateFrom;

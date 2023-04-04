@@ -2,8 +2,13 @@ package com.bootcamp.spring1.service.classes;
 
 import com.bootcamp.spring1.dto.FlyDTO;
 import com.bootcamp.spring1.dto.ValidationDTO;
+import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
+import com.bootcamp.spring1.dto.response.FlyResponseDTO;
+import com.bootcamp.spring1.entity.BookingFlight;
 import com.bootcamp.spring1.entity.Flight;
+import com.bootcamp.spring1.exceptions.DateException;
 import com.bootcamp.spring1.exceptions.IdException;
+import com.bootcamp.spring1.repository.IBookingFlightRepository;
 import com.bootcamp.spring1.repository.IFlyRepository;
 import com.bootcamp.spring1.service.generics.ICrudService;
 import org.modelmapper.ModelMapper;
@@ -18,6 +23,8 @@ import java.util.stream.Collectors;
 public class FlyService implements ICrudService<FlyDTO, Integer> {
     @Autowired
     IFlyRepository flyRepository;
+    @Autowired
+    IBookingFlightRepository bookingFlightRepository;
 
     ModelMapper mapper = new ModelMapper();
 
@@ -32,7 +39,39 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
         return mapper.map(entity, FlyDTO.class);
     }
 
-    //Nos falta el método para hacer una reserva de vuelo
+    //Método para guardar una nueva reserva de vuelo
+    public FlyResponseDTO flightBooking(FlyRequestDTO flyRequestDTO) {
+        if (flyRequestDTO.getFlightReservation().getDateTo().isBefore(flyRequestDTO.getFlightReservation().getDateFrom())) {
+            throw new DateException("La fecha de ida debe ser menor a la de vuelta.");
+        }
+
+        var flightEntity = flyRepository.findByFlightNumber(flyRequestDTO.getFlightReservation().getFlightNumber());
+        if (flightEntity != null) {
+            flightEntity.setReservation(true);
+            flyRepository.save(flightEntity);
+        }
+
+        var bookedEntity = mapper.map(flyRequestDTO.getFlightReservation(), BookingFlight.class);
+        bookedEntity.setUsername(flyRequestDTO.getUserName());
+        bookingFlightRepository.save(bookedEntity);
+
+        //buscamos el precio del hotel en la entidad Vuelo
+        var price = flightEntity.getFlightPrice();
+
+        // calculamos los asientos reservados
+        var seat = flyRequestDTO.getFlightReservation().getSeats();
+
+        // Calculamos el precio total
+        Integer priceTotal = price * seat;
+
+        // Devolvemos DTO con el mensaje y el precio total
+        FlyResponseDTO mensaje = new FlyResponseDTO();
+        mensaje.setMensaje("El monto total de la reserva del vuelo es de: ");
+        mensaje.setTotal(priceTotal);
+
+        return mensaje;
+
+    }
 
 
     // Método para obtener una lista de todos los vuelos
@@ -47,9 +86,10 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
     }
 
     //Método para obtener un vuelo por parámetros.
-    public List<FlyDTO> findByParameter(LocalDate dateFrom, LocalDate dateTo, String destination) {
-        var listEntity = flyRepository.findByDateFromLessThanEqualAndDateToGreaterThanEqualAndOriginEquals
-                (dateFrom, dateTo, destination);
+    public List<FlyDTO> findByParameter(LocalDate dateFrom, LocalDate dateTo, String origin, String destination) {
+        var listEntity =
+                flyRepository.findByDateFromLessThanEqualAndDateToGreaterThanEqualAndOriginEqualsAndDestinationEquals
+                        (dateFrom, dateTo, origin, destination);
         if (listEntity != null) {
             return listEntity.stream().map(
                             flightsParameter -> mapper.map(flightsParameter, FlyDTO.class)
@@ -102,30 +142,6 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
             }
         }
         throw new DestinationException("El origen elegido no existe");
-    }
-
-
-    public FlyResponseDTO reservationFlight(FlyRequestDTO flyRequestDTO) {
-        //Calcular precio
-        Integer price = flyRepository.searchFlightPrice(flyRequestDTO.getFlightReservation().getFlightNumber());
-        //Calcular cuantas personas hay
-        Integer seatsPerson = flyRequestDTO.getFlightReservation().getSeats();
-        //Calculamos el precio total
-        Integer priceTotal = price * seatsPerson;
-        //Devolvemos DTO con mensaje y el precio total
-        FlyResponseDTO mensaje = new FlyResponseDTO();
-        mensaje.setMensaje("El monto total del vuelo es de: ");
-        mensaje.setTotal(priceTotal);
-
-        if (flyRequestDTO.getFlightReservation().getDateTo().isBefore(flyRequestDTO.getFlightReservation().getDateFrom())) {
-            throw new DateException("La fecha de ida debe ser menor a la de vuelta.");
-        }
-        for (FlyModel fly : flightsList()) {
-            if (fly.getDestination().equals(flyRequestDTO.getFlightReservation().getDestination())) {
-                return mensaje;
-            }
-        }
-        throw new DestinationException("El destino elegido no existe");
     }
     */
 }

@@ -23,7 +23,7 @@ public class Client {
     private Integer id;
     @Column(name = "nombre", nullable = false, length = 40)
     private String name;
-    @Column(name = "apellido", nullable = false, length = 40)
+    @Column(name = "apellido", length = 40)
     private String lastName;
     @Column(name = "documento", nullable = false, length = 8)
     private String dni;

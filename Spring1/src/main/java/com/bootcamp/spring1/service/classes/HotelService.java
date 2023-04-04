@@ -98,8 +98,6 @@ public class HotelService implements ICrudService<HotelDTO, Integer> {
 
     }
 
-    //falta método para modificar una reserva
-
     //Método para obtener la lista de todos los hoteles
     @Override
     public List<HotelDTO> getAllEntities() {

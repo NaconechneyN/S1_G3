@@ -7,8 +7,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface IFlyRepository extends JpaRepository<Flight, Integer> {
-    List<Flight> findByDateFromLessThanEqualAndDateToGreaterThanEqualAndOriginEquals(LocalDate dateFrom,
+    List<Flight> findByDateFromLessThanEqualAndDateToGreaterThanEqualAndOriginEqualsAndDestinationEquals(LocalDate dateFrom,
                                                                                   LocalDate dateTo,
+                                                                                  String origin,
                                                                                   String destination);
 
 
