@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class ClienteDTO {
     private Integer dni;
     private String name;
-    private String lastname;
+    private String lastName;
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING)
     private LocalDate birthdate;
     @NotEmpty @Email //Validación de que se envíe mail con formato nombre@servidor.com

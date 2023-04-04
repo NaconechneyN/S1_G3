@@ -53,11 +53,12 @@ public class FlyController {
         );
     }
 
-    // EP para modificar una reserva de un vuelo
-    @PutMapping ("/reserve/edit/{code}")
-    public ResponseEntity<FlyResponseDTO> putBooking(@RequestBody FlyRequestDTO flyRequestDTO) {
+    // EP para modificar una reserva de un vuelo - Da errores
+    @PutMapping ("/reserve/edit/{id}")
+    public ResponseEntity<FlyResponseDTO> putBooking(@RequestBody FlyRequestDTO flyRequestDTO,
+                                                     @PathVariable Integer id) {
         return ResponseEntity.ok(
-                flyService.flightBooking(flyRequestDTO)
+                flyService.flightBookingEdit(flyRequestDTO, id)
         );
     }
 
@@ -81,7 +82,14 @@ public class FlyController {
         );
     }
 
-    // Falta para ver todas las reservas
+    // EP para ver todas las reservas
+
+    @GetMapping("/reservations")
+    public ResponseEntity<List<FlyRequestDTO>> bookingList(){
+        return ResponseEntity.ok(
+                flyService.getAllBooking()
+        );
+    }
 
     // EP eliminar un vuelo
     @DeleteMapping("/delete/{code}")
@@ -92,20 +100,13 @@ public class FlyController {
     }
 
     // Falta eliminar una reserva de vuelo
-
-
-    /*
-    @GetMapping("/api/v1/flights")
-    public List<FlyModel> listFlyAvailable(@NotEmpty @RequestParam(required = false) String dateTo,
-                                           @NotEmpty @RequestParam(required = false) String dateFrom,
-                                           @NotEmpty @RequestParam(required = false) String origin,
-                                           @NotEmpty @RequestParam(required = false) String destination) {
-        return flyService.availableListFly(dateTo, dateFrom, origin, destination);
+    @DeleteMapping("/booking/delete/{id}")
+    public ResponseEntity<ValidationDTO> deleteHotel(@PathVariable Integer id) {
+        return ResponseEntity.ok(
+                flyService.deleteBooking(id)
+        );
     }
 
-    @PostMapping("/api/v1/flight-reservation")
-    public FlyResponseDTO reservation(@Valid @RequestBody FlyRequestDTO flyRequestDTO) {
-        return flyService.reservationFlight(flyRequestDTO);
-    }*/
+
 
 }
