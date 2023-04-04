@@ -95,36 +95,12 @@ public class HotelController {
         );
     }
 
+    // EP Nico: Flitro de hoteles segun el tipo de habitacion
 
-
-
-
-
-
-
-
-
-
-    /*
-
-    // listado de todos los hoteles disponibles en un determinado rango de fechas y según el destino seleccionado
-
-    //Validaciones --> comparar las fechas en el controler entrada<salida, si hay error se lanza excepción.
-    //              -->corregir formato de fechas a dd/mm/aaaa en vez de guiones.
-
-    @GetMapping("/api/v1/hotels")
-    public List<HotelModel> listHotelAvailable(@NotEmpty @RequestParam(required = false) String destination,
-                                               @NotEmpty  @RequestParam(required = false) String dateFrom,
-                                               @NotEmpty  @RequestParam(required = false) String dateTo)
-                //Comparar destino y fechas, ver service.
-    {
-        return hotelService.availableListHotels(destination, dateFrom, dateTo);
-
-
-    //creamos esta ruta como medio de verificacion para controlar los datos que se ingresan (postman)
-    @GetMapping("/api/v1/booking")
-    public HotelResponseDTO precio(@Valid @RequestBody HotelResponseDTO precioReserva) {
-        return hotelService.priceHotel(precioReserva);
+    @GetMapping("/findRoom/{roomType}")
+    public ResponseEntity<List<HotelDTO>> findRoomType(@PathVariable String roomType) {
+        return ResponseEntity.ok(
+                hotelService.findByRoom(roomType)
+        );
     }
-*/
 }

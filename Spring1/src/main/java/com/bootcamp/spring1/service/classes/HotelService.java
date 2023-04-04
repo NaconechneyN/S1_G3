@@ -13,6 +13,7 @@ import com.bootcamp.spring1.exceptions.RoomTypeException;
 import com.bootcamp.spring1.repository.IBookingHotelRepository;
 import com.bootcamp.spring1.repository.IHotelRepository;
 import com.bootcamp.spring1.service.generics.ICrudService;
+import net.bytebuddy.pool.TypePool;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -175,6 +176,22 @@ public class HotelService implements ICrudService<HotelDTO, Integer> {
                     .message("No se encontró una reserva con el id: " + id)
                     .action("DELETATION")
                     .build();
+        }
+    }
+    // -- EndPoint Nicolas --
+    // Realizar un filtro de los hoteles segun el tipo de habitacion
+    public List<HotelDTO> findByRoom(String roomType) {
+        //obtener todos los hoteles segun el tipo de habitacion
+        var listRoomEntity = hotelRepository.findByRoomType(roomType);
+
+        if (listRoomEntity != null ) {
+            return listRoomEntity.stream().map(
+                            hotelRoom -> mapper.map(hotelRoom, HotelDTO.class)
+                    )
+                    .collect(Collectors.toList());
+        } else {
+            throw new RoomTypeException("Favor ingresar datos válidos");
+
         }
     }
 }
