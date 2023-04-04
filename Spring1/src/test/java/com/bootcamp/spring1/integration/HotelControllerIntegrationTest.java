@@ -1,7 +1,10 @@
-/*package com.bootcamp.spring1.integration;
+package com.bootcamp.spring1.integration;
 
-import com.bootcamp.spring1.dto.request.hotel.HotelDTO;
+
+import com.bootcamp.spring1.dto.request.hotel.BookingDTO;
+import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
 import com.bootcamp.spring1.dto.response.HotelResponseDTO;
+import com.bootcamp.spring1.entity.Hotel;
 import com.bootcamp.spring1.utils.HotelDTOFactory;
 import com.bootcamp.spring1.utils.HotelFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,11 +38,11 @@ class HotelControllerIntegrationTest {
     @Test
     void listHotelAvailableTest() throws Exception {
         //arrange
-        List<HotelModel> expected = List.of(HotelFactory.getHotel1());
+        List<Hotel> expected = List.of(HotelFactory.getHotel1());
 
         //Request
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-                .get("/api/v1/hotels")
+                .get("/api/v1/hotels/")
                 .queryParam("dateFrom", "10/04/2023")
                 .queryParam("dateTo", "20/06/2023")
                 .queryParam("destination", "Puerto Iguazú");
@@ -61,13 +64,13 @@ class HotelControllerIntegrationTest {
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
     }
 
-    @Test
+   /* @Test
     void bookingTest() throws Exception {
         //Request - Toda esta parte es igual al Request del Postman
-        HotelDTO bodyRequest = HotelDTOFactory.getHotelDTO1(); // Representación del JSON que se pasa por POSTMAN
+        BookingDTO bodyRequest = HotelDTOFactory.getHotelDTO1(); // Representación del JSON que se pasa por POSTMAN
 
         MockHttpServletRequestBuilder request =
-                MockMvcRequestBuilders.post("/api/v1/booking") // URL y el Método que se pasa por POSTMAN (metodo POST)
+                MockMvcRequestBuilders.post("/api/v1/hotels/bookings/new") // URL y el Método que se pasa por POSTMAN (metodo POST)
                         .content(writer.writeValueAsString(bodyRequest)) // Representación del JSON que se pasa por POSTMAN
                         .contentType(MediaType.APPLICATION_JSON); // El tipo de dato que se envía al tener un body
 
@@ -90,6 +93,5 @@ class HotelControllerIntegrationTest {
         mockMvc.perform(request)
                 .andDo(MockMvcResultHandlers.print())
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
-    }
+    }*/
 }
-*/
