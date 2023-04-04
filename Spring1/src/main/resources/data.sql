@@ -34,3 +34,41 @@ VALUES ('CP-0002', 'Central Plaza 2', 'Medellín', 'doble', 6400.00, '2023/02/12
 INSERT INTO hotel (codigo_hotel, nombre_hotel, ciudad, tipo_habitacion, precio, fecha_disponibilidad_desde, fecha_disponibilidad_hasta, reservado)
 VALUES ('BG-0004', 'Bocagrande', 'Cartagena', 'Múltiple', 9370.00, '2023/02/12', '2023/06/17', false);
 
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("BAPI-1235", "Buenos Aires", "Puerto Iguazú", "Economy", 6500, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("PIBA-1420", "Puerto Iguazú", "Bogotá", "Business", 43200, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("PIBA-1420", "Buenos Aires", "Puerto Iguazú", "Economy", 25735, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("BATU-5536", "Buenos Aires", "Tucumán", "Economy", 7320, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("TUPI-3369", "Tucumán", "Puerto Iguazú", "Business", 12530, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("TUPI-3369", "Tucumán", "Puerto Iguazú", "Economy", 5400, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("BOCA-4213", "Bogotá", "Cartagena", "Economy", 8000, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("CAME-0321", "Cartagena", "Medellín", "Economy", 7800, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("BOBA-6567", "Bogotá", "Buenos Aires", "Business", 57000, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("BOBA-6567", "Bogotá", "Buenos Aires", "Economy", 39860, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("BOME-4442", "Bogotá", "Medellín", "Economy", 11000, "10/03/2023", "15/04/2023", false);
+
+INSERT INTO Flight (numero_vuelo, ciudad_origen, ciudad_destino, tipo_asiento, precio, fecha_salida, fecha_retorno, reserva)
+VALUES ("MEPI-9986", "Medellín", "Puerto Iguazú", "Business", 41640, "10/03/2023", "15/04/2023", false);
+
+
+
