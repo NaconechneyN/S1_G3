@@ -106,15 +106,5 @@ public class FlyController {
                 flyService.deleteBooking(id)
         );
     }
-    /*
-//EP Barby: Buscar los destinos más visitados
-@GetMapping("/destination/top")
-public ResponseEntity<List<FlyDTO>> topDestination() {
-    return ResponseEntity.ok(
-            flyService.findTopDestination()
-    );
-}
-*/
-
 
 }

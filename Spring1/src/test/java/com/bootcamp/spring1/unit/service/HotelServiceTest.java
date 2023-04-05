@@ -28,6 +28,35 @@ class HotelServiceTest {
     @InjectMocks
     HotelService hotelService;
 
+    //----> Test Barby
+    @Test
+    void petHotelEmptyTest() {
+        //Arrange
+        List<HotelDTO> expected = List.of(HotelDTOFactory.getHotelDTO1());
+        List<Hotel> hotel = List.of();
+
+        // Act & Assert
+        Mockito.when(hotelRepository.findByPetFriendlyTrue()).thenReturn(hotel);
+
+        Assertions.assertThrows(NullException.class,
+                () -> hotelService.petHotel());
+
+    }
+
+    @Test
+    void petHotelTest() {
+        //Arrange
+        List<HotelDTO> expected = List.of(HotelDTOFactory.getHotelDTO2());
+        List<Hotel> hotel = List.of(HotelFactory.getHotel2());
+
+        // Act & Assert
+        Mockito.when(hotelRepository.findByPetFriendlyTrue()).thenReturn(hotel);
+        var result = hotelService.petHotel();
+
+        Assertions.assertEquals(expected, result);
+
+    }
+
    /* @Test
     void bookingHotelTest() {
         // Arrange
@@ -60,30 +89,4 @@ class HotelServiceTest {
                 () -> hotelService.bookingHotel(code));
     }*/
 
-    @Test
-    void petHotelEmptyTest(){
-        //Arrange
-       List<HotelDTO> expected = List.of(HotelDTOFactory.getHotelDTO1());
-        List<Hotel> hotel =List.of();
-
-        // Act & Assert
-        Mockito.when(hotelRepository.findByPetFriendlyTrue()).thenReturn(hotel);
-
-        Assertions.assertThrows(NullException.class,
-                () -> hotelService.petHotel());
-
-    }
-    @Test
-    void petHotelTest(){
-        //Arrange
-        List<HotelDTO> expected = List.of(HotelDTOFactory.getHotelDTO2());
-        List<Hotel> hotel =List.of(HotelFactory.getHotel2());
-
-        // Act & Assert
-        Mockito.when(hotelRepository.findByPetFriendlyTrue()).thenReturn(hotel);
-        var result = hotelService.petHotel();
-
-        Assertions.assertEquals(expected, result);
-
-    }
 }

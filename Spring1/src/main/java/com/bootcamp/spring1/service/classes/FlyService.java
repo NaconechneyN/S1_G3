@@ -194,35 +194,6 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
                     .build();
         }
     }
-/*
-    //--- Método Barby --
-    // Realizar un filtro de las fechas más buscadas para la reserva de un hotel
-    public List<FlyDTO> findTopDestination() {
-        //Tengo que buscar vuelos por fecha temporada y guardarlos (20/04 al 10/06)
-        //busco por max y min de fechas
-        //incluir en el DTO la lista de estos vuelos
-        //Enviarle un mensaje que en esas fechas hay descuentos
-        //retorna la lista + mensaje
-
-        // consigna: listado de destinos + visitados
-        // buscar todos las reservas en el repo
-        var lisDestinationEntity = bookingFlightRepository.findAll();
-
-        if (lisDestinationEntity.size() >= 3) {
-            // luego convertir de entidad a DTO
-            return lisDestinationEntity.stream().map(
-                            flightsDestination -> mapper.map(flightsDestination, FlyDTO.class)
-                    )
-                    .collect(Collectors.toList());
-        } else {
-            throw new NullException("No se encontraron los destinos TOP");
-        }
-
-
-        //necesito recorrer las reservas y traer el destino más solicitado
-        //puedo hacer un min y max de destinos?
-    }
-    */
 
 }
 

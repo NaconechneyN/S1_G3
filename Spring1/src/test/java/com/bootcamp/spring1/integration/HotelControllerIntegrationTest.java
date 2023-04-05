@@ -36,6 +36,7 @@ class HotelControllerIntegrationTest {
             .registerModule(new JavaTimeModule())
             .writer();
 
+    //----> Test Barby
     @Test
     void petsHotelTest() throws Exception {
         //arrange
