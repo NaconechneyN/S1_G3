@@ -1,9 +1,9 @@
-/*package com.bootcamp.spring1.unit.service;
+package com.bootcamp.spring1.unit.service;
 
-import com.bootcamp.spring1.dto.request.hotel.HotelDTO;
-import com.bootcamp.spring1.dto.response.HotelResponseDTO;
-import com.bootcamp.spring1.exceptions.DestinationException;
-import com.bootcamp.spring1.repository.HotelRepository;
+
+import com.bootcamp.spring1.dto.HotelDTO;
+import com.bootcamp.spring1.entity.Hotel;
+import com.bootcamp.spring1.repository.IHotelRepository;
 import com.bootcamp.spring1.service.classes.HotelService;
 import com.bootcamp.spring1.utils.HotelDTOFactory;
 import com.bootcamp.spring1.utils.HotelFactory;
@@ -14,18 +14,33 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 class HotelServiceTest {
     @Mock
-    HotelRepository hotelRepository;
+    IHotelRepository hotelRepository;
 
     @InjectMocks
     HotelService hotelService;
 
     @Test
+    void findRoomTypeTest() {
+        // Arrange
+        List<HotelDTO> expected = List.of(HotelDTOFactory.getHotelDTO2());
+        List<Hotel> hotel = List.of(HotelFactory.getHotel12());
+
+        // Act & Assert
+        Mockito.when(hotelRepository.findByRoomType("Múltiple")).thenReturn(hotel);
+        var result = hotelService.findByRoom("Múltiple");
+
+        Assertions.assertEquals(expected, result);
+
+
+    }/*
+
+
+   /* @Test
     void bookingHotelTest() {
         // Arrange
         HotelDTO code = HotelDTOFactory.getHotelDTO1();
@@ -55,6 +70,7 @@ class HotelServiceTest {
 
         Assertions.assertThrows(DestinationException.class,
                 () -> hotelService.bookingHotel(code));
-    }
+    }/*
+
+    */
 }
-*/
