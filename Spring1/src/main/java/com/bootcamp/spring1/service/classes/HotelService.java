@@ -9,6 +9,7 @@ import com.bootcamp.spring1.dto.response.HotelResponseDTO;
 import com.bootcamp.spring1.entity.BookingHotel;
 import com.bootcamp.spring1.entity.Hotel;
 import com.bootcamp.spring1.exceptions.IdException;
+import com.bootcamp.spring1.exceptions.NullException;
 import com.bootcamp.spring1.exceptions.RoomTypeException;
 import com.bootcamp.spring1.repository.IBookingHotelRepository;
 import com.bootcamp.spring1.repository.IHotelRepository;
@@ -175,6 +176,21 @@ public class HotelService implements ICrudService<HotelDTO, Integer> {
                     .message("No se encontró una reserva con el id: " + id)
                     .action("DELETATION")
                     .build();
+        }
+    }
+
+    // -- EndPoint Stefano --
+    // Realizar un filtro a los hoteles por ciudad que esten disponibles
+    public List<HotelDTO> findByCityAndName (String destination, String name) {
+        var listEntity = hotelRepository.findByCityAndNameContainingAndBookedFalse(destination, name);
+        if (!listEntity.isEmpty()) {
+
+            return listEntity.stream().map(
+                            hotel -> mapper.map(hotel, HotelDTO.class)
+                    )
+                    .collect(Collectors.toList());
+        } else {
+            throw new NullException("Favor ingresar datos válidos");
         }
     }
 }

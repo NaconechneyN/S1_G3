@@ -13,4 +13,6 @@ public interface IHotelRepository extends JpaRepository<Hotel, Integer> {
                                                                                   String destination);
 
     Hotel findByHotelCode(String code);
+
+    List<Hotel> findByCityAndNameContainingAndBookedFalse (String destination, String name);
 }

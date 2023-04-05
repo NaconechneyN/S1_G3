@@ -7,6 +7,7 @@ import com.bootcamp.spring1.dto.response.HotelResponseDTO;
 import com.bootcamp.spring1.entity.Hotel;
 import com.bootcamp.spring1.utils.HotelDTOFactory;
 import com.bootcamp.spring1.utils.HotelFactory;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -46,6 +47,36 @@ class HotelControllerIntegrationTest {
                 .queryParam("dateFrom", "10/04/2023")
                 .queryParam("dateTo", "20/06/2023")
                 .queryParam("destination", "Puerto Iguazú");
+
+        //Expected --> Status, body y contentype
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(
+                writer.writeValueAsString(expected)
+        );
+
+        System.out.println(writer.writeValueAsString(expected));
+        //contentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+        //Act&assert con mocking
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+    }
+
+    @Test
+    void findByCity() throws Exception {
+        //arrange
+        List<Hotel> expected = List.of(HotelFactory.getHotel2());
+
+        String city = "Puerto Iguazú";
+        String name = "Cataratas Hotel 2";
+
+        //Request
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .get("/api/v1/hotels/findByCityAndName/{city}/{name}", city, name);
+
 
         //Expected --> Status, body y contentype
         //Status
