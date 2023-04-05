@@ -19,4 +19,14 @@ public class GlobalExceptionHandler {
                         .build()
         );
     }
+
+    @ExceptionHandler(RoomTypeException.class)
+    public ResponseEntity<ValidationDTO> RoomTypeException(RoomTypeException e) {
+        return ResponseEntity.status(404).body(
+                ValidationDTO.builder()
+                        .message(e.getMessage())
+                        .action("BÚSQUEDA")
+                        .build()
+        );
+    }
 }

@@ -184,7 +184,7 @@ public class HotelService implements ICrudService<HotelDTO, Integer> {
         //obtener todos los hoteles segun el tipo de habitacion
         var listRoomEntity = hotelRepository.findByRoomType(roomType);
 
-        if (listRoomEntity != null ) {
+        if (!listRoomEntity.isEmpty()) {
             return listRoomEntity.stream().map(
                             hotelRoom -> mapper.map(hotelRoom, HotelDTO.class)
                     )
