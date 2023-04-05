@@ -4,8 +4,7 @@ import lombok.*;
 import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Builder
 public class HotelDTO {
     private Integer id;
