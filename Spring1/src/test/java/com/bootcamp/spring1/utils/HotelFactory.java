@@ -20,6 +20,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 04, 10))
                 .dateTo(LocalDate.of(2023, 06, 20))
                 .booked(false)
+                .petFriendly(false)
                 .build();
     }
 
@@ -35,6 +36,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 04, 10))
                 .dateTo(LocalDate.of(2023, 05, 23))
                 .booked(false)
+                .petFriendly(true)
                 .build();
     }
 
@@ -50,6 +52,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 02, 10))
                 .dateTo(LocalDate.of(2023, 06, 19))
                 .booked(false)
+                .petFriendly(true)
                 .build();
     }
 
@@ -65,6 +68,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 02, 12))
                 .dateTo(LocalDate.of(2023, 06, 17))
                 .booked(false)
+                .petFriendly(false)
                 .build();
     }
 
@@ -80,6 +84,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 02, 12))
                 .dateTo(LocalDate.of(2023, 06, 17))
                 .booked(false)
+                .petFriendly(false)
                 .build();
     }
 
@@ -95,6 +100,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 02, 12))
                 .dateTo(LocalDate.of(2023, 06, 17))
                 .booked(false)
+                .petFriendly(false)
                 .build();
     }
 
@@ -110,6 +116,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 02, 12))
                 .dateTo(LocalDate.of(2023, 06, 17))
                 .booked(false)
+                .petFriendly(true)
                 .build();
     }
 
@@ -125,6 +132,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 02, 12))
                 .dateTo(LocalDate.of(2023, 06, 17))
                 .booked(false)
+                .petFriendly(false)
                 .build();
     }
 
@@ -155,6 +163,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 02, 12))
                 .dateTo(LocalDate.of(2023, 06, 17))
                 .booked(false)
+                .petFriendly(false)
                 .build();
     }
 
@@ -170,6 +179,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 02, 12))
                 .dateTo(LocalDate.of(2023, 06, 17))
                 .booked(false)
+                .petFriendly(true)
                 .build();
     }
 
@@ -185,6 +195,7 @@ public class HotelFactory {
                 .dateFrom(LocalDate.of(2023, 02, 12))
                 .dateTo(LocalDate.of(2023, 06, 17))
                 .booked(false)
+                .petFriendly(false)
                 .build();
     }
 }

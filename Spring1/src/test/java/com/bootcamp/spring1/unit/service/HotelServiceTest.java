@@ -1,9 +1,11 @@
-/*package com.bootcamp.spring1.unit.service;
+package com.bootcamp.spring1.unit.service;
 
-import com.bootcamp.spring1.dto.request.hotel.HotelDTO;
-import com.bootcamp.spring1.dto.response.HotelResponseDTO;
-import com.bootcamp.spring1.exceptions.DestinationException;
-import com.bootcamp.spring1.repository.HotelRepository;
+import com.bootcamp.spring1.dto.HotelDTO;
+
+import com.bootcamp.spring1.entity.Hotel;
+
+import com.bootcamp.spring1.exceptions.NullException;
+import com.bootcamp.spring1.repository.IHotelRepository;
 import com.bootcamp.spring1.service.classes.HotelService;
 import com.bootcamp.spring1.utils.HotelDTOFactory;
 import com.bootcamp.spring1.utils.HotelFactory;
@@ -15,17 +17,18 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 class HotelServiceTest {
     @Mock
-    HotelRepository hotelRepository;
+    IHotelRepository hotelRepository;
 
     @InjectMocks
     HotelService hotelService;
 
-    @Test
+   /* @Test
     void bookingHotelTest() {
         // Arrange
         HotelDTO code = HotelDTOFactory.getHotelDTO1();
@@ -55,6 +58,32 @@ class HotelServiceTest {
 
         Assertions.assertThrows(DestinationException.class,
                 () -> hotelService.bookingHotel(code));
+    }*/
+
+    @Test
+    void petHotelEmptyTest(){
+        //Arrange
+       List<HotelDTO> expected = List.of(HotelDTOFactory.getHotelDTO1());
+        List<Hotel> hotel =List.of();
+
+        // Act & Assert
+        Mockito.when(hotelRepository.findByPetFriendlyTrue()).thenReturn(hotel);
+
+        Assertions.assertThrows(NullException.class,
+                () -> hotelService.petHotel());
+
+    }
+    @Test
+    void petHotelTest(){
+        //Arrange
+        List<HotelDTO> expected = List.of(HotelDTOFactory.getHotelDTO2());
+        List<Hotel> hotel =List.of(HotelFactory.getHotel2());
+
+        // Act & Assert
+        Mockito.when(hotelRepository.findByPetFriendlyTrue()).thenReturn(hotel);
+        var result = hotelService.petHotel();
+
+        Assertions.assertEquals(expected, result);
+
     }
 }
-*/

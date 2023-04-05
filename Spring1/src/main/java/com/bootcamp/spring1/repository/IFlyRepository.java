@@ -16,4 +16,5 @@ public interface IFlyRepository extends JpaRepository<Flight, Integer> {
 
     Flight findByFlightNumber(String code);
 
+
 }

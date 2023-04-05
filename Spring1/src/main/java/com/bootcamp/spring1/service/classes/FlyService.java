@@ -1,6 +1,7 @@
 package com.bootcamp.spring1.service.classes;
 
 import com.bootcamp.spring1.dto.FlyDTO;
+import com.bootcamp.spring1.dto.HotelDTO;
 import com.bootcamp.spring1.dto.ValidationDTO;
 import com.bootcamp.spring1.dto.request.fly.FlightReservationDTO;
 import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
@@ -9,6 +10,7 @@ import com.bootcamp.spring1.entity.BookingFlight;
 import com.bootcamp.spring1.entity.Flight;
 import com.bootcamp.spring1.exceptions.DateException;
 import com.bootcamp.spring1.exceptions.IdException;
+import com.bootcamp.spring1.exceptions.NullException;
 import com.bootcamp.spring1.repository.IBookingFlightRepository;
 import com.bootcamp.spring1.repository.IFlyRepository;
 import com.bootcamp.spring1.service.generics.ICrudService;
@@ -80,7 +82,7 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
             throw new DateException("La fecha de ida debe ser menor a la de vuelta.");
         }
 
-        if (!bookingFlightRepository.existsById(id)){
+        if (!bookingFlightRepository.existsById(id)) {
             throw new IdException("No se encontro reserva con el id " + id);
         }
 
@@ -142,7 +144,7 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
     }
 
     // Método para ver todas las reservas de vuelo
-    public List<FlyRequestDTO> getAllBooking(){
+    public List<FlyRequestDTO> getAllBooking() {
         // buscar todos los resultados en el repo
         var listBookingEntity = bookingFlightRepository.findAll();
 
@@ -192,5 +194,36 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
                     .build();
         }
     }
+/*
+    //--- Método Barby --
+    // Realizar un filtro de las fechas más buscadas para la reserva de un hotel
+    public List<FlyDTO> findTopDestination() {
+        //Tengo que buscar vuelos por fecha temporada y guardarlos (20/04 al 10/06)
+        //busco por max y min de fechas
+        //incluir en el DTO la lista de estos vuelos
+        //Enviarle un mensaje que en esas fechas hay descuentos
+        //retorna la lista + mensaje
+
+        // consigna: listado de destinos + visitados
+        // buscar todos las reservas en el repo
+        var lisDestinationEntity = bookingFlightRepository.findAll();
+
+        if (lisDestinationEntity.size() >= 3) {
+            // luego convertir de entidad a DTO
+            return lisDestinationEntity.stream().map(
+                            flightsDestination -> mapper.map(flightsDestination, FlyDTO.class)
+                    )
+                    .collect(Collectors.toList());
+        } else {
+            throw new NullException("No se encontraron los destinos TOP");
+        }
+
+
+        //necesito recorrer las reservas y traer el destino más solicitado
+        //puedo hacer un min y max de destinos?
+    }
+    */
+
 }
+
 

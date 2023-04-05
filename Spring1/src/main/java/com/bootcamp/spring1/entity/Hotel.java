@@ -39,6 +39,7 @@ public class Hotel {
     private LocalDate dateTo;
     @Column(name = "reservado", nullable = false)
     private Boolean booked;
-
+    @Column(name = "acepta_mascotas", nullable = false)
+    private Boolean petFriendly;
 }
 

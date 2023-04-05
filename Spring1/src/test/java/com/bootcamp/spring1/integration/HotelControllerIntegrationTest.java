@@ -7,6 +7,7 @@ import com.bootcamp.spring1.dto.response.HotelResponseDTO;
 import com.bootcamp.spring1.entity.Hotel;
 import com.bootcamp.spring1.utils.HotelDTOFactory;
 import com.bootcamp.spring1.utils.HotelFactory;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -36,18 +37,18 @@ class HotelControllerIntegrationTest {
             .writer();
 
     @Test
-    void listHotelAvailableTest() throws Exception {
+    void petsHotelTest() throws Exception {
         //arrange
-        List<Hotel> expected = List.of(HotelFactory.getHotel1());
+        List<Hotel> expected = List.of(HotelFactory.getHotel2(),
+                                       HotelFactory.getHotel3(),
+                                       HotelFactory.getHotel7(),
+                                       HotelFactory.getHotel11());
 
         //Request
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-                .get("/api/v1/hotels/")
-                .queryParam("dateFrom", "10/04/2023")
-                .queryParam("dateTo", "20/06/2023")
-                .queryParam("destination", "Puerto Iguazú");
+                .get("/api/v1/hotels/friendly");
 
-        //Expected --> Status, body y contentype
+        //Expected --> Status, body y contentType
         //Status
         ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
         //Body

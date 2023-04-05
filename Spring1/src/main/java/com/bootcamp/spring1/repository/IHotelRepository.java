@@ -1,5 +1,6 @@
 package com.bootcamp.spring1.repository;
 
+import com.bootcamp.spring1.dto.HotelDTO;
 import com.bootcamp.spring1.entity.Hotel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,4 +14,7 @@ public interface IHotelRepository extends JpaRepository<Hotel, Integer> {
                                                                                   String destination);
 
     Hotel findByHotelCode(String code);
+
+    List<Hotel> findByPetFriendlyTrue();
+
 }

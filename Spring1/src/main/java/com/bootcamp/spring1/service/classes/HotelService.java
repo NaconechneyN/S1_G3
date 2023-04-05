@@ -9,6 +9,7 @@ import com.bootcamp.spring1.dto.response.HotelResponseDTO;
 import com.bootcamp.spring1.entity.BookingHotel;
 import com.bootcamp.spring1.entity.Hotel;
 import com.bootcamp.spring1.exceptions.IdException;
+import com.bootcamp.spring1.exceptions.NullException;
 import com.bootcamp.spring1.exceptions.RoomTypeException;
 import com.bootcamp.spring1.repository.IBookingHotelRepository;
 import com.bootcamp.spring1.repository.IHotelRepository;
@@ -177,4 +178,20 @@ public class HotelService implements ICrudService<HotelDTO, Integer> {
                     .build();
         }
     }
+
+    //-----> Barby: Método para listar hoteles pet friendly.
+    public List<HotelDTO> petHotel() {
+        var listPetEntity = hotelRepository.findByPetFriendlyTrue();
+        if (!listPetEntity.isEmpty()) {
+            return listPetEntity.stream().map(
+                            petsHotels -> mapper.map(petsHotels, HotelDTO.class)
+                    )
+                    .collect(Collectors.toList());
+        } else {
+            throw new NullException("No se encontró hoteles que acepten mascotas");
+
+        }
+
+    }
+
 }

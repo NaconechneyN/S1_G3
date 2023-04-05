@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "62e8a100-d466-4b93-a907-c28fd1d9ba5b",
+		"name": "sprint3_barby_individual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23969701"
+	},
+	"item": [
+		{
+			"name": "List All Pet Hotel Friendly",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/api/v1/hotels/friendly",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"hotels",
+						"friendly"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

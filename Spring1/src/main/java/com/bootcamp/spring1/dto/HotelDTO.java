@@ -4,8 +4,7 @@ import lombok.*;
 import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Builder
 public class HotelDTO {
     private Integer id;
@@ -19,5 +18,6 @@ public class HotelDTO {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateTo;
     private Boolean booked;
+    private Boolean petFriendly;
 }
 
