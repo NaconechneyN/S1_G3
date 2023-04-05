@@ -1,0 +1,513 @@
+{
+	"info": {
+		"_postman_id": "58a4fd00-e9bf-45f4-9364-f7434f840979",
+		"name": "Grupo 3 - \"Patada de Chancho\"",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23970180"
+	},
+	"item": [
+		{
+			"name": "Hotel",
+			"item": [
+				{
+					"name": "Crear Hotel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hotelCode\": \"GH-0004\",\r\n    \"name\": \"Sheraton 4\",\r\n    \"city\": \"Tucumán\",\r\n    \"roomType\": \"doble\",\r\n    \"price\": 6300.00,\r\n    \"dateFrom\": \"10/02/2023\",\r\n    \"dateTo\": \"20/06/2023\",\r\n    \"booked\": \"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/api/v1/hotels/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Hotel",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"hotelCode\": \"CH-0007\",\r\n    \"name\": \"Hotel Bristol\",\r\n    \"city\": \"Buenos Aires\",\r\n    \"roomType\": \"doble\",\r\n    \"price\": 6300.00,\r\n    \"dateFrom\": \"15/05/2023\",\r\n    \"dateTo\": \"30/05/2023\",\r\n    \"booked\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/api/v1/hotels/edit/CH-0004",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								"edit",
+								"CH-0004"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de todos los Hoteles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/v1/hotels/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de Hoteles por parámetros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/v1/hotels/?dateFrom=10/05/2023&dateTo=15/06/2023&destination=Bogotá",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "10/05/2023"
+								},
+								{
+									"key": "dateTo",
+									"value": "15/06/2023"
+								},
+								{
+									"key": "destination",
+									"value": "Bogotá"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Hotel por Código",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/v1/hotels/delete/SE-0001",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								"delete",
+								"SE-0001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BookingHotel",
+			"item": [
+				{
+					"name": "Crear Reserva",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Stefano\",\r\n    \"booking\": {\r\n        \"dateFrom\": \"12/04/2023\",\r\n        \"dateTo\": \"30/04/2023\",\r\n        \"city\": \"Tucumán\",\r\n        \"hotelCode\": \"SH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"doble\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": 99999999,\r\n                \"name\": \"Stefano\",\r\n                \"lastname\": \"Fabbro\",\r\n                \"birthdate\": \"03/02/2000\",\r\n                \"mail\": \"stefano@ok.com\"\r\n            }\r\n        ],\r\n        \"payments\": {\r\n            \"type\": \"credito\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/api/v1/hotels/booking/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								"booking",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Reserva por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Stefano\",\r\n    \"booking\": {\r\n        \"id\": 1,\r\n        \"dateFrom\": \"12/04/2023\",\r\n        \"dateTo\": \"15/04/2023\",\r\n        \"city\": \"Tucumán\",\r\n        \"hotelCode\": \"SH-0002\",\r\n        \"peopleAmount\": 2,\r\n        \"roomType\": \"doble\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": 99999999,\r\n                \"name\": \"Stefano\",\r\n                \"lastname\": \"Fabbro\",\r\n                \"birthdate\": \"03/02/2000\",\r\n                \"mail\": \"stefano@ok.com\"\r\n            }\r\n        ],\r\n        \"payments\": {\r\n            \"type\": \"credito\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/api/v1/hotels/booking/edit/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								"booking",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de todas las Reservas",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar reserva por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/v1/hotels/booking/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"hotels",
+								"booking",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vuelos",
+			"item": [
+				{
+					"name": "Crear Vuelo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"flightNumber\": \"BAIA-1225\",\r\n    \"origin\": \"Sunchales\",\r\n    \"destination\": \"Polinesia Francesa\",\r\n    \"seatType\": \"Economy\",\r\n    \"flightPrice\": 2,\r\n    \"dateFrom\": \"10/05/2023\",\r\n    \"dateTo\": \"15/05/2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/api/v1/flights/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar vuelo por Código",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 13,\r\n    \"flightNumber\": \"BAIA-1225\",\r\n    \"origin\": \"Sunchales\",\r\n    \"destination\": \"Colonia Tacurales\",\r\n    \"seatType\": \"Economy\",\r\n    \"flightPrice\": 20000000,\r\n    \"dateFrom\": \"10/05/2023\",\r\n    \"dateTo\": \"15/05/2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/api/v1/flights/edit/BAIA-1225",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								"edit",
+								"BAIA-1225"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de todos los Vuelos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/v1/flights/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de todos los Vuelos por parámetros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/v1/flights/?dateFrom=10/03/2023&dateTo=15/03/2023&origin=Bogotá&destination=Medellín",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								""
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "10/03/2023"
+								},
+								{
+									"key": "dateTo",
+									"value": "15/03/2023"
+								},
+								{
+									"key": "origin",
+									"value": "Bogotá"
+								},
+								{
+									"key": "destination",
+									"value": "Medellín"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Vuelo por Código",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/v1/flights/delete/MEPI-9986",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								"delete",
+								"MEPI-9986"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BookingVuelo",
+			"item": [
+				{
+					"name": "Crear Reserva de Vuelo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"Gusanito\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/05/2023\",\r\n        \"dateTo\": \"15/05/2023\",\r\n        \"origin\" : \"Bogotá\",\r\n        \"destination\": \"Cartagena\",\r\n        \"flightNumber\": \"BOCA-4213\",\r\n        \"seats\": 2,\r\n        \"seatType\": \"ECONOMIC\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12234542\",\r\n                \"name\": \"Juana\",\r\n                \"lastName\": \"Perez\",\r\n                \"birthdate\": \"10/11/1982\",\r\n                \"mail\": \"JuanaSinArco@gmail.com\"\r\n            }\r\n        ],\r\n        \"payments\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/api/v1/flights/reservation/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								"reservation",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Reserva de Vuelo por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"Gusanito\",\r\n    \"flightReservation\": {\r\n        \"dateFrom\": \"10/05/2023\",\r\n        \"dateTo\": \"20/05/2023\",\r\n        \"origin\" : \"Buenos Aires\",\r\n        \"destination\": \"Puerto Iguazú\",\r\n        \"flightNumber\": \"BAPI-1235\",\r\n        \"seats\": 3,\r\n        \"seatType\": \"ECONOMIC\",\r\n        \"people\": [\r\n            {\r\n                \"dni\": \"12234542\",\r\n                \"name\": \"Juana\",\r\n                \"lastName\": \"Perez\",\r\n                \"birthdate\": \"10/11/1982\",\r\n                \"mail\": \"juanaDeArco@gmail.com\"\r\n            }\r\n        ],\r\n        \"payments\": {\r\n            \"type\": \"CREDIT\",\r\n            \"number\": \"1234-1234-1234-1234\",\r\n            \"dues\": 6\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/api/v1/flights/reserve/edit/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								"reserve",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de todas las Reservas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/v1/flights/reservations",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Reserva de Vuelos por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/api/v1/flights/booking/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"flights",
+								"booking",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

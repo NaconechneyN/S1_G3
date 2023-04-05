@@ -19,4 +19,14 @@ public class GlobalExceptionHandler {
                         .build()
         );
     }
+
+    @ExceptionHandler(NullException.class)
+    public ResponseEntity<ValidationDTO> NullExeption(NullException e){
+        return ResponseEntity.status(404).body(
+                ValidationDTO.builder()
+                        .message(e.getMessage())
+                        .action("BÚSQUEDA")
+                        .build()
+        );
+    }
 }

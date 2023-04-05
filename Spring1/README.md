@@ -83,4 +83,7 @@ Total de coverage: 87%
 
 03/04/2023: commit "agregamos service de flights"
 
-
+- Fue creado el "data.sql" con la información de todos los vuelos y hoteles que componen la base de datos.
+- Se complementaron los DTO elaborados anteriormente.
+- En los Controller de "Fly" y "Hotel" se realizaron los EndPoint.
+- Se completaron las rutas solicitadas en Sprint.

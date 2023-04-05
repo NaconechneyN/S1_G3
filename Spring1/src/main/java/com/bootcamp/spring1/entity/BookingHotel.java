@@ -46,9 +46,4 @@ public class BookingHotel {
     private List<Client> people;
     @OneToOne(cascade = CascadeType.ALL)
     private PaymentMethod payments;
-
-
-   /* @OneToOne
-    private Hotel hotel;
-    */
 }

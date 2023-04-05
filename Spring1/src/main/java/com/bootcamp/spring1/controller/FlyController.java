@@ -1,7 +1,6 @@
 package com.bootcamp.spring1.controller;
 
 import com.bootcamp.spring1.dto.FlyDTO;
-import com.bootcamp.spring1.dto.HotelDTO;
 import com.bootcamp.spring1.dto.ValidationDTO;
 import com.bootcamp.spring1.service.classes.FlyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +10,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
 import com.bootcamp.spring1.dto.response.FlyResponseDTO;
-
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 import java.util.List;
 

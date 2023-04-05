@@ -50,8 +50,5 @@ public class BookingFlight {
     @OneToOne(cascade = CascadeType.ALL)
     private PaymentMethod payments;
 
-    /*@OneToOne
-    private Flight flight;
-*/
 }
 
