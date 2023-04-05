@@ -1,7 +1,5 @@
 package com.bootcamp.spring1.unit.service;
 import com.bootcamp.spring1.dto.HotelDTO;
-import com.bootcamp.spring1.dto.request.hotel.BookingDTO;
-import com.bootcamp.spring1.dto.response.HotelResponseDTO;
 import com.bootcamp.spring1.entity.Hotel;
 import com.bootcamp.spring1.exceptions.NullException;
 import com.bootcamp.spring1.repository.IHotelRepository;
@@ -18,7 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.mockito.Mockito.when;
+
 
 @ExtendWith(MockitoExtension.class)
 class HotelServiceTest {
@@ -57,39 +55,4 @@ class HotelServiceTest {
                 () -> hotelService.findByCityAndName("Rosario", "Balacera"));
 
     }
-
-
-    /*
-    @Test
-    void bookingHotelTest() {
-        // Arrange
-        BookingDTO code = HotelDTOFactory.getHotelDTO1();
-        List<Hotel> hotel = List.of(HotelFactory.getHotel1());
-        HotelResponseDTO expected = new HotelResponseDTO("El monto de la reserva es de: ", 63000.00);
-
-        // Act
-        Mockito.when(hotelRepository.buscarPrecioHotel(code.getBooking().getHotelCode())).thenReturn(6300.00);
-        Mockito.when(hotelRepository.hotelBooking(code.getBooking().getHotelCode())).thenReturn(true);
-        Mockito.when(hotelRepository.getHotels()).thenReturn(hotel);
-        var result = hotelService.bookingHotel(code);
-
-        // Assert
-        Assertions.assertEquals(expected, result);
-    }
-
-    @Test
-    void notDestinationBookingHotelTest() {
-        // Arrange
-        HotelDTO code = HotelDTOFactory.getHotelDTO1();
-        List<HotelModel> hotel = List.of();
-
-        // Act & Assert
-        Mockito.when(hotelRepository.buscarPrecioHotel(code.getBooking().getHotelCode())).thenReturn(6300.00);
-        Mockito.when(hotelRepository.hotelBooking(code.getBooking().getHotelCode())).thenReturn(true);
-        Mockito.when(hotelRepository.getHotels()).thenReturn(hotel);
-
-        Assertions.assertThrows(DestinationException.class,
-                () -> hotelService.bookingHotel(code));
-    }
-*/
 }
