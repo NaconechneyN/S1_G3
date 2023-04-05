@@ -95,6 +95,16 @@ public class HotelController {
         );
     }
 
+    //EP Francisco: filtro de hoteles según un rango de precios
+    @GetMapping ("/findHotelPrice/")
+    public ResponseEntity<List<HotelDTO>> findByPrice (
+            @RequestParam(required = false) Double minPrice,
+            @RequestParam(required = false) Double maxPrice) {
+        return ResponseEntity.ok(
+                hotelService.findByPrice(minPrice, maxPrice)
+        );
+    }
+
 
 
 

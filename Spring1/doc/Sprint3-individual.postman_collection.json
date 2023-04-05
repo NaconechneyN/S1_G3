@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "c034e565-52e8-4f67-9feb-79fd24cf0987",
+		"name": "Sprint3-individual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23969846"
+	},
+	"item": [
+		{
+			"name": "Hoteles según max y min de precio",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

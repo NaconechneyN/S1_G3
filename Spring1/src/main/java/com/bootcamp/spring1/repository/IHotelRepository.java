@@ -13,4 +13,7 @@ public interface IHotelRepository extends JpaRepository<Hotel, Integer> {
                                                                                   String destination);
 
     Hotel findByHotelCode(String code);
+
+    // Interface para EP Francisco
+    List <Hotel> findByPriceGreaterThanEqualAndPriceLessThanEqual (Double minPrice, Double maxPrice);
 }

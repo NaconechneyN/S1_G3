@@ -177,4 +177,19 @@ public class HotelService implements ICrudService<HotelDTO, Integer> {
                     .build();
         }
     }
+
+    //--EndPoint Francisco--//
+    // Filtrar hoteles según un rango de precios
+    public List<HotelDTO> findByPrice(Double minPrice, Double maxPrice) {
+        //obtener los hoteles según los parámetros de precio establecidos por el cliente
+        var listPriceEntity = hotelRepository.findByPriceGreaterThanEqualAndPriceLessThanEqual(minPrice, maxPrice);
+        if (!listPriceEntity.isEmpty()) {
+            return listPriceEntity.stream().map(
+                            hotelPrice -> mapper.map(hotelPrice, HotelDTO.class)
+                    )
+                    .collect(Collectors.toList());
+        } else {
+            throw new RoomTypeException("Favor ingresar dos valores de precios válidos");
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package com.bootcamp.spring1.integration;
 
 
+import com.bootcamp.spring1.dto.HotelDTO;
 import com.bootcamp.spring1.dto.request.hotel.BookingDTO;
 import com.bootcamp.spring1.dto.request.hotel.HotelRequestDTO;
 import com.bootcamp.spring1.dto.response.HotelResponseDTO;
@@ -63,6 +64,40 @@ class HotelControllerIntegrationTest {
                 .andDo(MockMvcResultHandlers.print())
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
     }
+
+    //Test Integración User Story Francisco
+    @Test
+    void hotelPriceTest() throws Exception {
+        //arrange
+        List<Hotel> expected = List.of(HotelFactory.getHotel12());
+
+        //Request
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .get("/api/v1/hotels/findHotelPrice/")
+                .queryParam("minPrice","9000")
+                .queryParam("maxPrice", "10000");
+
+        //Expected --> Status, body y contentype
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+        //Body
+        ResultMatcher bodyExpected = MockMvcResultMatchers.content().json(
+                writer.writeValueAsString(expected)
+        );
+
+        System.out.println(writer.writeValueAsString(expected));
+        //contentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+        //Act&assert con mocking
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+    }
+
+
+
+
+
 
    /* @Test
     void bookingTest() throws Exception {
