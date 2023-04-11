@@ -29,6 +29,9 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
 
     ModelMapper mapper = new ModelMapper();
 
+    public static Object findByPrice(Double minPrice, Double maxPrice) {
+    }
+
     // Método para guardar un vuelo nuevo
     @Override
     public FlyDTO saveEntity(FlyDTO objectDTO) {
@@ -79,7 +82,7 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
             throw new DateException("La fecha de ida debe ser menor a la de vuelta.");
         }
 
-        if (!bookingFlightRepository.existsById(id)){
+        if (!bookingFlightRepository.existsById(id)) {
             throw new IdException("No se encontro reserva con el id " + id);
         }
 
@@ -141,7 +144,7 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
     }
 
     // Método para ver todas las reservas de vuelo
-    public List<FlyRequestDTO> getAllBooking(){
+    public List<FlyRequestDTO> getAllBooking() {
         // buscar todos los resultados en el repo
         var listBookingEntity = bookingFlightRepository.findAll();
 
@@ -192,7 +195,18 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
         }
     }
 
-
-
+    //Metodo para ordenar lista de vuelos de acuerdo a los requerimientos de marketing para publicitar (req 1)
+    public List<FlyDTO> betweenListFly(Double minPrice, Double maxPrice) {
+        var FligthsForPrice = flyRepository.findByPriceGreaterThanEqualAndPriceLessThanEqual(minPrice, maxPrice);
+        if (!FligthsForPrice.isEmpty()) {
+            return FligthsForPrice.stream().map(
+                            fligthtPrice -> mapper.map(fligthtPrice, FlyDTO.class)
+                    )
+                    .collect(Collectors.toList());
+        } else {
+            throw new RoomTypeException("Favor ingresar precios válidos");
+        }
+    }
 }
+
 

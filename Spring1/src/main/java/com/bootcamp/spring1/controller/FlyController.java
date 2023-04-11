@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
 import com.bootcamp.spring1.dto.response.FlyResponseDTO;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -106,14 +107,12 @@ public class FlyController {
     //Requerimiento 1- Listado de vuelos por precios de mayor a menor para publicitar.
 
     @GetMapping("/mkt")
-    public ResponseEntity<List<FlyDTO>> mktFlights() {
-        return null;
-//                ResponseEntity.ok(
-//                flyService.mktflight()
+    public ResponseEntity<List<FlyDTO>> mktFlights(List<FlyDTO> FlyDTO) {
+        Collections.sort(FlyDTO, Comparator.comparing(FlyDTO::findByPriceDesc).reversed());
+        return FlyDTO;
+            }
 
-    }
-
-    //Requerimiento 2- 3 vuelos + economicos.
+   //Requerimiento 2- 3 vuelos + economicos.
 
     @GetMapping("/lowcost3")
     public ResponseEntity<List<FlyDTO>> treeFlights() {
@@ -121,17 +120,20 @@ public class FlyController {
 //                ResponseEntity.ok(
 //                flyService.treeflight()
 //        );
+
     }
 
     //Requerimiento 3- Listado de vuelos por precios con rango elegido por usuario.
-    @GetMapping("/{precioMax}/{precioMin}")
-    public ResponseEntity<List<FlyDTO>> betweenListFly(@PathVariable Integer price) {
-        return null;
+    @GetMapping("/{maxPrice}/{minPrice}")
+            public ResponseEntity<List<FlyDTO>> betweenListFly(
+                    @RequestParam(required = false) Double minPrice,
+                    @RequestParam(required = false) Double maxPrice) {
+                return ResponseEntity.ok(
+                        (List<FlyDTO>) FlyService.findByPrice(minPrice, maxPrice)
+                );
     }
-//        return ResponseEntity.ok(
-//            //    flyService.findByParameter(precioMax,precioMin)
-//            );
-    }
+
+
     //Requerimiento 4- Listado de vuelos por calidad de servicio
 //    @GetMapping("/quality/{type}")
 //    public ResponseEntity<List<FlyDTO>> qualityListFly(@PathVariable String clase)
