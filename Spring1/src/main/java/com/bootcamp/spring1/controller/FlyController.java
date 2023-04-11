@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
 import com.bootcamp.spring1.dto.response.FlyResponseDTO;
+
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Comparator;
@@ -108,39 +109,33 @@ public class FlyController {
     //Requerimiento 1- Listado de vuelos por precios de mayor a menor para publicitar.
 
     @GetMapping("/mkt")
-    public ResponseEntity<List<FlyDTO>> mktFlights(List<FlyDTO> FlyDTO) {
-        Collections.sort(FlyDTO, Comparator.comparing(FlyDTO::orderByPriceDesc).reversed());
-        return null;
+    public ResponseEntity<List<FlyDTO>> mktFlights() {
+       return null;
         //List<FlyDTO>
-            }
+    }
 
-   //Requerimiento 2- 3 vuelos + economicos.
+    //Requerimiento 2- 3 vuelos + economicos.
 
     @GetMapping("/lowcost3")
     public ResponseEntity<List<FlyDTO>> treeFlights() {
         return null;
-//                ResponseEntity.ok(
-//                flyService.treeflight()
-//        );
-
     }
 
     //Requerimiento 3- Listado de vuelos por precios con rango elegido por usuario.
     @GetMapping("/{maxPrice}/{minPrice}")
-            public ResponseEntity<List<FlyDTO>> betweenListFly(
-                    @RequestParam(required = false) Double minPrice,
-                    @RequestParam(required = false) Double maxPrice) {
+    public ResponseEntity<List<FlyDTO>> betweenListFly(
+            @PathVariable Integer minPrice,
+            @PathVariable Integer maxPrice) {
         return ResponseEntity.ok(
-                (List<FlyDTO>) FlyService.findByPrice(minPrice, maxPrice)
+                 flyService.findByPrice(minPrice, maxPrice)
         );
-    }
+    };
 
 
-    //Requerimiento 4- Listado de vuelos por calidad de servicio
-//    @GetMapping("/quality/{type}")
-//    public ResponseEntity<List<FlyDTO>> qualityListFly(@PathVariable String clase)
-//        return ResponseEntity.ok(
-//                //    flyService.findByParameter(quality)
-//                );
-
+//Requerimiento 4- Listado de vuelos por calidad de servicio
+    @GetMapping("/quality")
+    public ResponseEntity<List<FlyDTO>> qualityListFly(@RequestParam (required = true) String type){
+                return ResponseEntity.ok(
+                flyService.findBySeatTypeEquals(type));
+}}
 

@@ -17,16 +17,16 @@ public interface IFlyRepository extends JpaRepository<Flight, Integer> {
     Flight findByFlightNumber(String code);
 
     //interface para requerimiento 1 de Aye.
-    List <Flight> orderByPriceDesc ();
+    List <Flight> findByOrderByFlightPriceDesc ();
 
     //interface para requerimiento 2 de Aye.
 
     //    treeFlights()
     //interface para requerimiento 3 de Aye.
-    List <Flight> findByPriceGreaterThanEqualAndPriceLessThanEqual (Double minPrice, Double maxPrice);
+    List <Flight> findByFlightPriceGreaterThanEqualAndFlightPriceLessThanEqual (Integer minPrice, Integer maxPrice);
 
     //interface para requerimiento 4 de Aye.
 
-    //
+    List <Flight> findBySeatTypeEquals(String type);
 
 }

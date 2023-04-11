@@ -24,12 +24,11 @@ import java.util.stream.Collectors;
 @Service
 public class FlyService implements ICrudService<FlyDTO, Integer> {
     @Autowired
-    static
     IFlyRepository flyRepository;
     @Autowired
     IBookingFlightRepository bookingFlightRepository;
 
-    static ModelMapper mapper = new ModelMapper();
+    ModelMapper mapper = new ModelMapper();
 
 
     // Método para guardar un vuelo nuevo
@@ -202,8 +201,8 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
 //    treeFlights()
     //Metodo para requerimiento 3 - Aye.
 
-    public static List<FlyDTO> findByPrice(Double minPrice, Double maxPrice) {
-        var FligthsForPrice = flyRepository.findByPriceGreaterThanEqualAndPriceLessThanEqual(minPrice, maxPrice);
+    public  List<FlyDTO> findByPrice(Integer minPrice, Integer maxPrice) {
+        var FligthsForPrice = flyRepository.findByFlightPriceGreaterThanEqualAndFlightPriceLessThanEqual(minPrice, maxPrice);
         if (!FligthsForPrice.isEmpty()) {
             return FligthsForPrice.stream().map(
                             fligthtPrice -> mapper.map(fligthtPrice, FlyDTO.class)
@@ -216,7 +215,17 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
 
 
     //Metodo para requerimiento 4 - Aye.
-//    findByParameter(quality)
+  public  List<FlyDTO> findBySeatTypeEquals(String type) {
+      var flightsForType = flyRepository.findBySeatTypeEquals(type);
+      if (!flightsForType.isEmpty()) {
+          return flightsForType.stream().map(
+                          f -> mapper.map(f, FlyDTO.class)
+                  )
+                  .collect(Collectors.toList());
+      }else {
+          throw new FlightTypeException("Favor ingresar un tipo válido de servicio");
+      }
+  }
 }
 
 
