@@ -40,7 +40,7 @@ public class FlyController {
     }
 
     // EP para Editar Flights
-    @PutMapping ("/edit/{code}")
+    @PutMapping("/edit/{code}")
     public ResponseEntity<FlyDTO> putHotel(@RequestBody FlyDTO flyDTO) {
         return ResponseEntity.ok(
                 flyService.saveEntity(flyDTO)
@@ -48,7 +48,7 @@ public class FlyController {
     }
 
     // EP para modificar una reserva de un vuelo - Da errores
-    @PutMapping ("/reserve/edit/{id}")
+    @PutMapping("/reserve/edit/{id}")
     public ResponseEntity<FlyResponseDTO> putBooking(@RequestBody FlyRequestDTO flyRequestDTO,
                                                      @PathVariable Integer id) {
         return ResponseEntity.ok(
@@ -79,7 +79,7 @@ public class FlyController {
     // EP para ver todas las reservas
 
     @GetMapping("/reservations")
-    public ResponseEntity<List<FlyRequestDTO>> bookingList(){
+    public ResponseEntity<List<FlyRequestDTO>> bookingList() {
         return ResponseEntity.ok(
                 flyService.getAllBooking()
         );
@@ -101,6 +101,38 @@ public class FlyController {
         );
     }
 
+    //Rutas para requerimientos de Aye (parte individual Sprint3)
+
+    //Requerimiento 1- Listado de vuelos por precios de mayor a menor para publicitar.
+
+    @GetMapping("/mkt")
+    public ResponseEntity<List<FlyDTO>> mktFlights() {
+        return ResponseEntity.ok(
+                flyService.mktflight()
+        );
+    }
+
+    //Requerimiento 2- 3 vuelos + economicos.
+
+    @GetMapping("/lowcost3")
+    public ResponseEntity<List<FlyDTO>> treeFlights() {
+        return ResponseEntity.ok(
+                flyService.treeflight()
+        );
+    }
+
+    //Requerimiento 3- Listado de vuelos por precios con rango elegido por usuario.
+    @GetMapping("/{precioMax}/{precioMin}")
+    public ResponseEntity<List<FlyDTO>> betweenListFly(@PathVariable Integer price)
+        return ResponseEntity.ok(
+            //    flyService.findByParameter(precioMax,precioMin)
+            );
+    }
+    //Requerimiento 4- Listado de vuelos por calidad de servicio
+//    @GetMapping("/quality/{type}")
+//    public ResponseEntity<List<FlyDTO>> qualityListFly(@PathVariable String clase)
+//        return ResponseEntity.ok(
+//                //    flyService.findByParameter(precioMax,precioMin)
+//                );
 
 
-}
