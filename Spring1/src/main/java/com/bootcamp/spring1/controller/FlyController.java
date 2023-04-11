@@ -110,7 +110,8 @@ public class FlyController {
     @GetMapping("/mkt")
     public ResponseEntity<List<FlyDTO>> mktFlights(List<FlyDTO> FlyDTO) {
         Collections.sort(FlyDTO, Comparator.comparing(FlyDTO::orderByPriceDesc).reversed());
-        return FlyDTO;
+        return null;
+        //List<FlyDTO>
             }
 
    //Requerimiento 2- 3 vuelos + economicos.
