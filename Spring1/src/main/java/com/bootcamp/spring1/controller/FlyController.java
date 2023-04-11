@@ -107,26 +107,30 @@ public class FlyController {
 
     @GetMapping("/mkt")
     public ResponseEntity<List<FlyDTO>> mktFlights() {
-        return ResponseEntity.ok(
-                flyService.mktflight()
-        );
+        return null;
+//                ResponseEntity.ok(
+//                flyService.mktflight()
+
     }
 
     //Requerimiento 2- 3 vuelos + economicos.
 
     @GetMapping("/lowcost3")
     public ResponseEntity<List<FlyDTO>> treeFlights() {
-        return ResponseEntity.ok(
-                flyService.treeflight()
-        );
+        return null;
+//                ResponseEntity.ok(
+//                flyService.treeflight()
+//        );
     }
 
     //Requerimiento 3- Listado de vuelos por precios con rango elegido por usuario.
     @GetMapping("/{precioMax}/{precioMin}")
-    public ResponseEntity<List<FlyDTO>> betweenListFly(@PathVariable Integer price)
-        return ResponseEntity.ok(
-            //    flyService.findByParameter(precioMax,precioMin)
-            );
+    public ResponseEntity<List<FlyDTO>> betweenListFly(@PathVariable Integer price) {
+        return null;
+    }
+//        return ResponseEntity.ok(
+//            //    flyService.findByParameter(precioMax,precioMin)
+//            );
     }
     //Requerimiento 4- Listado de vuelos por calidad de servicio
 //    @GetMapping("/quality/{type}")
