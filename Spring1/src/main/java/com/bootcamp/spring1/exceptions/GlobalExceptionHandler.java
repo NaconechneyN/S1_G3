@@ -29,4 +29,13 @@ public class GlobalExceptionHandler {
                         .build()
         );
     }
+    @ExceptionHandler(FlightTypeException.class)
+    public ResponseEntity<ValidationDTO> FlightTypeException(FlightTypeException e) {
+        return ResponseEntity.status(404).body(
+                ValidationDTO.builder()
+                        .message(e.getMessage())
+                        .action("BÚSQUEDA")
+                        .build()
+        );
+    }
 }

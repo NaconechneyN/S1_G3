@@ -8,6 +8,7 @@ import com.bootcamp.spring1.dto.response.FlyResponseDTO;
 import com.bootcamp.spring1.entity.BookingFlight;
 import com.bootcamp.spring1.entity.Flight;
 import com.bootcamp.spring1.exceptions.DateException;
+import com.bootcamp.spring1.exceptions.FlightTypeException;
 import com.bootcamp.spring1.exceptions.IdException;
 import com.bootcamp.spring1.repository.IBookingFlightRepository;
 import com.bootcamp.spring1.repository.IFlyRepository;
@@ -23,14 +24,13 @@ import java.util.stream.Collectors;
 @Service
 public class FlyService implements ICrudService<FlyDTO, Integer> {
     @Autowired
+    static
     IFlyRepository flyRepository;
     @Autowired
     IBookingFlightRepository bookingFlightRepository;
 
-    ModelMapper mapper = new ModelMapper();
+    static ModelMapper mapper = new ModelMapper();
 
-    public static Object findByPrice(Double minPrice, Double maxPrice) {
-    }
 
     // Método para guardar un vuelo nuevo
     @Override
@@ -195,8 +195,14 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
         }
     }
 
-    //Metodo para ordenar lista de vuelos de acuerdo a los requerimientos de marketing para publicitar (req 1)
-    public List<FlyDTO> betweenListFly(Double minPrice, Double maxPrice) {
+    //Metodo para requerimiento 1 - Aye.
+//    orderByPriceDesc
+    //Metodo para requerimiento 2 - Aye.
+
+//    treeFlights()
+    //Metodo para requerimiento 3 - Aye.
+
+    public static List<FlyDTO> findByPrice(Double minPrice, Double maxPrice) {
         var FligthsForPrice = flyRepository.findByPriceGreaterThanEqualAndPriceLessThanEqual(minPrice, maxPrice);
         if (!FligthsForPrice.isEmpty()) {
             return FligthsForPrice.stream().map(
@@ -204,9 +210,13 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
                     )
                     .collect(Collectors.toList());
         } else {
-            throw new RoomTypeException("Favor ingresar precios válidos");
+            throw new FlightTypeException("Favor ingresar precios válidos");
         }
     }
+
+
+    //Metodo para requerimiento 4 - Aye.
+//    findByParameter(quality)
 }
 
 

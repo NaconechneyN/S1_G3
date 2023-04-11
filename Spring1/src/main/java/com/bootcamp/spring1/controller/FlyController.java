@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
 import com.bootcamp.spring1.dto.response.FlyResponseDTO;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -108,7 +109,7 @@ public class FlyController {
 
     @GetMapping("/mkt")
     public ResponseEntity<List<FlyDTO>> mktFlights(List<FlyDTO> FlyDTO) {
-        Collections.sort(FlyDTO, Comparator.comparing(FlyDTO::findByPriceDesc).reversed());
+        Collections.sort(FlyDTO, Comparator.comparing(FlyDTO::orderByPriceDesc).reversed());
         return FlyDTO;
             }
 
@@ -128,9 +129,9 @@ public class FlyController {
             public ResponseEntity<List<FlyDTO>> betweenListFly(
                     @RequestParam(required = false) Double minPrice,
                     @RequestParam(required = false) Double maxPrice) {
-                return ResponseEntity.ok(
-                        (List<FlyDTO>) FlyService.findByPrice(minPrice, maxPrice)
-                );
+        return ResponseEntity.ok(
+                (List<FlyDTO>) FlyService.findByPrice(minPrice, maxPrice)
+        );
     }
 
 
@@ -138,7 +139,7 @@ public class FlyController {
 //    @GetMapping("/quality/{type}")
 //    public ResponseEntity<List<FlyDTO>> qualityListFly(@PathVariable String clase)
 //        return ResponseEntity.ok(
-//                //    flyService.findByParameter(precioMax,precioMin)
+//                //    flyService.findByParameter(quality)
 //                );
 
 
