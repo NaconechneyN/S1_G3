@@ -7,8 +7,7 @@ import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Builder
 public class FlyDTO {
     private Integer id;
@@ -21,4 +20,5 @@ public class FlyDTO {
     private LocalDate dateFrom;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateTo;
+    private String reservation;
 }

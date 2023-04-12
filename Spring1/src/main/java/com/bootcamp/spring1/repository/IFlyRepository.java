@@ -17,7 +17,8 @@ public interface IFlyRepository extends JpaRepository<Flight, Integer> {
     Flight findByFlightNumber(String code);
 
     //interface para requerimiento 1 de Aye.
-    List <Flight> findByOrderByFlightPriceDesc ();
+//    List <Flight> findByFlightPriceOrderByFlightPriceDesc ();
+    List <Flight>findByOrderByFlightPriceDesc();
 
     //interface para requerimiento 2 de Aye.
     List <Flight>findByOrderByFlightPriceAsc();

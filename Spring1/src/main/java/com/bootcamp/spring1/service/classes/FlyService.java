@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -196,18 +197,39 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
 
     //Metodo para requerimiento 1 - Aye.
 //    orderByPriceDesc
-    public List<Flight> findByOrderByFlightPriceDesc (Integer flightPrice) {
-           return flyRepository.findByOrderByFlightPriceDesc ();
+
+    //    public List<FlyDTO> findByFlightPriceOrderByFlightPriceDesc() {
+//        var FligthDesc = flyRepository.findByFlightPriceOrderByFlightPriceDesc();
+//        if (!FligthDesc.isEmpty()) {
+//            return FligthDesc.stream().map(
+//                            fligtht ->
+//                                 mapper.map(fligtht, FlyDTO.class)
+//                            ).collect(Collectors.toList());
+//        } else {
+//            throw new FlightTypeException("No hay vuelos a promocionar");
+//        }
+//    }
+    public List<FlyDTO> findByOrderByFlightPriceDesc() {
+     //   return flyRepository.findByOrderByFlightPriceDesc();
+        var FligthDesc = flyRepository.findByOrderByFlightPriceDesc();
+        if (!FligthDesc.isEmpty()) {
+            return FligthDesc.stream().map(
+                            fligtht ->
+                                 mapper.map(fligtht, FlyDTO.class)
+                            ).collect(Collectors.toList());
+        } else {
+            throw new FlightTypeException("No hay vuelos a promocionar");
+        }
     }
 
     //Metodo para requerimiento 2 - Aye.
-    public List<Flight> findByOrderByFlightPriceAsc (Integer flightPrice) {
+    public List<Flight> findByOrderByFlightPriceAsc(Integer flightPrice) {
         return flyRepository.findByOrderByFlightPriceAsc();
     }
 
     //Metodo para requerimiento 3 - Aye.
 
-    public  List<FlyDTO> findByPrice(Integer minPrice, Integer maxPrice) {
+    public List<FlyDTO> findByPrice(Integer minPrice, Integer maxPrice) {
         var FligthsForPrice = flyRepository.findByFlightPriceGreaterThanEqualAndFlightPriceLessThanEqual(minPrice, maxPrice);
         if (!FligthsForPrice.isEmpty()) {
             return FligthsForPrice.stream().map(
@@ -221,17 +243,17 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
 
 
     //Metodo para requerimiento 4 - Aye.
-  public  List<FlyDTO> findBySeatTypeEquals(String type) {
-      var flightsForType = flyRepository.findBySeatTypeEquals(type);
-      if (!flightsForType.isEmpty()) {
-          return flightsForType.stream().map(
-                          f -> mapper.map(f, FlyDTO.class)
-                  )
-                  .collect(Collectors.toList());
-      }else {
-          throw new FlightTypeException("Favor ingresar un tipo válido de servicio");
-      }
-  }
+    public List<FlyDTO> findBySeatTypeEquals(String type) {
+        var flightsForType = flyRepository.findBySeatTypeEquals(type);
+        if (!flightsForType.isEmpty()) {
+            return flightsForType.stream().map(
+                            f -> mapper.map(f, FlyDTO.class)
+                    )
+                    .collect(Collectors.toList());
+        } else {
+            throw new FlightTypeException("Favor ingresar un tipo válido de servicio");
+        }
+    }
 }
 
 

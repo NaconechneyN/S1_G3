@@ -107,12 +107,16 @@ public class FlyController {
 
     //Requerimiento 1- Listado de vuelos por precios de mayor a menor para publicitar.
 
+    //    @GetMapping("/mkt")
+//    public ResponseEntity<List<FlyDTO>> mktListFlights() {
+//       return ResponseEntity.ok(
+//               flyService.findByFlightPriceOrderByFlightPriceDesc());
+//    }
     @GetMapping("/mkt")
-    public ResponseEntity<List<Flight>> mktListFlights(@RequestParam(required = false) Integer flightPrice) {
-       return ResponseEntity.ok(
-               flyService.findByOrderByFlightPriceDesc(flightPrice));
+    public ResponseEntity<List<FlyDTO>> mktFlights(@RequestParam(required = false) Integer flightPrice) {
+        return ResponseEntity.ok(
+                flyService.findByOrderByFlightPriceDesc());
     }
-
     //Requerimiento 2- 3 vuelos + economicos.
 
     @GetMapping("/lowcost3")
@@ -127,15 +131,18 @@ public class FlyController {
             @PathVariable Integer minPrice,
             @PathVariable Integer maxPrice) {
         return ResponseEntity.ok(
-                 flyService.findByPrice(minPrice, maxPrice)
+                flyService.findByPrice(minPrice, maxPrice)
         );
-    };
+    }
+
+    ;
 
 
-//Requerimiento 4- Listado de vuelos por calidad de servicio
+    //Requerimiento 4- Listado de vuelos por calidad de servicio
     @GetMapping("/quality")
-    public ResponseEntity<List<FlyDTO>> qualityListFly(@RequestParam (required = true) String type){
-                return ResponseEntity.ok(
+    public ResponseEntity<List<FlyDTO>> qualityListFly(@RequestParam(required = true) String type) {
+        return ResponseEntity.ok(
                 flyService.findBySeatTypeEquals(type));
-}}
+    }
+}
 
