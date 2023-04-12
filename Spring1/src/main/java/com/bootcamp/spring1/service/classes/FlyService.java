@@ -196,21 +196,7 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
     }
 
     //Metodo para requerimiento 1 - Aye.
-//    orderByPriceDesc
-
-    //    public List<FlyDTO> findByFlightPriceOrderByFlightPriceDesc() {
-//        var FligthDesc = flyRepository.findByFlightPriceOrderByFlightPriceDesc();
-//        if (!FligthDesc.isEmpty()) {
-//            return FligthDesc.stream().map(
-//                            fligtht ->
-//                                 mapper.map(fligtht, FlyDTO.class)
-//                            ).collect(Collectors.toList());
-//        } else {
-//            throw new FlightTypeException("No hay vuelos a promocionar");
-//        }
-//    }
     public List<FlyDTO> findByOrderByFlightPriceDesc() {
-     //   return flyRepository.findByOrderByFlightPriceDesc();
         var FligthDesc = flyRepository.findByOrderByFlightPriceDesc();
         if (!FligthDesc.isEmpty()) {
             return FligthDesc.stream().map(
@@ -223,8 +209,17 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
     }
 
     //Metodo para requerimiento 2 - Aye.
-    public List<Flight> findByOrderByFlightPriceAsc(Integer flightPrice) {
-        return flyRepository.findByOrderByFlightPriceAsc();
+    public List<FlyDTO> findByOrderByFlightPriceAsc() {
+      //  return flyRepository.findByOrderByFlightPriceAsc();
+        var FligthAsc = flyRepository.findByOrderByFlightPriceAsc();
+        if (!FligthAsc.isEmpty()) {
+            return FligthAsc.stream().map(
+                    fligtht ->
+                            mapper.map(fligtht, FlyDTO.class)
+            ).collect(Collectors.toList());
+        } else {
+            throw new FlightTypeException("No hay vuelos disponibles para la venta");
+        }
     }
 
     //Metodo para requerimiento 3 - Aye.
