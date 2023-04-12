@@ -16,7 +16,8 @@
 # Nombre para la BASE DE DATOS:
 s3_g3
 
-# Total de coverage:
 
 #  Test unitarios: 4
+(uno por requerimiento)
+#  Test integradores: 4
 (uno por requerimiento)

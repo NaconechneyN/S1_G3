@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "58bcc929-8bbd-4dcd-958d-20be05e27b27",
+		"name": "Sprint3-Individual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21098085"
+	},
+	"item": [
+		{
+			"name": "Requerimiento1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/api/v1/flights/mkt",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"flights",
+						"mkt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Requerimiento2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/api/v1/flights/lowcost3",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"flights",
+						"lowcost3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Requerimiento3",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"{\r",
+							"    \"precioMax\"=10000,\r",
+							"    \"mprecioMin\"=4000\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"precioMax\":10000,\r\n    \"precioMin\": 4000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/api/v1/flights/{precioMax}/{precioMin}",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"flights",
+						"{precioMax}",
+						"{precioMin}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Requerimiento4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/api/v1/flights/mkt",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"flights",
+						"mkt"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
