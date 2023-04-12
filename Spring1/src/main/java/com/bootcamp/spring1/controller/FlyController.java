@@ -116,8 +116,9 @@ public class FlyController {
     //Requerimiento 2- 3 vuelos + economicos.
 
     @GetMapping("/lowcost3")
-    public ResponseEntity<List<FlyDTO>> treeFlights() {
-        return null;
+    public ResponseEntity<List<Flight>> treeFlights(@RequestParam(required = false) Integer flightPrice) {
+        return ResponseEntity.ok(
+                flyService.findByOrderByFlightPriceAsc(flightPrice));
     }
 
     //Requerimiento 3- Listado de vuelos por precios con rango elegido por usuario.

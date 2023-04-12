@@ -20,8 +20,8 @@ public interface IFlyRepository extends JpaRepository<Flight, Integer> {
     List <Flight> findByOrderByFlightPriceDesc ();
 
     //interface para requerimiento 2 de Aye.
+    List <Flight>findByOrderByFlightPriceAsc();
 
-    //    treeFlights()
     //interface para requerimiento 3 de Aye.
     List <Flight> findByFlightPriceGreaterThanEqualAndFlightPriceLessThanEqual (Integer minPrice, Integer maxPrice);
 
