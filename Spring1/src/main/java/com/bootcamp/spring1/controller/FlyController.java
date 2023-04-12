@@ -2,6 +2,7 @@ package com.bootcamp.spring1.controller;
 
 import com.bootcamp.spring1.dto.FlyDTO;
 import com.bootcamp.spring1.dto.ValidationDTO;
+import com.bootcamp.spring1.entity.Flight;
 import com.bootcamp.spring1.service.classes.FlyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,8 +13,6 @@ import com.bootcamp.spring1.dto.request.fly.FlyRequestDTO;
 import com.bootcamp.spring1.dto.response.FlyResponseDTO;
 
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -109,9 +108,9 @@ public class FlyController {
     //Requerimiento 1- Listado de vuelos por precios de mayor a menor para publicitar.
 
     @GetMapping("/mkt")
-    public ResponseEntity<List<FlyDTO>> mktFlights() {
-       return null;
-        //List<FlyDTO>
+    public ResponseEntity<List<Flight>> mktListFlights(@RequestParam(required = false) Integer flightPrice) {
+       return ResponseEntity.ok(
+               flyService.findByOrderByFlightPriceDesc(flightPrice));
     }
 
     //Requerimiento 2- 3 vuelos + economicos.

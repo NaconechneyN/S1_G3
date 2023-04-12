@@ -196,6 +196,10 @@ public class FlyService implements ICrudService<FlyDTO, Integer> {
 
     //Metodo para requerimiento 1 - Aye.
 //    orderByPriceDesc
+    public List<Flight> findByOrderByFlightPriceDesc (Integer flightPrice) {
+           return flyRepository.findByOrderByFlightPriceDesc ();
+    }
+
     //Metodo para requerimiento 2 - Aye.
 
 //    treeFlights()
