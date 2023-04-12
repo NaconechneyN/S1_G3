@@ -71,4 +71,42 @@ class FlyControllerIntegrationTest {
                 .andDo(MockMvcResultHandlers.print())
                 .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
     }
+    @Test
+    void findByOrderByFlightPriceAsc() throws Exception {
+        //arrange
+        List<Flight> expected = List.of(FlyFactory.getFly1(),
+                FlyFactory.getFly2(),
+                FlyFactory.getFly3(),
+                FlyFactory.getFly4(),
+                FlyFactory.getFly5(),
+                FlyFactory.getFly6(),
+                FlyFactory.getFly7(),
+                FlyFactory.getFly8(),
+                FlyFactory.getFly9(),
+                FlyFactory.getFly10(),
+                FlyFactory.getFly11(),
+                FlyFactory.getFly12());
+
+        //Request
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .get("/api/v1/flights/lowcost3");
+
+        //Expected --> Status, body y contentype
+        //Status
+        ResultMatcher statusExpected = MockMvcResultMatchers.status().isOk();
+        //Body
+        ResultMatcher bodyExpected;
+        bodyExpected = MockMvcResultMatchers.content().json(
+                writer.writeValueAsString(expected)
+        );
+
+
+        System.out.println(writer.writeValueAsString(expected));
+        //contentType
+        ResultMatcher contentTypeExpected = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
+        //Act&assert con mocking
+        mockMvc.perform(request)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpectAll(statusExpected, bodyExpected, contentTypeExpected);
+    }
 }
