@@ -106,12 +106,6 @@ public class FlyController {
     //Rutas para requerimientos de Aye (parte individual Sprint3)
 
     //Requerimiento 1- Listado de vuelos por precios de mayor a menor para publicitar.
-
-    //    @GetMapping("/mkt")
-//    public ResponseEntity<List<FlyDTO>> mktListFlights() {
-//       return ResponseEntity.ok(
-//               flyService.findByFlightPriceOrderByFlightPriceDesc());
-//    }
     @GetMapping("/mkt")
     public ResponseEntity<List<FlyDTO>> mktFlights(@RequestParam(required = false) Integer flightPrice) {
         return ResponseEntity.ok(

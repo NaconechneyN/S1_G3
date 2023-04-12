@@ -49,18 +49,18 @@ class FlyServiceTest {
             Assertions.assertEquals(expected, result);
     }
 
-//    @Test
-//    void findByPrice() {
+    @Test
+    void findByPrice() {
         //Arrange
-//        List<Flight> flights = List.of(FlyFactory.getFly1());
-//        List<FlyDTO> expected = List.of(FlyDTOFactory.getFly1());
+        List<Flight> flights = List.of(FlyFactory.getFly1());
+        List<FlyDTO> expected = List.of(FlyDTOFactory.getFly1());
         //Act
-//            Mockito.when((flyRepository.findByFlightPriceGreaterThanEqualAndFlightPriceLessThanEqual(10000,4000))
-//                    .thereturn(flights));
-//            var result = flyService.findByPrice(10000,4000);
-//        //Assert
-//            Assertions.assertEquals(expected, result);
-//    }
+            Mockito.when((flyRepository.findByFlightPriceGreaterThanEqualAndFlightPriceLessThanEqual(10000,4000))
+            ).thenReturn(flights);
+            var result = flyService.findByPrice(10000,4000);
+        //Assert
+            Assertions.assertEquals(expected, result);
+    }
 
     @Test
     void findBySeatTypeEquals() {

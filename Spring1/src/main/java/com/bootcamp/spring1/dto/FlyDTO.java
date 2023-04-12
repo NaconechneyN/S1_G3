@@ -20,5 +20,5 @@ public class FlyDTO {
     private LocalDate dateFrom;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateTo;
-    private String reservation;
+    private Boolean reservation;
 }
